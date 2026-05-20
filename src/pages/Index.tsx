@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/9cf524c3-b045-4400-8ab0-e90fdffc020e.jpg";
+const HERO_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/bcbeb4b0-58b1-4df4-8045-320330c10235.jpg";
 const PANEL_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/505ffc71-e2d6-403c-8cfb-8470c1467b9e.jpg";
-const CERT_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/def6dbba-b57b-42fe-bb6f-58147e8ed8e2.jpg";
+const CERT_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/0467becb-2d83-4414-8a10-6389014bfee0.png";
 
 const navLinks = [
   { label: "Главная", href: "#home" },
@@ -724,7 +724,7 @@ export default function Index() {
           </div>
 
           <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-            <div className="text-gray-500 text-sm">© 2024 Системы безопасности. Все права защищены.</div>
+            <div className="text-gray-500 text-sm">© 2026 ООО «СПАРК». Все права защищены.</div>
             <div className="flex items-center gap-4 text-xs text-gray-600">
               <a href="#" className="hover:text-gray-400 transition-colors">Политика конфиденциальности</a>
               <a href="#" className="hover:text-gray-400 transition-colors">Условия использования</a>
