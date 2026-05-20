@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/1a0baf42-16d9-44fe-8427-00a7b0fc4acb.jpg";
+const HERO_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/9cf524c3-b045-4400-8ab0-e90fdffc020e.jpg";
 const PANEL_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/505ffc71-e2d6-403c-8cfb-8470c1467b9e.jpg";
 const CERT_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/def6dbba-b57b-42fe-bb6f-58147e8ed8e2.jpg";
 
