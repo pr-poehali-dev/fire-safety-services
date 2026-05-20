@@ -231,7 +231,7 @@ export default function Index() {
       {/* HERO */}
       <section id="home" className="relative min-h-screen flex items-center hero-gradient overflow-hidden noise">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{ backgroundImage: `url(${HERO_IMAGE})` }}
         />
         <div className="absolute inset-0 grid-pattern opacity-30" />
@@ -289,27 +289,23 @@ export default function Index() {
               </div>
             </div>
 
-            <div className={`hidden lg:block ${heroObs.inView ? "animate-scale-in delay-300" : "opacity-0"}`}>
-              <div className="relative">
-                <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                  <img src={PANEL_IMAGE} alt="Панель управления" className="w-full h-[440px] object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--blue-dark)]/60 to-transparent" />
-                </div>
-                <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl p-4 shadow-xl flex items-center gap-3">
-                  <div className="w-12 h-12 bg-[var(--blue-50)] rounded-xl flex items-center justify-center">
-                    <Icon name="ShieldCheck" size={24} className="text-[var(--blue)]" />
+            <div className={`hidden lg:flex flex-col gap-5 ${heroObs.inView ? "animate-scale-in delay-300" : "opacity-0"}`}>
+              {[
+                { icon: "ShieldCheck", title: "Лицензия МЧС", sub: "Л014-00101-77/00112662" },
+                { icon: "Award", title: "Гарантия 3 года", sub: "на все виды работ" },
+                { icon: "Clock", title: "Выезд за 2 часа", sub: "по Москве и области" },
+                { icon: "Users", title: "80+ специалистов", sub: "сертифицированы" },
+              ].map((item) => (
+                <div key={item.title} className="flex items-center gap-4 bg-white/8 backdrop-blur-sm border border-white/10 rounded-2xl px-6 py-4">
+                  <div className="w-12 h-12 bg-[var(--blue)]/30 border border-[var(--blue-light)]/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Icon name={item.icon} fallback="Shield" size={22} className="text-[var(--blue-light)]" />
                   </div>
                   <div>
-                    <div className="font-display font-bold text-[var(--dark)] text-sm">Гарантия 3 года</div>
-                    <div className="text-xs text-gray-500">на все виды работ</div>
+                    <div className="font-display font-bold text-white text-sm">{item.title}</div>
+                    <div className="text-blue-300 text-xs">{item.sub}</div>
                   </div>
                 </div>
-                <div className="absolute -top-5 -right-5 bg-[var(--blue)] rounded-2xl p-4 shadow-xl text-white">
-                  <Icon name="Award" size={28} />
-                  <div className="text-xs font-semibold mt-1">МЧС</div>
-                  <div className="text-xs opacity-80">Лицензия</div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
