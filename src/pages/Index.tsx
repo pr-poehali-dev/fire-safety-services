@@ -71,7 +71,7 @@ const portfolio = [
 ];
 
 const certificates = [
-  { title: "Лицензия МЧС России", num: "№ ПЧ-77-00127", desc: "Монтаж и ТО систем пожарной безопасности" },
+  { title: "Лицензия МЧС России", num: "Л014-00101-77/00112662", desc: "Монтаж и техническое обслуживание систем пожарной безопасности" },
   { title: "Лицензия ФСБ России", num: "№ ФСБ-77-02-14", desc: "Монтаж охранных и тревожных систем" },
   { title: "ISO 9001:2015", num: "Сертификат RU-0342", desc: "Система менеджмента качества" },
   { title: "СРО «Безопасность»", num: "Допуск СРО-С-034", desc: "Строительно-монтажные работы" },
@@ -182,11 +182,11 @@ export default function Index() {
 
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="tel:+74951234567"
+              href="tel:+74994902201"
               className={`flex items-center gap-2 text-sm font-semibold transition-colors ${scrolled ? "text-[var(--blue)]" : "text-white"}`}
             >
               <Icon name="Phone" size={15} />
-              +7 (495) 123-45-67
+              +7 (499) 490-22-01
             </a>
             <a
               href="#contacts"
@@ -217,8 +217,8 @@ export default function Index() {
               </a>
             ))}
             <div className="px-6 py-4 border-t border-gray-100">
-              <a href="tel:+74951234567" className="block text-[var(--blue)] font-semibold mb-3">
-                +7 (495) 123-45-67
+              <a href="tel:+74994902201" className="block text-[var(--blue)] font-semibold mb-3">
+                +7 (499) 490-22-01
               </a>
               <a href="#contacts" className="block w-full text-center px-4 py-3 bg-[var(--blue)] text-white font-semibold rounded-lg">
                 Получить расчёт
@@ -645,9 +645,9 @@ export default function Index() {
 
             <div className={`space-y-6 ${contactsObs.inView ? "animate-fade-in-up delay-200" : "opacity-0"}`}>
               {[
-                { icon: "Phone", title: "Телефон", lines: ["+7 (495) 123-45-67", "+7 (800) 123-45-67 (бесплатно)"] },
-                { icon: "Mail", title: "Email", lines: ["info@bezopasnost.ru", "sales@bezopasnost.ru"] },
-                { icon: "MapPin", title: "Адрес", lines: ["г. Москва, ул. Примерная, д. 1", "Офис 405, БЦ «Технополис»"] },
+                { icon: "Phone", title: "Телефон", lines: ["+7 (499) 490-22-01"] },
+                { icon: "Mail", title: "Email", lines: ["skpb01@mail.ru"] },
+                { icon: "MapPin", title: "Адрес", lines: ["г. Москва, ул. 5-я Магистральная,", "дом 12, офис 410"] },
                 { icon: "Clock", title: "Режим работы", lines: ["Пн–Пт: 9:00 – 18:00", "Аварийная служба: 24/7"] },
               ].map((c, i) => (
                 <div key={i} className="flex items-start gap-4 p-5 bg-[var(--gray-light)] rounded-xl">
@@ -666,7 +666,7 @@ export default function Index() {
               <div className="stats-bg rounded-2xl p-6 text-white">
                 <div className="font-display font-extrabold text-lg mb-2">Выезд специалиста — бесплатно</div>
                 <p className="text-blue-200 text-sm mb-4">Приедем, осмотрим объект и составим смету без обязательств</p>
-                <a href="tel:+74951234567" className="inline-flex items-center gap-2 bg-white text-[var(--blue)] font-bold px-5 py-2.5 rounded-xl hover:bg-blue-50 transition-colors text-sm">
+                <a href="tel:+74994902201" className="inline-flex items-center gap-2 bg-white text-[var(--blue)] font-bold px-5 py-2.5 rounded-xl hover:bg-blue-50 transition-colors text-sm">
                   <Icon name="Phone" size={16} />
                   Позвонить сейчас
                 </a>
@@ -713,15 +713,15 @@ export default function Index() {
               <ul className="space-y-3 text-sm text-gray-400">
                 <li className="flex items-center gap-2">
                   <Icon name="Phone" size={14} className="text-[var(--blue-light)]" />
-                  +7 (495) 123-45-67
+                  +7 (499) 490-22-01
                 </li>
                 <li className="flex items-center gap-2">
                   <Icon name="Mail" size={14} className="text-[var(--blue-light)]" />
-                  info@bezopasnost.ru
+                  skpb01@mail.ru
                 </li>
                 <li className="flex items-start gap-2">
                   <Icon name="MapPin" size={14} className="text-[var(--blue-light)] mt-0.5" />
-                  г. Москва, ул. Примерная, д. 1
+                  ул. 5-я Магистральная, д. 12, офис 410
                 </li>
               </ul>
             </div>
@@ -739,7 +739,7 @@ export default function Index() {
 
       {/* Floating call button */}
       <a
-        href="tel:+74951234567"
+        href="tel:+74994902201"
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[var(--blue)] text-white rounded-full shadow-2xl flex items-center justify-center hover:bg-[var(--blue-dark)] transition-colors btn-pulse"
       >
         <Icon name="Phone" size={22} />
