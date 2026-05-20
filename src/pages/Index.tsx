@@ -158,10 +158,10 @@ export default function Index() {
             </div>
             <div>
               <div className={`font-display font-extrabold text-base leading-none transition-colors ${scrolled ? "text-[var(--dark)]" : "text-white"}`}>
-                БЕЗОПАСНОСТЬ
+                ПожДозор
               </div>
               <div className={`text-[10px] font-medium tracking-widest uppercase transition-colors ${scrolled ? "text-[var(--blue)]" : "text-blue-300"}`}>
-                Системы защиты
+                Комплексная безопасность
               </div>
             </div>
           </a>
@@ -248,8 +248,8 @@ export default function Index() {
               <h1
                 className={`font-display font-black text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6 ${heroObs.inView ? "animate-fade-in-up delay-100" : "opacity-0"}`}
               >
-                Монтаж и обслуживание{" "}
-                <span className="text-[var(--blue-light)]">систем безопасности</span>
+                Безопасность бизнеса{" "}
+                <span className="text-[var(--blue-light)]">под вашим контролем</span>
               </h1>
 
               <p
@@ -686,8 +686,8 @@ export default function Index() {
                   <Icon name="ShieldCheck" size={20} className="text-white" />
                 </div>
                 <div>
-                  <div className="font-display font-extrabold text-base">БЕЗОПАСНОСТЬ</div>
-                  <div className="text-[10px] text-blue-400 tracking-widest uppercase">Системы защиты</div>
+                  <div className="font-display font-extrabold text-base">ПожДозор</div>
+                  <div className="text-[10px] text-blue-400 tracking-widest uppercase">Комплексная безопасность</div>
                 </div>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
