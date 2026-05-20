@@ -122,10 +122,44 @@ function useInView(threshold = 0.15) {
   return { ref, inView };
 }
 
+const SEND_URL = "https://functions.poehali.dev/6dd07b4a-af2f-481a-b26d-adbf5ebe7a0b";
+
+type FormState = "idle" | "loading" | "success" | "error";
+
+async function sendLead(data: { name: string; phone: string; object_type: string; comment: string; source: string }) {
+  const res = await fetch(SEND_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error("Ошибка отправки");
+  return res.json();
+}
+
 export default function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  // Form state
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [objectType, setObjectType] = useState("");
+  const [comment, setComment] = useState("");
+  const [formState, setFormState] = useState<FormState>("idle");
+
+  const handleSubmit = async (e: React.FormEvent, source = "Форма на сайте") => {
+    e.preventDefault();
+    if (!phone.trim()) return;
+    setFormState("loading");
+    try {
+      await sendLead({ name, phone, object_type: objectType, comment, source });
+      setFormState("success");
+      setName(""); setPhone(""); setObjectType(""); setComment("");
+    } catch {
+      setFormState("error");
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -171,7 +205,7 @@ export default function Index() {
               <a
                 key={l.href}
                 href={l.href}
-                className={`nav-link text-sm font-medium transition-colors ${
+                className={`nav-link text-sm font-medium transition-colors whitespace-nowrap ${
                   scrolled ? "text-[var(--dark)] hover:text-[var(--blue)]" : "text-white/90 hover:text-white"
                 }`}
               >
@@ -589,53 +623,85 @@ export default function Index() {
             <div className={`${contactsObs.inView ? "animate-fade-in-left" : "opacity-0"}`}>
               <div className="bg-[var(--gray-light)] rounded-2xl p-8">
                 <h3 className="font-display font-bold text-xl text-[var(--dark)] mb-6">Получить бесплатный расчёт</h3>
-                <form className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-[var(--dark)] mb-1.5">Ваше имя</label>
-                    <input
-                      type="text"
-                      placeholder="Иван Иванов"
-                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[var(--dark)] placeholder-gray-400 focus:outline-none focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/10 transition-all"
-                    />
+
+                {formState === "success" ? (
+                  <div className="text-center py-10">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Icon name="CheckCircle" size={32} className="text-green-600" />
+                    </div>
+                    <div className="font-display font-bold text-xl text-[var(--dark)] mb-2">Заявка отправлена!</div>
+                    <p className="text-[var(--gray)] mb-6">Мы перезвоним вам в течение 15 минут</p>
+                    <button onClick={() => setFormState("idle")} className="text-[var(--blue)] text-sm font-medium hover:underline">
+                      Отправить ещё одну заявку
+                    </button>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-[var(--dark)] mb-1.5">Телефон</label>
-                    <input
-                      type="tel"
-                      placeholder="+7 (___) ___-__-__"
-                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[var(--dark)] placeholder-gray-400 focus:outline-none focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/10 transition-all"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-[var(--dark)] mb-1.5">Тип объекта</label>
-                    <select className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[var(--dark)] focus:outline-none focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/10 transition-all">
-                      <option value="">Выберите тип объекта</option>
-                      <option>Офис</option>
-                      <option>Торговое помещение</option>
-                      <option>Склад / производство</option>
-                      <option>Жилое здание</option>
-                      <option>Другое</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-[var(--dark)] mb-1.5">Комментарий</label>
-                    <textarea
-                      placeholder="Площадь объекта, пожелания..."
-                      rows={3}
-                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[var(--dark)] placeholder-gray-400 focus:outline-none focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/10 transition-all resize-none"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full py-4 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-colors flex items-center justify-center gap-2"
-                  >
-                    <Icon name="Send" size={18} />
-                    Отправить заявку
-                  </button>
-                  <p className="text-xs text-gray-400 text-center">
-                    Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
-                  </p>
-                </form>
+                ) : (
+                  <form className="space-y-4" onSubmit={(e) => handleSubmit(e, "Форма расчёта")}>
+                    <div>
+                      <label className="block text-sm font-medium text-[var(--dark)] mb-1.5">Ваше имя</label>
+                      <input
+                        type="text"
+                        placeholder="Иван Иванов"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[var(--dark)] placeholder-gray-400 focus:outline-none focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/10 transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[var(--dark)] mb-1.5">Телефон <span className="text-red-500">*</span></label>
+                      <input
+                        type="tel"
+                        placeholder="+7 (___) ___-__-__"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        required
+                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[var(--dark)] placeholder-gray-400 focus:outline-none focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/10 transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[var(--dark)] mb-1.5">Тип объекта</label>
+                      <select
+                        value={objectType}
+                        onChange={(e) => setObjectType(e.target.value)}
+                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[var(--dark)] focus:outline-none focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/10 transition-all"
+                      >
+                        <option value="">Выберите тип объекта</option>
+                        <option>Офис</option>
+                        <option>Торговое помещение</option>
+                        <option>Склад / производство</option>
+                        <option>Жилое здание</option>
+                        <option>Другое</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[var(--dark)] mb-1.5">Комментарий</label>
+                      <textarea
+                        placeholder="Площадь объекта, пожелания..."
+                        rows={3}
+                        value={comment}
+                        onChange={(e) => setComment(e.target.value)}
+                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[var(--dark)] placeholder-gray-400 focus:outline-none focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/10 transition-all resize-none"
+                      />
+                    </div>
+                    {formState === "error" && (
+                      <div className="text-red-500 text-sm text-center">Ошибка отправки. Позвоните нам напрямую.</div>
+                    )}
+                    <button
+                      type="submit"
+                      disabled={formState === "loading"}
+                      className="w-full py-4 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
+                    >
+                      {formState === "loading" ? (
+                        <><Icon name="Loader" size={18} className="animate-spin" /> Отправляем...</>
+                      ) : (
+                        <><Icon name="Send" size={18} /> Отправить заявку</>
+                      )}
+                    </button>
+                    <p className="text-xs text-gray-400 text-center">
+                      Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
+                    </p>
+                  </form>
+                )}
               </div>
             </div>
 
