@@ -1,14 +1,749 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useEffect, useRef } from "react";
+import Icon from "@/components/ui/icon";
 
-const Index = () => {
+const HERO_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/1a0baf42-16d9-44fe-8427-00a7b0fc4acb.jpg";
+const PANEL_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/505ffc71-e2d6-403c-8cfb-8470c1467b9e.jpg";
+const CERT_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/def6dbba-b57b-42fe-bb6f-58147e8ed8e2.jpg";
+
+const navLinks = [
+  { label: "Главная", href: "#home" },
+  { label: "Услуги", href: "#services" },
+  { label: "О компании", href: "#about" },
+  { label: "Портфолио", href: "#portfolio" },
+  { label: "Сертификаты", href: "#certificates" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Контакты", href: "#contacts" },
+];
+
+const services = [
+  {
+    icon: "Flame",
+    title: "Пожарная сигнализация",
+    desc: "Проектирование, монтаж и техническое обслуживание систем пожарной сигнализации любой сложности. Соответствие всем нормам НПБ и ГОСТ.",
+    items: ["Адресные системы", "Аналоговые системы", "Беспроводные системы"],
+  },
+  {
+    icon: "Shield",
+    title: "Охранная сигнализация",
+    desc: "Комплексные решения охранной сигнализации для объектов любого масштаба — от квартиры до крупного предприятия.",
+    items: ["GSM-сигнализация", "Периметральная охрана", "Тревожные кнопки"],
+  },
+  {
+    icon: "Camera",
+    title: "Видеонаблюдение",
+    desc: "Установка систем IP-видеонаблюдения с удалённым доступом. Аналитика, распознавание лиц и хранение записей.",
+    items: ["IP-камеры", "Облачное хранение", "Мобильный доступ"],
+  },
+  {
+    icon: "DoorOpen",
+    title: "Контроль доступа",
+    desc: "Системы управления доступом — от простых домофонов до биометрических комплексов с интеграцией в СКУД.",
+    items: ["Биометрия", "Турникеты", "Электромагнитные замки"],
+  },
+  {
+    icon: "Droplets",
+    title: "Пожаротушение",
+    desc: "Проектирование и монтаж систем автоматического пожаротушения: спринклерных, порошковых, газовых.",
+    items: ["Спринклерные", "Газовые системы", "Порошковые модули"],
+  },
+  {
+    icon: "Wrench",
+    title: "Техобслуживание",
+    desc: "Регулярное техническое обслуживание всех типов систем безопасности. Заключаем договоры ТО с гарантией.",
+    items: ["Ежеквартальное ТО", "Аварийный выезд 24/7", "Ведение документации"],
+  },
+];
+
+const stats = [
+  { value: "1200+", label: "Объектов сдано" },
+  { value: "15", label: "Лет на рынке" },
+  { value: "98%", label: "Клиентов довольны" },
+  { value: "24/7", label: "Техподдержка" },
+];
+
+const portfolio = [
+  { title: "ТЦ «Галерея»", type: "Пожарная сигнализация + СОУЭ", year: "2024", area: "12 000 м²" },
+  { title: "Офисный комплекс «Башня»", type: "Охранная сигнализация + СКУД", year: "2024", area: "8 500 м²" },
+  { title: "Завод «МеталлПром»", type: "Газовое пожаротушение", year: "2023", area: "22 000 м²" },
+  { title: "Жилой комплекс «Парковый»", type: "Видеонаблюдение + домофония", year: "2023", area: "15 000 м²" },
+  { title: "Гипермаркет «Продуктовый»", type: "Пожарная сигнализация + АПТ", year: "2023", area: "6 200 м²" },
+  { title: "Бизнес-центр «Горизонт»", type: "Комплексная безопасность", year: "2022", area: "18 000 м²" },
+];
+
+const certificates = [
+  { title: "Лицензия МЧС России", num: "№ ПЧ-77-00127", desc: "Монтаж и ТО систем пожарной безопасности" },
+  { title: "Лицензия ФСБ России", num: "№ ФСБ-77-02-14", desc: "Монтаж охранных и тревожных систем" },
+  { title: "ISO 9001:2015", num: "Сертификат RU-0342", desc: "Система менеджмента качества" },
+  { title: "СРО «Безопасность»", num: "Допуск СРО-С-034", desc: "Строительно-монтажные работы" },
+];
+
+const faqs = [
+  {
+    q: "Сколько стоит монтаж пожарной сигнализации?",
+    a: "Стоимость зависит от площади объекта, типа системы и требований. Для торгового помещения 200 м² — от 80 000 руб. Точную стоимость рассчитываем бесплатно после выезда специалиста.",
+  },
+  {
+    q: "Как долго длится монтаж?",
+    a: "Монтаж пожарной сигнализации на объекте до 1000 м² занимает 2–5 рабочих дней. Более крупные объекты — от 1 недели. Сроки фиксируются в договоре.",
+  },
+  {
+    q: "Даёте ли вы гарантию на работы?",
+    a: "Да, мы даём гарантию 3 года на все виды работ и оборудование. Гарантийное обслуживание — бесплатно. Дополнительно предлагаем договоры технического обслуживания.",
+  },
+  {
+    q: "Работаете ли вы с юридическими лицами?",
+    a: "Да, работаем с ООО, ИП и государственными структурами. Принимаем безналичную оплату, предоставляем полный пакет документов для бухгалтерии.",
+  },
+  {
+    q: "Нужно ли получать разрешения для монтажа?",
+    a: "Мы берём на себя согласование проекта с надзорными органами — МЧС, пожарная инспекция. Вам не нужно ни о чём беспокоиться.",
+  },
+  {
+    q: "Есть ли у вас аварийная служба?",
+    a: "Да, наша аварийная служба работает круглосуточно 365 дней в году. Время выезда — не более 2 часов по Москве и области.",
+  },
+];
+
+function useInView(threshold = 0.15) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setInView(true); },
+      { threshold }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return { ref, inView };
+}
+
+export default function Index() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const heroObs = useInView(0.1);
+  const servicesObs = useInView(0.05);
+  const aboutObs = useInView(0.1);
+  const portfolioObs = useInView(0.05);
+  const certsObs = useInView(0.1);
+  const faqObs = useInView(0.1);
+  const contactsObs = useInView(0.1);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
+    <div className="min-h-screen bg-white font-body">
+      {/* NAVBAR */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-md shadow-[0_2px_20px_rgba(26,95,180,0.1)]"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between h-16 md:h-20">
+          <a href="#home" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 rounded-lg bg-[var(--blue)] flex items-center justify-center group-hover:bg-[var(--blue-light)] transition-colors">
+              <Icon name="ShieldCheck" size={20} className="text-white" />
+            </div>
+            <div>
+              <div className={`font-display font-extrabold text-base leading-none transition-colors ${scrolled ? "text-[var(--dark)]" : "text-white"}`}>
+                БЕЗОПАСНОСТЬ
+              </div>
+              <div className={`text-[10px] font-medium tracking-widest uppercase transition-colors ${scrolled ? "text-[var(--blue)]" : "text-blue-300"}`}>
+                Системы защиты
+              </div>
+            </div>
+          </a>
+
+          <nav className="hidden lg:flex items-center gap-6">
+            {navLinks.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`nav-link text-sm font-medium transition-colors ${
+                  scrolled ? "text-[var(--dark)] hover:text-[var(--blue)]" : "text-white/90 hover:text-white"
+                }`}
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="tel:+74951234567"
+              className={`flex items-center gap-2 text-sm font-semibold transition-colors ${scrolled ? "text-[var(--blue)]" : "text-white"}`}
+            >
+              <Icon name="Phone" size={15} />
+              +7 (495) 123-45-67
+            </a>
+            <a
+              href="#contacts"
+              className="px-4 py-2 bg-[var(--blue)] text-white text-sm font-semibold rounded-lg hover:bg-[var(--blue-dark)] transition-colors"
+            >
+              Получить расчёт
+            </a>
+          </div>
+
+          <button
+            className={`lg:hidden p-2 transition-colors ${scrolled ? "text-[var(--dark)]" : "text-white"}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <Icon name={menuOpen ? "X" : "Menu"} size={24} />
+          </button>
+        </div>
+
+        {menuOpen && (
+          <div className="lg:hidden bg-white border-t border-gray-100 shadow-xl animate-fade-in">
+            {navLinks.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setMenuOpen(false)}
+                className="block px-6 py-3 text-[var(--dark)] font-medium hover:bg-[var(--blue-50)] hover:text-[var(--blue)] transition-colors"
+              >
+                {l.label}
+              </a>
+            ))}
+            <div className="px-6 py-4 border-t border-gray-100">
+              <a href="tel:+74951234567" className="block text-[var(--blue)] font-semibold mb-3">
+                +7 (495) 123-45-67
+              </a>
+              <a href="#contacts" className="block w-full text-center px-4 py-3 bg-[var(--blue)] text-white font-semibold rounded-lg">
+                Получить расчёт
+              </a>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* HERO */}
+      <section id="home" className="relative min-h-screen flex items-center hero-gradient overflow-hidden noise">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: `url(${HERO_IMAGE})` }}
+        />
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="absolute top-1/2 right-0 w-[600px] h-[600px] -translate-y-1/2 translate-x-1/3 rounded-full bg-[var(--blue)] opacity-10 blur-[120px]" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 pt-24 pb-16">
+          <div ref={heroObs.ref} className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className={`inline-flex items-center gap-2 px-4 py-2 bg-[var(--blue)]/20 border border-[var(--blue)]/30 rounded-full text-blue-300 text-sm font-medium mb-6 ${heroObs.inView ? "animate-fade-in-up" : "opacity-0"}`}>
+                <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+                Лицензированная компания МЧС России
+              </div>
+
+              <h1
+                className={`font-display font-black text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6 ${heroObs.inView ? "animate-fade-in-up delay-100" : "opacity-0"}`}
+              >
+                Монтаж и обслуживание{" "}
+                <span className="text-[var(--blue-light)]">систем безопасности</span>
+              </h1>
+
+              <p
+                className={`text-lg text-blue-200 leading-relaxed mb-8 max-w-lg ${heroObs.inView ? "animate-fade-in-up delay-200" : "opacity-0"}`}
+              >
+                Проектирование, монтаж и сервис пожарной и охранной сигнализации, видеонаблюдения и контроля доступа для объектов любой сложности.
+              </p>
+
+              <div className={`flex flex-col sm:flex-row gap-4 ${heroObs.inView ? "animate-fade-in-up delay-300" : "opacity-0"}`}>
+                <a
+                  href="#contacts"
+                  className="px-8 py-4 bg-[var(--blue)] text-white font-bold text-base rounded-xl hover:bg-[var(--blue-light)] transition-all btn-pulse flex items-center gap-2 justify-center"
+                >
+                  <Icon name="Calculator" size={18} />
+                  Рассчитать стоимость
+                </a>
+                <a
+                  href="#services"
+                  className="px-8 py-4 bg-white/10 border border-white/20 text-white font-semibold text-base rounded-xl hover:bg-white/20 transition-all flex items-center gap-2 justify-center backdrop-blur-sm"
+                >
+                  <Icon name="ChevronDown" size={18} />
+                  Наши услуги
+                </a>
+              </div>
+
+              <div className={`grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/10 ${heroObs.inView ? "animate-fade-in-up delay-400" : "opacity-0"}`}>
+                {[
+                  { v: "1200+", l: "объектов" },
+                  { v: "15 лет", l: "на рынке" },
+                  { v: "24/7", l: "поддержка" },
+                ].map((s) => (
+                  <div key={s.l}>
+                    <div className="font-display font-black text-2xl text-white">{s.v}</div>
+                    <div className="text-blue-300 text-sm">{s.l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className={`hidden lg:block ${heroObs.inView ? "animate-scale-in delay-300" : "opacity-0"}`}>
+              <div className="relative">
+                <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                  <img src={PANEL_IMAGE} alt="Панель управления" className="w-full h-[440px] object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--blue-dark)]/60 to-transparent" />
+                </div>
+                <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl p-4 shadow-xl flex items-center gap-3">
+                  <div className="w-12 h-12 bg-[var(--blue-50)] rounded-xl flex items-center justify-center">
+                    <Icon name="ShieldCheck" size={24} className="text-[var(--blue)]" />
+                  </div>
+                  <div>
+                    <div className="font-display font-bold text-[var(--dark)] text-sm">Гарантия 3 года</div>
+                    <div className="text-xs text-gray-500">на все виды работ</div>
+                  </div>
+                </div>
+                <div className="absolute -top-5 -right-5 bg-[var(--blue)] rounded-2xl p-4 shadow-xl text-white">
+                  <Icon name="Award" size={28} />
+                  <div className="text-xs font-semibold mt-1">МЧС</div>
+                  <div className="text-xs opacity-80">Лицензия</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 animate-bounce">
+          <div className="w-px h-10 bg-white/20" />
+          <Icon name="ChevronDown" size={16} />
+        </div>
+      </section>
+
+      {/* STATS BAR */}
+      <div className="stats-bg py-10">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((s, i) => (
+              <div key={i} className="text-center">
+                <div className="font-display font-black text-3xl md:text-4xl text-white mb-1">{s.value}</div>
+                <div className="text-blue-200 text-sm">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+
+      {/* SERVICES */}
+      <section id="services" className="py-20 bg-[var(--gray-light)]">
+        <div ref={servicesObs.ref} className="max-w-7xl mx-auto px-4 lg:px-8">
+          <div className={`text-center mb-14 ${servicesObs.inView ? "animate-fade-in-up" : "opacity-0"}`}>
+            <div className="inline-flex items-center gap-2 text-[var(--blue)] text-sm font-semibold uppercase tracking-wider mb-3">
+              <div className="section-divider w-8" />
+              Что мы делаем
+              <div className="section-divider w-8" />
+            </div>
+            <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[var(--dark)] mb-4">
+              Наши услуги
+            </h2>
+            <p className="text-[var(--gray)] max-w-xl mx-auto">
+              Полный спектр работ по монтажу, настройке и обслуживанию систем пожарной и охранной безопасности
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((s, i) => (
+              <div
+                key={i}
+                className={`bg-white rounded-2xl p-6 card-hover border border-gray-100 ${
+                  servicesObs.inView ? `animate-fade-in-up delay-${(i % 3) * 100 + 100}` : "opacity-0"
+                }`}
+              >
+                <div className="w-12 h-12 bg-[var(--blue-50)] rounded-xl flex items-center justify-center mb-4">
+                  <Icon name={s.icon} fallback="Shield" size={24} className="text-[var(--blue)]" />
+                </div>
+                <h3 className="font-display font-bold text-lg text-[var(--dark)] mb-2">{s.title}</h3>
+                <p className="text-[var(--gray)] text-sm leading-relaxed mb-4">{s.desc}</p>
+                <ul className="space-y-1">
+                  {s.items.map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-[var(--gray)]">
+                      <div className="w-1.5 h-1.5 bg-[var(--blue)] rounded-full flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-5 pt-4 border-t border-gray-100">
+                  <a href="#contacts" className="text-[var(--blue)] text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+                    Узнать стоимость <Icon name="ArrowRight" size={14} />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section id="about" className="py-20 bg-white overflow-hidden">
+        <div ref={aboutObs.ref} className="max-w-7xl mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+            <div className={`relative ${aboutObs.inView ? "animate-fade-in-left" : "opacity-0"}`}>
+              <div className="rounded-2xl overflow-hidden">
+                <img src={HERO_IMAGE} alt="О компании" className="w-full h-[480px] object-cover" />
+              </div>
+              <div className="absolute bottom-6 right-6 bg-[var(--blue-dark)] text-white rounded-2xl p-5 shadow-2xl max-w-[200px]">
+                <div className="font-display font-black text-3xl mb-1">15</div>
+                <div className="text-blue-200 text-sm">лет успешной работы на рынке</div>
+              </div>
+              <div className="absolute -top-4 -left-4 w-24 h-24 bg-[var(--blue-50)] rounded-2xl -z-10" />
+            </div>
+
+            <div className={`${aboutObs.inView ? "animate-fade-in-up delay-200" : "opacity-0"}`}>
+              <div className="inline-flex items-center gap-2 text-[var(--blue)] text-sm font-semibold uppercase tracking-wider mb-3">
+                <div className="section-divider w-8" />
+                О нас
+              </div>
+              <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[var(--dark)] mb-6">
+                Надёжный партнёр в области систем безопасности
+              </h2>
+              <p className="text-[var(--gray)] leading-relaxed mb-5">
+                С 2009 года мы занимаемся проектированием, монтажом и техническим обслуживанием систем пожарной и охранной безопасности. За эти годы мы сдали более 1200 объектов — от небольших офисов до крупных промышленных предприятий.
+              </p>
+              <p className="text-[var(--gray)] leading-relaxed mb-8">
+                Наша команда — это 80+ сертифицированных специалистов с многолетним опытом. Мы работаем строго в соответствии с НПБ, ГОСТ и требованиями МЧС России.
+              </p>
+
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                {[
+                  { icon: "BadgeCheck", text: "Лицензия МЧС России" },
+                  { icon: "Users", text: "80+ специалистов" },
+                  { icon: "Clock", text: "Выезд за 2 часа" },
+                  { icon: "FileCheck", text: "Полная документация" },
+                ].map((item) => (
+                  <div key={item.text} className="flex items-center gap-3 p-3 bg-[var(--gray-light)] rounded-xl">
+                    <Icon name={item.icon} fallback="Check" size={20} className="text-[var(--blue)] flex-shrink-0" />
+                    <span className="text-sm font-medium text-[var(--dark)]">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <a
+                href="#contacts"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--blue)] text-white font-semibold rounded-xl hover:bg-[var(--blue-dark)] transition-colors"
+              >
+                Связаться с нами
+                <Icon name="ArrowRight" size={16} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PORTFOLIO */}
+      <section id="portfolio" className="py-20 bg-[var(--gray-light)]">
+        <div ref={portfolioObs.ref} className="max-w-7xl mx-auto px-4 lg:px-8">
+          <div className={`text-center mb-14 ${portfolioObs.inView ? "animate-fade-in-up" : "opacity-0"}`}>
+            <div className="inline-flex items-center gap-2 text-[var(--blue)] text-sm font-semibold uppercase tracking-wider mb-3">
+              <div className="section-divider w-8" />
+              Наши работы
+              <div className="section-divider w-8" />
+            </div>
+            <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[var(--dark)] mb-4">Портфолио</h2>
+            <p className="text-[var(--gray)] max-w-xl mx-auto">
+              Реализованные объекты — наша лучшая визитная карточка
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {portfolio.map((p, i) => (
+              <div
+                key={i}
+                className={`bg-white rounded-2xl overflow-hidden card-hover border border-gray-100 ${
+                  portfolioObs.inView ? `animate-fade-in-up delay-${(i % 3) * 100 + 100}` : "opacity-0"
+                }`}
+              >
+                <div className="h-3 bg-gradient-to-r from-[var(--blue-dark)] to-[var(--blue-light)]" />
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="w-10 h-10 bg-[var(--blue-50)] rounded-xl flex items-center justify-center">
+                      <Icon name="Building2" size={20} className="text-[var(--blue)]" />
+                    </div>
+                    <span className="text-xs font-semibold text-[var(--blue)] bg-[var(--blue-50)] px-3 py-1 rounded-full">
+                      {p.year}
+                    </span>
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-[var(--dark)] mb-1">{p.title}</h3>
+                  <p className="text-[var(--blue)] text-sm font-medium mb-3">{p.type}</p>
+                  <div className="flex items-center gap-1 text-[var(--gray)] text-sm">
+                    <Icon name="Maximize2" size={14} />
+                    {p.area}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CERTIFICATES */}
+      <section id="certificates" className="py-20 bg-white">
+        <div ref={certsObs.ref} className="max-w-7xl mx-auto px-4 lg:px-8">
+          <div className={`text-center mb-14 ${certsObs.inView ? "animate-fade-in-up" : "opacity-0"}`}>
+            <div className="inline-flex items-center gap-2 text-[var(--blue)] text-sm font-semibold uppercase tracking-wider mb-3">
+              <div className="section-divider w-8" />
+              Документы
+              <div className="section-divider w-8" />
+            </div>
+            <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[var(--dark)] mb-4">Сертификаты и лицензии</h2>
+            <p className="text-[var(--gray)] max-w-xl mx-auto">
+              Работаем в полном соответствии с законодательством. Все документы в наличии
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <div className={`${certsObs.inView ? "animate-fade-in-left" : "opacity-0"}`}>
+              <img src={CERT_IMAGE} alt="Сертификаты" className="rounded-2xl w-full h-[340px] object-cover shadow-xl" />
+            </div>
+            <div className="grid grid-cols-1 gap-4">
+              {certificates.map((c, i) => (
+                <div
+                  key={i}
+                  className={`flex items-start gap-4 p-5 bg-[var(--gray-light)] rounded-xl card-hover ${
+                    certsObs.inView ? `animate-fade-in-up delay-${i * 100 + 100}` : "opacity-0"
+                  }`}
+                >
+                  <div className="w-12 h-12 bg-[var(--blue)] rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Icon name="Award" size={22} className="text-white" />
+                  </div>
+                  <div>
+                    <div className="font-display font-bold text-[var(--dark)] mb-0.5">{c.title}</div>
+                    <div className="text-[var(--blue)] text-sm font-semibold mb-1">{c.num}</div>
+                    <div className="text-[var(--gray)] text-sm">{c.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="py-20 bg-[var(--gray-light)]">
+        <div ref={faqObs.ref} className="max-w-4xl mx-auto px-4 lg:px-8">
+          <div className={`text-center mb-14 ${faqObs.inView ? "animate-fade-in-up" : "opacity-0"}`}>
+            <div className="inline-flex items-center gap-2 text-[var(--blue)] text-sm font-semibold uppercase tracking-wider mb-3">
+              <div className="section-divider w-8" />
+              FAQ
+              <div className="section-divider w-8" />
+            </div>
+            <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[var(--dark)] mb-4">
+              Часто задаваемые вопросы
+            </h2>
+            <p className="text-[var(--gray)]">Ответы на популярные вопросы наших клиентов</p>
+          </div>
+
+          <div className="space-y-3">
+            {faqs.map((f, i) => (
+              <div
+                key={i}
+                className={`bg-white rounded-xl overflow-hidden border border-gray-100 card-hover ${
+                  faqObs.inView ? `animate-fade-in-up delay-${i * 50 + 100}` : "opacity-0"
+                }`}
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full flex items-center justify-between p-5 text-left"
+                >
+                  <span className="font-display font-semibold text-[var(--dark)] pr-4">{f.q}</span>
+                  <div
+                    className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
+                      openFaq === i ? "bg-[var(--blue)] text-white rotate-45" : "bg-[var(--blue-50)] text-[var(--blue)]"
+                    }`}
+                  >
+                    <Icon name="Plus" size={16} />
+                  </div>
+                </button>
+                {openFaq === i && (
+                  <div className="px-5 pb-5 text-[var(--gray)] leading-relaxed animate-fade-in border-t border-gray-100 pt-4">
+                    {f.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACTS */}
+      <section id="contacts" className="py-20 bg-white">
+        <div ref={contactsObs.ref} className="max-w-7xl mx-auto px-4 lg:px-8">
+          <div className={`text-center mb-14 ${contactsObs.inView ? "animate-fade-in-up" : "opacity-0"}`}>
+            <div className="inline-flex items-center gap-2 text-[var(--blue)] text-sm font-semibold uppercase tracking-wider mb-3">
+              <div className="section-divider w-8" />
+              Связаться
+              <div className="section-divider w-8" />
+            </div>
+            <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[var(--dark)] mb-4">Контакты</h2>
+            <p className="text-[var(--gray)] max-w-xl mx-auto">
+              Оставьте заявку и мы перезвоним в течение 15 минут
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div className={`${contactsObs.inView ? "animate-fade-in-left" : "opacity-0"}`}>
+              <div className="bg-[var(--gray-light)] rounded-2xl p-8">
+                <h3 className="font-display font-bold text-xl text-[var(--dark)] mb-6">Получить бесплатный расчёт</h3>
+                <form className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-[var(--dark)] mb-1.5">Ваше имя</label>
+                    <input
+                      type="text"
+                      placeholder="Иван Иванов"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[var(--dark)] placeholder-gray-400 focus:outline-none focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/10 transition-all"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-[var(--dark)] mb-1.5">Телефон</label>
+                    <input
+                      type="tel"
+                      placeholder="+7 (___) ___-__-__"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[var(--dark)] placeholder-gray-400 focus:outline-none focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/10 transition-all"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-[var(--dark)] mb-1.5">Тип объекта</label>
+                    <select className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[var(--dark)] focus:outline-none focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/10 transition-all">
+                      <option value="">Выберите тип объекта</option>
+                      <option>Офис</option>
+                      <option>Торговое помещение</option>
+                      <option>Склад / производство</option>
+                      <option>Жилое здание</option>
+                      <option>Другое</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-[var(--dark)] mb-1.5">Комментарий</label>
+                    <textarea
+                      placeholder="Площадь объекта, пожелания..."
+                      rows={3}
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[var(--dark)] placeholder-gray-400 focus:outline-none focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/10 transition-all resize-none"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full py-4 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-colors flex items-center justify-center gap-2"
+                  >
+                    <Icon name="Send" size={18} />
+                    Отправить заявку
+                  </button>
+                  <p className="text-xs text-gray-400 text-center">
+                    Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
+                  </p>
+                </form>
+              </div>
+            </div>
+
+            <div className={`space-y-6 ${contactsObs.inView ? "animate-fade-in-up delay-200" : "opacity-0"}`}>
+              {[
+                { icon: "Phone", title: "Телефон", lines: ["+7 (495) 123-45-67", "+7 (800) 123-45-67 (бесплатно)"] },
+                { icon: "Mail", title: "Email", lines: ["info@bezopasnost.ru", "sales@bezopasnost.ru"] },
+                { icon: "MapPin", title: "Адрес", lines: ["г. Москва, ул. Примерная, д. 1", "Офис 405, БЦ «Технополис»"] },
+                { icon: "Clock", title: "Режим работы", lines: ["Пн–Пт: 9:00 – 18:00", "Аварийная служба: 24/7"] },
+              ].map((c, i) => (
+                <div key={i} className="flex items-start gap-4 p-5 bg-[var(--gray-light)] rounded-xl">
+                  <div className="w-12 h-12 bg-[var(--blue)] rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Icon name={c.icon} fallback="Phone" size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <div className="font-display font-bold text-[var(--dark)] mb-1">{c.title}</div>
+                    {c.lines.map((l) => (
+                      <div key={l} className="text-[var(--gray)] text-sm">{l}</div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+
+              <div className="stats-bg rounded-2xl p-6 text-white">
+                <div className="font-display font-extrabold text-lg mb-2">Выезд специалиста — бесплатно</div>
+                <p className="text-blue-200 text-sm mb-4">Приедем, осмотрим объект и составим смету без обязательств</p>
+                <a href="tel:+74951234567" className="inline-flex items-center gap-2 bg-white text-[var(--blue)] font-bold px-5 py-2.5 rounded-xl hover:bg-blue-50 transition-colors text-sm">
+                  <Icon name="Phone" size={16} />
+                  Позвонить сейчас
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bg-[var(--dark)] text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-10">
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-[var(--blue)] flex items-center justify-center">
+                  <Icon name="ShieldCheck" size={20} className="text-white" />
+                </div>
+                <div>
+                  <div className="font-display font-extrabold text-base">БЕЗОПАСНОСТЬ</div>
+                  <div className="text-[10px] text-blue-400 tracking-widest uppercase">Системы защиты</div>
+                </div>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+                Профессиональный монтаж и обслуживание систем пожарной и охранной безопасности с 2009 года.
+              </p>
+            </div>
+
+            <div>
+              <div className="font-display font-bold text-sm mb-4 text-gray-300 uppercase tracking-wider">Разделы</div>
+              <ul className="space-y-2">
+                {navLinks.map((l) => (
+                  <li key={l.href}>
+                    <a href={l.href} className="text-gray-400 text-sm hover:text-[var(--blue-light)] transition-colors">
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <div className="font-display font-bold text-sm mb-4 text-gray-300 uppercase tracking-wider">Контакты</div>
+              <ul className="space-y-3 text-sm text-gray-400">
+                <li className="flex items-center gap-2">
+                  <Icon name="Phone" size={14} className="text-[var(--blue-light)]" />
+                  +7 (495) 123-45-67
+                </li>
+                <li className="flex items-center gap-2">
+                  <Icon name="Mail" size={14} className="text-[var(--blue-light)]" />
+                  info@bezopasnost.ru
+                </li>
+                <li className="flex items-start gap-2">
+                  <Icon name="MapPin" size={14} className="text-[var(--blue-light)] mt-0.5" />
+                  г. Москва, ул. Примерная, д. 1
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
+            <div className="text-gray-500 text-sm">© 2024 Системы безопасности. Все права защищены.</div>
+            <div className="flex items-center gap-4 text-xs text-gray-600">
+              <a href="#" className="hover:text-gray-400 transition-colors">Политика конфиденциальности</a>
+              <a href="#" className="hover:text-gray-400 transition-colors">Условия использования</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Floating call button */}
+      <a
+        href="tel:+74951234567"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[var(--blue)] text-white rounded-full shadow-2xl flex items-center justify-center hover:bg-[var(--blue-dark)] transition-colors btn-pulse"
+      >
+        <Icon name="Phone" size={22} />
+      </a>
     </div>
   );
-};
-
-export default Index;
+}
