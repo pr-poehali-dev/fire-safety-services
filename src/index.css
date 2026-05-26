@@ -185,6 +185,36 @@ html {
   animation: pulse-blue 2s ease-in-out infinite;
 }
 
+/* CTA button — яркая светящаяся рамка */
+@keyframes glow-border {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(253, 186, 17, 0),
+      0 4px 20px rgba(26, 95, 180, 0.35);
+  }
+  50% {
+    box-shadow:
+      0 0 0 3px rgba(253, 186, 17, 0.6),
+      0 4px 24px rgba(26, 95, 180, 0.5);
+  }
+}
+
+.btn-cta {
+  position: relative;
+  animation: glow-border 2.4s ease-in-out infinite;
+  outline: 2px solid rgba(253, 186, 17, 0.45);
+  outline-offset: 1px;
+}
+
+.btn-cta:hover {
+  outline-color: rgba(253, 186, 17, 0.8);
+  animation-play-state: paused;
+  box-shadow:
+    0 0 0 3px rgba(253, 186, 17, 0.7),
+    0 6px 28px rgba(26, 95, 180, 0.45);
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

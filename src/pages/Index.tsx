@@ -242,7 +242,7 @@ export default function Index() {
             </a>
             <button
               onClick={() => setCallbackOpen(true)}
-              className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg border transition-colors ${
+              className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg border transition-colors btn-cta ${
                 scrolled
                   ? "border-[var(--blue)] text-[var(--blue)] hover:bg-[var(--blue-50)]"
                   : "border-white/40 text-white hover:bg-white/10"
@@ -324,7 +324,7 @@ export default function Index() {
               <div className={`flex flex-col sm:flex-row gap-4 ${heroObs.inView ? "animate-fade-in-up delay-300" : "opacity-0"}`}>
                 <a
                   href="#contacts"
-                  className="px-8 py-4 bg-[var(--blue)] text-white font-bold text-base rounded-xl hover:bg-[var(--blue-light)] transition-all btn-pulse flex items-center gap-2 justify-center"
+                  className="px-8 py-4 bg-[var(--blue)] text-white font-bold text-base rounded-xl hover:bg-[var(--blue-light)] transition-all btn-pulse btn-cta flex items-center gap-2 justify-center"
                 >
                   <Icon name="Calculator" size={18} />
                   Рассчитать стоимость
@@ -701,7 +701,7 @@ export default function Index() {
                     <button
                       type="submit"
                       disabled={formState === "loading"}
-                      className="w-full py-4 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
+                      className="w-full py-4 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-colors flex items-center justify-center gap-2 disabled:opacity-60 btn-cta"
                     >
                       {formState === "loading" ? (
                         <><Icon name="Loader" size={18} className="animate-spin" /> Отправляем...</>
