@@ -72,7 +72,7 @@ const portfolio = [
 
 const certificates = [
   { title: "Лицензия МЧС России", num: "Л014-00101-77/00112662", desc: "Монтаж и техническое обслуживание систем пожарной безопасности" },
-  { title: "Лицензия ФСБ России", num: "№ ФСБ-77-02-14", desc: "Монтаж охранных и тревожных систем" },
+
   { title: "ISO 9001:2015", num: "Сертификат RU-0342", desc: "Система менеджмента качества" },
   { title: "СРО «Безопасность»", num: "Допуск СРО-С-034", desc: "Строительно-монтажные работы" },
 ];
@@ -312,7 +312,7 @@ export default function Index() {
               <div className={`grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/10 ${heroObs.inView ? "animate-fade-in-up delay-400" : "opacity-0"}`}>
                 {[
                   { v: "1200+", l: "объектов" },
-                  { v: "15 лет", l: "на рынке" },
+                  { v: "10 лет", l: "на рынке" },
                   { v: "24/7", l: "поддержка" },
                 ].map((s) => (
                   <div key={s.l}>
@@ -422,7 +422,7 @@ export default function Index() {
                 <img src={HERO_IMAGE} alt="О компании" className="w-full h-[480px] object-cover" />
               </div>
               <div className="absolute bottom-6 right-6 bg-[var(--blue-dark)] text-white rounded-2xl p-5 shadow-2xl max-w-[200px]">
-                <div className="font-display font-black text-3xl mb-1">15</div>
+                <div className="font-display font-black text-3xl mb-1">10</div>
                 <div className="text-blue-200 text-sm">лет успешной работы на рынке</div>
               </div>
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-[var(--blue-50)] rounded-2xl -z-10" />
@@ -437,7 +437,7 @@ export default function Index() {
                 Надёжный партнёр в области систем безопасности
               </h2>
               <p className="text-[var(--gray)] leading-relaxed mb-5">
-                С 2009 года мы занимаемся проектированием, монтажом и техническим обслуживанием систем пожарной и охранной безопасности. За эти годы мы сдали более 1200 объектов — от небольших офисов до крупных промышленных предприятий.
+                С 2016 года мы занимаемся проектированием, монтажом и техническим обслуживанием систем пожарной и охранной безопасности. За эти годы мы сдали более 1200 объектов — от небольших офисов до крупных промышленных предприятий.
               </p>
               <p className="text-[var(--gray)] leading-relaxed mb-8">
                 Наша команда — это 80+ сертифицированных специалистов с многолетним опытом. Мы работаем строго в соответствии с НПБ, ГОСТ и требованиями МЧС России.
@@ -448,7 +448,7 @@ export default function Index() {
                   { icon: "BadgeCheck", text: "Лицензия МЧС России" },
                   { icon: "Users", text: "80+ специалистов" },
                   { icon: "Clock", text: "Выезд за 2 часа" },
-                  { icon: "FileCheck", text: "Полная документация" },
+                  { icon: "FileCheck", text: "Проектная документация" },
                 ].map((item) => (
                   <div key={item.text} className="flex items-center gap-3 p-3 bg-[var(--gray-light)] rounded-xl">
                     <Icon name={item.icon} fallback="Check" size={20} className="text-[var(--blue)] flex-shrink-0" />
