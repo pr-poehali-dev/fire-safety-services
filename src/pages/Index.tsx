@@ -321,7 +321,7 @@ export default function Index() {
                 Проектирование, монтаж и сервис пожарной и охранной сигнализации, видеонаблюдения и контроля доступа для объектов любой сложности.
               </p>
 
-              <div className={`flex flex-col sm:flex-row gap-4 mb-8 sm:mb-0 ${heroObs.inView ? "animate-fade-in-up delay-300" : "opacity-0"}`}>
+              <div className={`flex flex-col sm:flex-row gap-4 mb-20 sm:mb-0 ${heroObs.inView ? "animate-fade-in-up delay-300" : "opacity-0"}`}>
                 <a
                   href="#contacts"
                   className="px-8 py-4 bg-[var(--blue)] text-white font-bold text-base rounded-xl hover:bg-[var(--blue-light)] transition-all btn-pulse btn-cta flex items-center gap-2 justify-center"
