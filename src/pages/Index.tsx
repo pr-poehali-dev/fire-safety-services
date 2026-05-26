@@ -148,6 +148,24 @@ export default function Index() {
   const [comment, setComment] = useState("");
   const [formState, setFormState] = useState<FormState>("idle");
 
+  // Callback popup
+  const [callbackOpen, setCallbackOpen] = useState(false);
+  const [callbackPhone, setCallbackPhone] = useState("");
+  const [callbackState, setCallbackState] = useState<FormState>("idle");
+
+  const handleCallback = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!callbackPhone.trim()) return;
+    setCallbackState("loading");
+    try {
+      await sendLead({ name: "", phone: callbackPhone, object_type: "", comment: "", source: "Обратный звонок" });
+      setCallbackState("success");
+      setCallbackPhone("");
+    } catch {
+      setCallbackState("error");
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent, source = "Форма на сайте") => {
     e.preventDefault();
     if (!phone.trim()) return;
@@ -513,11 +531,11 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 items-stretch">
             <div className={`${certsObs.inView ? "animate-fade-in-left" : "opacity-0"}`}>
-              <img src={CERT_IMAGE} alt="Сертификаты" className="rounded-2xl w-full h-[340px] object-cover shadow-xl" />
+              <img src={CERT_IMAGE} alt="Сертификаты" className="rounded-2xl w-full h-full object-cover object-top shadow-xl" style={{minHeight: "340px"}} />
             </div>
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-4 content-start">
               {certificates.map((c, i) => (
                 <div
                   key={i}
@@ -602,9 +620,9 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-12 items-stretch">
             <div className={`${contactsObs.inView ? "animate-fade-in-left" : "opacity-0"}`}>
-              <div className="bg-[var(--gray-light)] rounded-2xl p-8">
+              <div className="bg-[var(--gray-light)] rounded-2xl p-8 h-full flex flex-col">
                 <h3 className="font-display font-bold text-xl text-[var(--dark)] mb-6">Получить бесплатный расчёт</h3>
 
                 {formState === "success" ? (
@@ -688,7 +706,7 @@ export default function Index() {
               </div>
             </div>
 
-            <div className={`space-y-6 ${contactsObs.inView ? "animate-fade-in-up delay-200" : "opacity-0"}`}>
+            <div className={`flex flex-col gap-4 ${contactsObs.inView ? "animate-fade-in-up delay-200" : "opacity-0"}`}>
               {[
                 { icon: "Phone", title: "Телефон", lines: ["+7 (499) 490-22-01"] },
                 { icon: "Mail", title: "Email", lines: ["skpb01@mail.ru"] },
@@ -708,13 +726,27 @@ export default function Index() {
                 </div>
               ))}
 
-              <div className="stats-bg rounded-2xl p-6 text-white">
-                <div className="font-display font-extrabold text-lg mb-2">Выезд специалиста — бесплатно</div>
-                <p className="text-blue-200 text-sm mb-4">Приедем, осмотрим объект и составим смету без обязательств</p>
-                <a href="tel:+74994902201" className="inline-flex items-center gap-2 bg-white text-[var(--blue)] font-bold px-5 py-2.5 rounded-xl hover:bg-blue-50 transition-colors text-sm">
-                  <Icon name="Phone" size={16} />
-                  Позвонить сейчас
-                </a>
+              <div className="stats-bg rounded-2xl p-6 text-white flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="font-display font-extrabold text-lg mb-2">Выезд специалиста — бесплатно</div>
+                  <p className="text-blue-200 text-sm mb-5">Приедем, осмотрим объект и составим смету без обязательств</p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="tel:+74994902201"
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-white text-[var(--blue)] font-bold px-5 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm"
+                  >
+                    <Icon name="Phone" size={16} />
+                    Позвонить сейчас
+                  </a>
+                  <button
+                    onClick={() => setCallbackOpen(true)}
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-white/15 border border-white/30 text-white font-bold px-5 py-3 rounded-xl hover:bg-white/25 transition-colors text-sm"
+                  >
+                    <Icon name="PhoneCall" size={16} />
+                    Заказать звонок
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -789,6 +821,62 @@ export default function Index() {
       >
         <Icon name="Phone" size={22} />
       </a>
+
+      {/* Callback popup */}
+      {callbackOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" onClick={() => { setCallbackOpen(false); setCallbackState("idle"); setCallbackPhone(""); }}>
+          <div className="bg-white rounded-2xl p-8 w-full max-w-md shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="font-display font-bold text-xl text-[var(--dark)]">Заказать обратный звонок</h3>
+              <button onClick={() => { setCallbackOpen(false); setCallbackState("idle"); setCallbackPhone(""); }} className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <Icon name="X" size={16} className="text-gray-500" />
+              </button>
+            </div>
+
+            {callbackState === "success" ? (
+              <div className="text-center py-6">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon name="CheckCircle" size={32} className="text-green-600" />
+                </div>
+                <div className="font-display font-bold text-lg text-[var(--dark)] mb-2">Заявка принята!</div>
+                <p className="text-[var(--gray)] mb-6">Перезвоним в течение 15 минут</p>
+                <button onClick={() => { setCallbackOpen(false); setCallbackState("idle"); }} className="text-[var(--blue)] text-sm font-medium hover:underline">Закрыть</button>
+              </div>
+            ) : (
+              <form onSubmit={handleCallback} className="space-y-4">
+                <p className="text-[var(--gray)] text-sm">Оставьте номер телефона — мы перезвоним в течение 15 минут</p>
+                <div>
+                  <label className="block text-sm font-medium text-[var(--dark)] mb-1.5">Телефон <span className="text-red-500">*</span></label>
+                  <input
+                    type="tel"
+                    placeholder="+7 (___) ___-__-__"
+                    value={callbackPhone}
+                    onChange={(e) => setCallbackPhone(e.target.value)}
+                    required
+                    autoFocus
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-[var(--dark)] placeholder-gray-400 focus:outline-none focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/10 transition-all"
+                  />
+                </div>
+                {callbackState === "error" && (
+                  <div className="text-red-500 text-sm text-center">Ошибка отправки. Позвоните нам напрямую.</div>
+                )}
+                <button
+                  type="submit"
+                  disabled={callbackState === "loading"}
+                  className="w-full py-4 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
+                >
+                  {callbackState === "loading" ? (
+                    <><Icon name="Loader" size={18} className="animate-spin" /> Отправляем...</>
+                  ) : (
+                    <><Icon name="PhoneCall" size={18} /> Перезвоните мне</>
+                  )}
+                </button>
+                <p className="text-xs text-gray-400 text-center">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
