@@ -56,7 +56,7 @@ const services = [
 
 const stats = [
   { value: "1200+", label: "Объектов сдано" },
-  { value: "15", label: "Лет на рынке" },
+  { value: "10", label: "Лет на рынке" },
   { value: "98%", label: "Клиентов довольны" },
   { value: "24/7", label: "Техподдержка" },
 ];
@@ -263,7 +263,7 @@ export default function Index() {
       </header>
 
       {/* HERO */}
-      <section id="home" className="relative min-h-screen flex items-center hero-gradient overflow-hidden noise">
+      <section id="home" className="relative min-h-screen flex items-center hero-gradient overflow-hidden noise pb-28">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{ backgroundImage: `url(${HERO_IMAGE})` }}
@@ -309,18 +309,7 @@ export default function Index() {
                 </a>
               </div>
 
-              <div className={`grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/10 ${heroObs.inView ? "animate-fade-in-up delay-400" : "opacity-0"}`}>
-                {[
-                  { v: "1200+", l: "объектов" },
-                  { v: "10 лет", l: "на рынке" },
-                  { v: "24/7", l: "поддержка" },
-                ].map((s) => (
-                  <div key={s.l}>
-                    <div className="font-display font-black text-2xl text-white">{s.v}</div>
-                    <div className="text-blue-300 text-sm">{s.l}</div>
-                  </div>
-                ))}
-              </div>
+
             </div>
 
             <div className={`hidden lg:flex flex-col gap-5 ${heroObs.inView ? "animate-scale-in delay-300" : "opacity-0"}`}>
@@ -344,25 +333,19 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 animate-bounce">
-          <div className="w-px h-10 bg-white/20" />
-          <Icon name="ChevronDown" size={16} />
-        </div>
-      </section>
-
-      {/* STATS BAR */}
-      <div className="stats-bg py-10">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((s, i) => (
-              <div key={i} className="text-center">
-                <div className="font-display font-black text-3xl md:text-4xl text-white mb-1">{s.value}</div>
-                <div className="text-blue-200 text-sm">{s.label}</div>
-              </div>
-            ))}
+        <div className="absolute bottom-0 left-0 right-0 stats-bg py-8">
+          <div className="max-w-7xl mx-auto px-4 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {stats.map((s, i) => (
+                <div key={i} className="text-center">
+                  <div className="font-display font-black text-3xl md:text-4xl text-white mb-1">{s.value}</div>
+                  <div className="text-blue-200 text-sm">{s.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* SERVICES */}
       <section id="services" className="py-20 bg-[var(--gray-light)]">
