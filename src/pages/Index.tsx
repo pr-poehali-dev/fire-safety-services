@@ -318,7 +318,7 @@ export default function Index() {
               <p
                 className={`text-lg text-blue-200 leading-relaxed mb-8 max-w-lg ${heroObs.inView ? "animate-fade-in-up delay-200" : "opacity-0"}`}
               >
-                Проектирование, монтаж и сервис пожарной и охранной сигнализации, видеонаблюдения и контроля доступа для объектов любой сложности.
+                Внедрение интеллектуальной системы мониторинга противопожарных систем на объекты любой сложности.
               </p>
 
               <div className={`flex flex-col sm:flex-row gap-4 mb-20 sm:mb-0 ${heroObs.inView ? "animate-fade-in-up delay-300" : "opacity-0"}`}>
