@@ -750,7 +750,7 @@ export default function Index() {
                 { icon: "Phone", title: "Телефон", lines: ["+7 (499) 490-22-01"] },
                 { icon: "Mail", title: "Email", lines: ["skpb01@mail.ru"] },
                 { icon: "MapPin", title: "Адрес", lines: ["г. Москва, ул. 5-я Магистральная,", "дом 12, офис 410"] },
-                { icon: "Clock", title: "Режим работы", lines: ["Пн–Пт: 9:00 – 18:00", "Аварийная служба: 24/7"] },
+                { icon: "Clock", title: "Режим работы", lines: ["Пн–Пт: 9:00 – 18:00", "Оперативная служба: 24/7"] },
               ].map((c, i) => (
                 <div key={i} className="flex items-start gap-4 p-5 bg-[var(--gray-light)] rounded-xl">
                   <div className="w-12 h-12 bg-[var(--blue)] rounded-xl flex items-center justify-center flex-shrink-0">
