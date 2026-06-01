@@ -388,14 +388,14 @@ export default function Index() {
           <div className={`text-center mb-14 ${servicesObs.inView ? "animate-fade-in-up" : "opacity-0"}`}>
             <div className="inline-flex items-center gap-2 text-[var(--blue)] text-sm font-semibold uppercase tracking-wider mb-3">
               <div className="section-divider w-8" />
-              Что мы делаем
+              Что мы предлагаем
               <div className="section-divider w-8" />
             </div>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[var(--dark)] mb-4">
-              Наши услуги
+              Интеллектуальная безопасность объектов
             </h2>
             <p className="text-[var(--gray)] max-w-xl mx-auto">
-              Полный спектр работ по монтажу, настройке и обслуживанию систем пожарной и охранной безопасности
+              Внедрение современных систем мониторинга и защиты с применением искусственного интеллекта для объектов любой сложности
             </p>
           </div>
 
