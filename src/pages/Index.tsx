@@ -19,7 +19,8 @@ const services = [
   {
     icon: "MonitorCheck",
     title: "Интеллектуальная автоматическая система мониторинга всех противопожарных систем объекта",
-    desc: "Установка оборудования, позволяющего круглосуточно отслеживать и анализировать реальное состояние всех противопожарных систем объекта. Анализ журнала событий проводит искусственный интеллект и формирует ежедневный отчёт, помогающий сформировать реальную картину всех неисправностей и событий. На основании этих отчётов наши операторы круглосуточно отслеживают реальную ситуацию на объекте и в случае необходимости имеют возможность оперативно отправить ремонтную бригаду.",
+    desc: "Установка оборудования, позволяющего круглосуточно отслеживать и анализировать реальное состояние всех противопожарных систем объекта.",
+    details: "Первичный анализ журнала событий приёмно-контрольного прибора проводит искусственный интеллект, помогающий отслеживать реальную ситуацию по всем неисправностям и событиям. На основании этих отчётов наши операторы круглосуточно отслеживают ситуацию на объекте и в случае необходимости имеют возможность оперативно отправить ремонтную бригаду.",
     items: ["Мониторинг 24/7", "Ежедневные AI-отчёты", "Оперативный выезд бригады"],
   },
   {
@@ -146,6 +147,7 @@ export default function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [expandedService, setExpandedService] = useState(false);
 
   // Form state
   const [name, setName] = useState("");
@@ -412,6 +414,22 @@ export default function Index() {
                 </div>
                 <h3 className="font-display font-bold text-lg text-[var(--dark)] mb-2">{s.title}</h3>
                 <p className="text-[var(--gray)] text-sm leading-relaxed mb-4">{s.desc}</p>
+                {"details" in s && (
+                  <>
+                    <button
+                      onClick={() => setExpandedService(!expandedService)}
+                      className="flex items-center gap-1 text-[var(--blue)] text-sm font-semibold mb-3 hover:opacity-80 transition-opacity"
+                    >
+                      Подробности
+                      <Icon name={expandedService ? "ChevronUp" : "ChevronDown"} size={15} />
+                    </button>
+                    {expandedService && (
+                      <p className="text-[var(--gray)] text-sm leading-relaxed mb-4 border-l-2 border-[var(--blue)] pl-3">
+                        {(s as typeof s & { details: string }).details}
+                      </p>
+                    )}
+                  </>
+                )}
                 <ul className="space-y-1">
                   {s.items.map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-[var(--gray)]">
