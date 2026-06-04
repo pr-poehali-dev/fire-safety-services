@@ -442,10 +442,15 @@ export default function Index() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-5 pt-4 border-t border-gray-100">
+                <div className="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between gap-3">
                   <a href="#contacts" className="text-[var(--blue)] text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">
                     Узнать стоимость <Icon name="ArrowRight" size={14} />
                   </a>
+                  {i === 0 && (
+                    <a href="/ism" className="text-xs px-3 py-1.5 bg-[var(--blue)] text-white rounded-lg font-semibold hover:bg-[var(--blue-dark)] transition-colors whitespace-nowrap">
+                      Подробнее об ИСМ
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
