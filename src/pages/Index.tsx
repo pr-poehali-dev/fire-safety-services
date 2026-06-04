@@ -323,14 +323,14 @@ export default function Index() {
               <h1
                 className={`font-display font-black text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6 ${heroObs.inView ? "animate-fade-in-up delay-100" : "opacity-0"}`}
               >
-                Монтаж и обслуживание пожарной сигнализации{" "}
-                <span className="text-[var(--blue-light)]">в Москве</span>
+                ИСМ — интеллектуальная система мониторинга{" "}
+                <span className="text-[var(--blue-light)]">противопожарных систем</span>
               </h1>
 
               <p
                 className={`text-lg text-blue-200 leading-relaxed mb-8 max-w-lg ${heroObs.inView ? "animate-fade-in-up delay-200" : "opacity-0"}`}
               >
-                Проектирование, монтаж и техническое обслуживание систем пожарной и охранной сигнализации, видеонаблюдения и контроля доступа. Лицензия МЧС России. Диспетчерская служба 24/7.
+                Круглосуточный мониторинг всех противопожарных систем объекта с помощью искусственного интеллекта. Монтаж пожарной и охранной сигнализации, видеонаблюдения и контроля доступа в Москве. Лицензия МЧС России.
               </p>
 
               <div className={`flex flex-col sm:flex-row gap-4 mb-20 sm:mb-0 ${heroObs.inView ? "animate-fade-in-up delay-300" : "opacity-0"}`}>
