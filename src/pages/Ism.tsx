@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
+const SEND_URL = "https://functions.poehali.dev/6dd07b4a-af2f-481a-b26d-adbf5ebe7a0b";
+
 const ISM_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/790384c5-0086-4312-95b9-ab675381f276.jpg";
 
 const steps = [
@@ -79,14 +81,29 @@ const faqs = [
   },
 ];
 
+type FormState = "idle" | "loading" | "success" | "error";
+
 export default function Ism() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [form, setForm] = useState({ name: "", phone: "", object: "" });
-  const [sent, setSent] = useState(false);
+  const [formState, setFormState] = useState<FormState>("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    if (!form.phone.trim()) return;
+    setFormState("loading");
+    try {
+      const res = await fetch(SEND_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: form.name, phone: form.phone, object_type: form.object, comment: "", source: "Страница ИСМ" }),
+      });
+      if (!res.ok) throw new Error();
+      setFormState("success");
+      setForm({ name: "", phone: "", object: "" });
+    } catch {
+      setFormState("error");
+    }
   };
 
   return (
@@ -250,7 +267,7 @@ export default function Ism() {
           <p className="text-blue-200 mb-10">
             Оставьте заявку — наш инженер свяжется с вами и рассчитает стоимость для вашего объекта бесплатно
           </p>
-          {sent ? (
+          {formState === "success" ? (
             <div className="bg-blue-500/20 border border-blue-500/30 rounded-2xl p-8 text-white">
               <Icon name="CheckCircle" size={48} className="text-blue-400 mx-auto mb-4" />
               <div className="font-bold text-xl mb-2">Заявка отправлена!</div>
@@ -261,14 +278,13 @@ export default function Ism() {
               <input
                 type="text"
                 placeholder="Ваше имя"
-                required
                 value={form.name}
                 onChange={e => setForm({ ...form, name: e.target.value })}
                 className="px-5 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-blue-300 focus:outline-none focus:border-blue-400"
               />
               <input
                 type="tel"
-                placeholder="Телефон"
+                placeholder="Телефон *"
                 required
                 value={form.phone}
                 onChange={e => setForm({ ...form, phone: e.target.value })}
@@ -281,11 +297,19 @@ export default function Ism() {
                 onChange={e => setForm({ ...form, object: e.target.value })}
                 className="px-5 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-blue-300 focus:outline-none focus:border-blue-400"
               />
+              {formState === "error" && (
+                <div className="text-red-400 text-sm text-center">Ошибка отправки. Позвоните нам напрямую.</div>
+              )}
               <button
                 type="submit"
-                className="px-8 py-4 bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-400 transition-all"
+                disabled={formState === "loading"}
+                className="px-8 py-4 bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-400 transition-all flex items-center justify-center gap-2 disabled:opacity-60"
               >
-                Отправить заявку
+                {formState === "loading" ? (
+                  <><Icon name="Loader" size={18} className="animate-spin" /> Отправляем...</>
+                ) : (
+                  <><Icon name="Send" size={18} /> Отправить заявку</>
+                )}
               </button>
             </form>
           )}
