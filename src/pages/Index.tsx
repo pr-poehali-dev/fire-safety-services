@@ -7,7 +7,6 @@ const CERT_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78
 
 const navLinks = [
   { label: "Главная", href: "#home" },
-  { label: "ИСМ", href: "/ism" },
   { label: "Услуги", href: "#services" },
   { label: "О компании", href: "#about" },
   { label: "Портфолио", href: "#portfolio" },
