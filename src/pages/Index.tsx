@@ -22,42 +22,69 @@ const services = [
     desc: "Установка оборудования, позволяющего круглосуточно отслеживать и анализировать реальное состояние всех противопожарных систем объекта.",
     details: "Первичный анализ журнала событий приёмно-контрольного прибора проводит искусственный интеллект, помогающий отслеживать реальную ситуацию по всем неисправностям и событиям. На основании этих отчётов наши операторы круглосуточно отслеживают ситуацию на объекте, высылают краткий отчёт ответственным лицам и в случае необходимости имеют возможность оперативно отправить ремонтную бригаду.",
     items: ["Мониторинг 24/7", "Ежедневные AI-отчёты", "Оперативный выезд бригады"],
+    price: "от 3 000 ₽/мес",
+    image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/c26f5cd0-b692-4a48-965b-ca797ec2563a.jpg",
+    imageAlt: "Оборудование ИСМ — сервер мониторинга противопожарных систем",
   },
   {
     icon: "Flame",
     title: "Пожарная сигнализация",
     desc: "Проектирование, монтаж и техническое обслуживание систем пожарной сигнализации любой сложности. Соответствие всем нормам НПБ и ГОСТ.",
+    details: "Выполняем полный цикл работ: проектирование, монтаж, пусконаладку и сдачу в эксплуатацию. Работаем с адресными и аналоговыми системами ведущих производителей. Все работы сопровождаются полным пакетом исполнительной документации.",
     items: ["Адресные системы", "Аналоговые системы", "Беспроводные системы"],
+    price: "от 25 000 ₽",
+    image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/75f4c78e-8d83-46f4-8fd3-34439217eedc.jpg",
+    imageAlt: "Приёмно-контрольный прибор пожарной сигнализации",
   },
   {
     icon: "Shield",
     title: "Охранная сигнализация",
     desc: "Комплексные решения охранной сигнализации для объектов любого масштаба — от квартиры до крупного предприятия.",
+    details: "Проектируем и монтируем охранные системы с датчиками движения, разбития стекла, магнитными контактами. Возможна интеграция с GSM-оповещением и пультом централизованной охраны.",
     items: ["GSM-сигнализация", "Периметральная охрана", "Тревожные кнопки"],
+    price: "от 15 000 ₽",
+    image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/d7b973d4-4e46-47b2-beaa-6c110f335249.jpg",
+    imageAlt: "Панель управления охранной сигнализацией",
   },
   {
     icon: "Camera",
     title: "Видеонаблюдение",
     desc: "Установка систем IP-видеонаблюдения с удалённым доступом. Аналитика, распознавание лиц и хранение записей.",
+    details: "Проектируем системы видеонаблюдения с учётом особенностей объекта. Используем камеры высокого разрешения с ИК-подсветкой. Настраиваем удалённый доступ с телефона или компьютера.",
     items: ["IP-камеры", "Облачное хранение", "Мобильный доступ"],
+    price: "от 20 000 ₽",
+    image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/4fb3841a-081d-48c0-8900-ab465dc6f598.jpg",
+    imageAlt: "IP-камера видеонаблюдения",
   },
   {
     icon: "DoorOpen",
     title: "Контроль доступа",
     desc: "Системы управления доступом — от простых домофонов до биометрических комплексов с интеграцией в СКУД.",
+    details: "Устанавливаем системы контроля доступа на основе карт, PIN-кодов и биометрии. Возможна интеграция с системой учёта рабочего времени и охранной сигнализацией.",
     items: ["Биометрия", "Турникеты", "Электромагнитные замки"],
+    price: "от 18 000 ₽",
+    image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/a70bb40c-a332-4d76-9ce7-477710ea622c.jpg",
+    imageAlt: "Биометрический считыватель системы контроля доступа",
   },
   {
     icon: "Droplets",
     title: "Пожаротушение",
     desc: "Проектирование и монтаж систем автоматического пожаротушения: спринклерных, порошковых, газовых.",
+    details: "Разрабатываем проекты и монтируем системы автоматического пожаротушения в соответствии с требованиями СП и ГОСТ. Работаем с объектами любой категории пожарной опасности.",
     items: ["Спринклерные", "Газовые системы", "Порошковые модули"],
+    price: "от 50 000 ₽",
+    image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/dd77784e-7c31-4940-988a-27ea39315412.jpg",
+    imageAlt: "Спринклерная система автоматического пожаротушения",
   },
   {
     icon: "Wrench",
     title: "Техобслуживание",
     desc: "Регулярное техническое обслуживание всех типов систем безопасности. Заключаем договоры ТО с гарантией.",
+    details: "Проводим ежеквартальное плановое ТО с полной проверкой работоспособности всех элементов системы. Ведём журнал ТО и предоставляем акты выполненных работ для надзорных органов.",
     items: ["Ежеквартальное ТО", "Аварийный выезд 24/7", "Ведение документации"],
+    price: "от 5 000 ₽/квартал",
+    image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/53f0a815-5dc7-44fb-8ad2-87f36a3fef6b.jpg",
+    imageAlt: "Инструменты для технического обслуживания систем безопасности",
   },
 ];
 
@@ -151,7 +178,8 @@ export default function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [expandedService, setExpandedService] = useState(false);
+  const [expandedServices, setExpandedServices] = useState<number[]>([]);
+  const toggleService = (i: number) => setExpandedServices(prev => prev.includes(i) ? prev.filter(x => x !== i) : [...prev, i]);
 
   // Form state
   const [name, setName] = useState("");
@@ -406,54 +434,69 @@ export default function Index() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((s, i) => (
-              <div
-                key={i}
-                className={`bg-white rounded-2xl p-6 card-hover border border-gray-100 ${
-                  servicesObs.inView ? `animate-fade-in-up delay-${(i % 3) * 100 + 100}` : "opacity-0"
-                }`}
-              >
-                <div className="w-12 h-12 bg-[var(--blue-50)] rounded-xl flex items-center justify-center mb-4">
-                  <Icon name={s.icon} fallback="Shield" size={24} className="text-[var(--blue)]" />
-                </div>
-                <h3 className="font-display font-bold text-lg text-[var(--dark)] mb-2">{s.title}</h3>
-                <p className="text-[var(--gray)] text-sm leading-relaxed mb-4">{s.desc}</p>
-                {"details" in s && (
-                  <>
+            {services.map((s, i) => {
+              const isOpen = expandedServices.includes(i);
+              const svc = s as typeof s & { details?: string; price: string; image: string; imageAlt: string };
+              return (
+                <div
+                  key={i}
+                  className={`bg-white rounded-2xl border border-gray-100 card-hover overflow-hidden ${
+                    servicesObs.inView ? `animate-fade-in-up delay-${(i % 3) * 100 + 100}` : "opacity-0"
+                  }`}
+                >
+                  <div className="relative h-40 overflow-hidden">
+                    <img src={svc.image} alt={svc.imageAlt} className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                      <div className="w-8 h-8 bg-[var(--blue)] rounded-lg flex items-center justify-center">
+                        <Icon name={s.icon} fallback="Shield" size={16} className="text-white" />
+                      </div>
+                    </div>
+                    <div className="absolute top-3 right-3 bg-[var(--blue)] text-white text-xs font-bold px-2.5 py-1 rounded-full">
+                      {svc.price}
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-display font-bold text-base text-[var(--dark)] mb-2">{s.title}</h3>
+                    <p className="text-[var(--gray)] text-sm leading-relaxed mb-3">{s.desc}</p>
                     <button
-                      onClick={() => setExpandedService(!expandedService)}
+                      onClick={() => toggleService(i)}
                       className="flex items-center gap-1 text-[var(--blue)] text-sm font-semibold mb-3 hover:opacity-80 transition-opacity"
                     >
-                      Подробности
-                      <Icon name={expandedService ? "ChevronUp" : "ChevronDown"} size={15} />
+                      {isOpen ? "Свернуть" : "Подробнее"}
+                      <Icon name={isOpen ? "ChevronUp" : "ChevronDown"} size={15} />
                     </button>
-                    {expandedService && (
-                      <p className="text-[var(--gray)] text-sm leading-relaxed mb-4 border-l-2 border-[var(--blue)] pl-3">
-                        {(s as typeof s & { details: string }).details}
-                      </p>
+                    {isOpen && (
+                      <div className="mb-4">
+                        {svc.details && (
+                          <p className="text-[var(--gray)] text-sm leading-relaxed mb-3 border-l-2 border-[var(--blue)] pl-3">
+                            {svc.details}
+                          </p>
+                        )}
+                        <ul className="space-y-1">
+                          {s.items.map((item) => (
+                            <li key={item} className="flex items-center gap-2 text-sm text-[var(--gray)]">
+                              <div className="w-1.5 h-1.5 bg-[var(--blue)] rounded-full flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     )}
-                  </>
-                )}
-                <ul className="space-y-1">
-                  {s.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm text-[var(--gray)]">
-                      <div className="w-1.5 h-1.5 bg-[var(--blue)] rounded-full flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between gap-3">
-                  <a href="#contacts" className="text-[var(--blue)] text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">
-                    Узнать стоимость <Icon name="ArrowRight" size={14} />
-                  </a>
-                  {i === 0 && (
-                    <a href="/ism" className="text-xs px-3 py-1.5 bg-[var(--blue)] text-white rounded-lg font-semibold hover:bg-[var(--blue-dark)] transition-colors whitespace-nowrap">
-                      Подробнее об ИСМ
-                    </a>
-                  )}
+                    <div className="pt-3 border-t border-gray-100 flex items-center justify-between gap-3">
+                      <a href="#contacts" className="text-[var(--blue)] text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+                        Узнать стоимость <Icon name="ArrowRight" size={14} />
+                      </a>
+                      {i === 0 && (
+                        <a href="/ism" className="text-xs px-3 py-1.5 bg-[var(--blue)] text-white rounded-lg font-semibold hover:bg-[var(--blue-dark)] transition-colors whitespace-nowrap">
+                          Подробнее об ИСМ
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

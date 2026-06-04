@@ -62,6 +62,34 @@ const advantages = [
   },
 ];
 
+const tariffs = [
+  {
+    name: "Базовый",
+    price: "от 3 000 ₽/мес",
+    desc: "Для небольших объектов — офисы, магазины до 500 м²",
+    items: ["Мониторинг 1 системы", "Ежедневный отчёт на email", "Реакция оператора 24/7", "Выезд бригады по запросу"],
+    image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/75f4c78e-8d83-46f4-8fd3-34439217eedc.jpg",
+    imageAlt: "Оборудование ИСМ базового тарифа — приёмно-контрольный прибор",
+  },
+  {
+    name: "Стандарт",
+    price: "от 6 000 ₽/мес",
+    desc: "Для средних объектов — склады, торговые центры до 3 000 м²",
+    items: ["Мониторинг до 3 систем", "Ежедневный отчёт + SMS", "Реакция оператора 24/7", "2 выезда бригады в месяц", "Ежеквартальный аудит"],
+    image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/c26f5cd0-b692-4a48-965b-ca797ec2563a.jpg",
+    imageAlt: "Сервер мониторинга противопожарных систем стандартного тарифа",
+    popular: true,
+  },
+  {
+    name: "Премиум",
+    price: "от 12 000 ₽/мес",
+    desc: "Для крупных объектов — производства, бизнес-центры от 3 000 м²",
+    items: ["Мониторинг без ограничений", "Отчёты в мессенджер + email", "Персональный менеджер", "Неограниченные выезды", "Ежемесячный аудит", "Приоритетная реакция 5 мин"],
+    image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/790384c5-0086-4312-95b9-ab675381f276.jpg",
+    imageAlt: "Диспетчерский центр мониторинга противопожарных систем премиум тарифа",
+  },
+];
+
 const faqs = [
   {
     q: "Подходит ли ИСМ для любого объекта?",
@@ -233,8 +261,53 @@ export default function Ism() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* Тарифы */}
       <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-4">
+              Тарифы на подключение ИСМ
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto">
+              Выберите подходящий пакет — или оставьте заявку, мы подберём оптимальный вариант для вашего объекта
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {tariffs.map((t, i) => (
+              <div key={i} className={`bg-white rounded-2xl border overflow-hidden ${t.popular ? "border-blue-500 shadow-lg shadow-blue-100" : "border-gray-100"}`}>
+                {t.popular && (
+                  <div className="bg-blue-600 text-white text-xs font-bold text-center py-2 tracking-wide">
+                    ПОПУЛЯРНЫЙ ВЫБОР
+                  </div>
+                )}
+                <div className="relative h-36 overflow-hidden">
+                  <img src={t.image} alt={t.imageAlt} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </div>
+                <div className="p-6">
+                  <div className="font-display font-black text-xl text-[#0a1628] mb-1">{t.name}</div>
+                  <div className="text-blue-600 font-bold text-lg mb-2">{t.price}</div>
+                  <p className="text-gray-500 text-sm mb-4">{t.desc}</p>
+                  <ul className="space-y-2 mb-6">
+                    {t.items.map((item, j) => (
+                      <li key={j} className="flex items-center gap-2 text-sm text-gray-700">
+                        <Icon name="Check" size={15} className="text-blue-500 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <a href="#form" className={`block text-center py-3 rounded-xl font-bold text-sm transition-colors ${t.popular ? "bg-blue-600 text-white hover:bg-blue-500" : "border border-blue-600 text-blue-600 hover:bg-blue-50"}`}>
+                    Подключить
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 lg:px-8">
           <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-10 text-center">
             Частые вопросы об ИСМ
