@@ -140,7 +140,7 @@ export default function Ism() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/95 backdrop-blur border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 lg:px-8 h-16 flex items-center justify-between">
           <Link to="/" className="font-display font-black text-white text-xl">
-            Пожар<span className="text-blue-400">Охрана</span>
+            Пож<span className="text-blue-400">Дозор</span>
           </Link>
           <Link to="/" className="flex items-center gap-2 text-blue-300 hover:text-white transition-colors text-sm">
             <Icon name="ArrowLeft" size={16} />
