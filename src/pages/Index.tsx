@@ -323,14 +323,14 @@ export default function Index() {
               <h1
                 className={`font-display font-black text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6 ${heroObs.inView ? "animate-fade-in-up delay-100" : "opacity-0"}`}
               >
-                Безопасность бизнеса{" "}
-                <span className="text-[var(--blue-light)]">под вашим контролем</span>
+                Монтаж и обслуживание пожарной сигнализации{" "}
+                <span className="text-[var(--blue-light)]">в Москве</span>
               </h1>
 
               <p
                 className={`text-lg text-blue-200 leading-relaxed mb-8 max-w-lg ${heroObs.inView ? "animate-fade-in-up delay-200" : "opacity-0"}`}
               >
-                Внедрение интеллектуальной системы мониторинга противопожарных систем на объекты любой сложности.
+                Проектирование, монтаж и техническое обслуживание систем пожарной и охранной сигнализации, видеонаблюдения и контроля доступа. Лицензия МЧС России. Диспетчерская служба 24/7.
               </p>
 
               <div className={`flex flex-col sm:flex-row gap-4 mb-20 sm:mb-0 ${heroObs.inView ? "animate-fade-in-up delay-300" : "opacity-0"}`}>
@@ -459,7 +459,7 @@ export default function Index() {
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div className={`relative ${aboutObs.inView ? "animate-fade-in-left" : "opacity-0"}`}>
               <div className="rounded-2xl overflow-hidden">
-                <img src={HERO_IMAGE} alt="О компании" className="w-full h-[480px] object-cover" />
+                <img src={HERO_IMAGE} alt="Монтаж пожарной сигнализации — специалисты ПожарОхрана за работой" className="w-full h-[480px] object-cover" />
               </div>
               <div className="absolute bottom-6 right-6 bg-[var(--blue-dark)] text-white rounded-2xl p-5 shadow-2xl max-w-[200px]">
                 <div className="font-display font-black text-3xl mb-1">10</div>
@@ -477,10 +477,10 @@ export default function Index() {
                 Надёжный партнёр в области систем безопасности
               </h2>
               <p className="text-[var(--gray)] leading-relaxed mb-5">
-                С 2016 года мы занимаемся проектированием, монтажом и техническим обслуживанием систем пожарной и охранной безопасности. За эти годы мы сдали более 1200 объектов — от небольших офисов до крупных промышленных предприятий.
+                С 2016 года мы занимаемся проектированием, монтажом пожарной сигнализации и техническим обслуживанием систем пожарной и охранной безопасности в Москве. За эти годы мы сдали более 1200 объектов — от небольших офисов до крупных промышленных предприятий.
               </p>
               <p className="text-[var(--gray)] leading-relaxed mb-8">
-                Наша команда — это 80+ сертифицированных специалистов с многолетним опытом. Мы работаем строго в соответствии с НПБ, ГОСТ и требованиями МЧС России.
+                Наша команда — это 80+ сертифицированных специалистов с многолетним опытом монтажа и обслуживания противопожарных систем. Работаем строго в соответствии с НПБ, ГОСТ и требованиями МЧС России.
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-8">
