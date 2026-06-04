@@ -391,7 +391,7 @@ export default function Ism() {
 
       {/* Футер */}
       <footer className="bg-[#060e1e] py-8 text-center text-blue-400 text-sm">
-        <div>© 2016–2026 ПожарОхрана. Монтаж и обслуживание систем пожарной безопасности в Москве.</div>
+        <div>© 2016–2026 ПожДозор. Монтаж и обслуживание систем пожарной безопасности в Москве.</div>
         <div className="mt-1">+7 (499) 490-22-01 · skpb01@mail.ru</div>
       </footer>
     </div>
