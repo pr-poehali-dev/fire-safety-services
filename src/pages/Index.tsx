@@ -250,7 +250,7 @@ export default function Index() {
             </div>
             <div>
               <div className={`font-display font-extrabold text-base leading-none transition-colors`}>
-                <span className="text-white">Пож</span><span className="text-[var(--blue-light)]">Дозор</span>
+                <span className={scrolled ? "text-[var(--dark)]" : "text-white"}>Пож</span><span className="text-[var(--blue)]">Дозор</span>
               </div>
               <div className={`text-[10px] font-medium tracking-widest uppercase transition-colors ${scrolled ? "text-[var(--blue)]" : "text-blue-300"}`}>
                 Комплексная безопасность
