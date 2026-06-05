@@ -249,8 +249,8 @@ export default function Index() {
               <Icon name="ShieldCheck" size={20} className="text-white" />
             </div>
             <div>
-              <div className={`font-display font-extrabold text-base leading-none transition-colors ${scrolled ? "text-[var(--dark)]" : "text-white"}`}>
-                ПожДозор
+              <div className={`font-display font-extrabold text-base leading-none transition-colors`}>
+                <span className="text-white">Пож</span><span className="text-[var(--blue-light)]">Дозор</span>
               </div>
               <div className={`text-[10px] font-medium tracking-widest uppercase transition-colors ${scrolled ? "text-[var(--blue)]" : "text-blue-300"}`}>
                 Комплексная безопасность
