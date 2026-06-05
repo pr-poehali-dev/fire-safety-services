@@ -162,7 +162,7 @@ export default function Ism() {
               <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
               Инновационная разработка
             </div>
-            <h1 className="font-display font-black text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6">
+            <h1 className="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6">
               ИСМ — интеллектуальная система мониторинга{" "}
               <span className="text-blue-400">противопожарных систем</span>
             </h1>

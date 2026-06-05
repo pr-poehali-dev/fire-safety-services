@@ -349,7 +349,7 @@ export default function Index() {
               </div>
 
               <h1
-                className={`font-display font-black text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6 ${heroObs.inView ? "animate-fade-in-up delay-100" : "opacity-0"}`}
+                className={`font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6 ${heroObs.inView ? "animate-fade-in-up delay-100" : "opacity-0"}`}
               >
                 Интеллектуальная система мониторинга{" "}
                 <span className="text-[var(--blue-light)]">противопожарных систем</span>
