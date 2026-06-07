@@ -12,7 +12,6 @@ const navLinks = [
   { label: "Что контролируем", href: "#controls" },
   { label: "О компании", href: "#about" },
   { label: "Портфолио", href: "#portfolio" },
-  { label: "Сертификаты", href: "#certificates" },
   { label: "FAQ", href: "#faq" },
   { label: "Контакты", href: "#contacts" },
 ];
@@ -174,22 +173,22 @@ export default function Ism() {
       {/* ШАПКА */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-[0_2px_20px_rgba(26,95,180,0.1)]" : "bg-transparent"}`}>
         <div className="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between h-16 md:h-20">
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-[var(--blue)] flex items-center justify-center group-hover:bg-[var(--blue-light)] transition-colors">
+          <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
+            <div className="w-10 h-10 rounded-lg bg-[var(--blue)] flex items-center justify-center group-hover:bg-[var(--blue-light)] transition-colors flex-shrink-0">
               <Icon name="ShieldCheck" size={20} className="text-white" />
             </div>
-            <div>
-              <div className="font-display font-extrabold text-base leading-none">
+            <div className="min-w-0">
+              <div className="font-display font-extrabold text-base leading-none whitespace-nowrap">
                 <span className={scrolled ? "text-[var(--dark)]" : "text-white"}>Пож</span>
                 <span className="text-[var(--blue)]">Дозор</span>
               </div>
-              <div className={`text-[10px] font-medium tracking-widest uppercase transition-colors ${scrolled ? "text-[var(--blue)]" : "text-blue-300"}`}>
+              <div className={`text-[10px] font-medium tracking-wider uppercase transition-colors whitespace-nowrap ${scrolled ? "text-[var(--blue)]" : "text-blue-300"}`}>
                 Мониторинг 24/7
               </div>
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden xl:flex items-center gap-5">
             {navLinks.map((l) => (
               <a key={l.href} href={l.href} className={`text-sm font-medium transition-colors whitespace-nowrap ${scrolled ? "text-[var(--dark)] hover:text-[var(--blue)]" : "text-white/90 hover:text-white"}`}>
                 {l.label}
@@ -200,24 +199,26 @@ export default function Ism() {
             </Link>
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
-            <a href="tel:+74994902201" className={`flex items-center gap-2 text-sm font-semibold transition-colors ${scrolled ? "text-[var(--blue)]" : "text-white"}`}>
-              <Icon name="Phone" size={15} />
+          <div className="hidden md:flex flex-col items-end gap-1">
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setCallbackOpen(true)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border transition-colors ${scrolled ? "border-[var(--blue)] text-[var(--blue)] hover:bg-[var(--blue-50)]" : "border-white/40 text-white hover:bg-white/10"}`}
+              >
+                <Icon name="PhoneCall" size={13} />
+                Заказать звонок
+              </button>
+              <a href="#contacts" className="px-3 py-1.5 bg-[var(--blue)] text-white text-xs font-semibold rounded-lg hover:bg-[var(--blue-dark)] transition-colors">
+                Подключить
+              </a>
+            </div>
+            <a href="tel:+74994902201" className={`flex items-center gap-1.5 text-xs font-semibold transition-colors ${scrolled ? "text-[var(--blue)]" : "text-white/80"}`}>
+              <Icon name="Phone" size={12} />
               +7 (499) 490-22-01
-            </a>
-            <button
-              onClick={() => setCallbackOpen(true)}
-              className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg border transition-colors ${scrolled ? "border-[var(--blue)] text-[var(--blue)] hover:bg-[var(--blue-50)]" : "border-white/40 text-white hover:bg-white/10"}`}
-            >
-              <Icon name="PhoneCall" size={15} />
-              Заказать звонок
-            </button>
-            <a href="#contacts" className="px-4 py-2 bg-[var(--blue)] text-white text-sm font-semibold rounded-lg hover:bg-[var(--blue-dark)] transition-colors">
-              Подключить
             </a>
           </div>
 
-          <button className={`lg:hidden p-2 transition-colors ${scrolled ? "text-[var(--dark)]" : "text-white"}`} onClick={() => setMenuOpen(!menuOpen)}>
+          <button className={`xl:hidden p-2 transition-colors ${scrolled ? "text-[var(--dark)]" : "text-white"}`} onClick={() => setMenuOpen(!menuOpen)}>
             <Icon name={menuOpen ? "X" : "Menu"} size={24} />
           </button>
         </div>
