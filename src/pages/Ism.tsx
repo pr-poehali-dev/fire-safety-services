@@ -108,51 +108,59 @@ export default function Ism() {
   return (
     <div className="min-h-screen bg-white font-sans">
       {/* Навигация */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/95 backdrop-blur border-b border-white/10">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/97 backdrop-blur border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 lg:px-8 h-16 flex items-center justify-between">
           <Link to="/" className="font-display font-black text-white text-xl">
             Пож<span className="text-[var(--blue-light)]">Дозор</span>
           </Link>
-          <Link to="/" className="flex items-center gap-2 text-blue-300 hover:text-white transition-colors text-sm">
-            <Icon name="ArrowLeft" size={16} />
-            На главную
-          </Link>
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
+            <a href="#how" className="hover:text-white transition-colors">Как работает</a>
+            <a href="#controls" className="hover:text-white transition-colors">Что контролируем</a>
+            <a href="#tariffs" className="hover:text-white transition-colors">Тарифы</a>
+            <Link to="/montazh" className="hover:text-white transition-colors">Монтаж</Link>
+          </nav>
+          <a
+            href="#form"
+            className="px-5 py-2.5 bg-[var(--blue)] text-white text-sm font-bold rounded-lg hover:bg-[var(--blue-dark)] transition-colors"
+          >
+            Подключить
+          </a>
         </div>
       </header>
 
       {/* Блок 1 — Герой */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0a1628] pt-16">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-25"
+          className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: `url(${ISM_IMAGE})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628] via-[#0a1628]/85 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628] via-[#0a1628]/90 to-[#0a1628]/60" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 py-24">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full text-white/80 text-sm font-medium mb-8">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
               Центр удалённого мониторинга · работает 24/7
             </div>
             <h1 className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white leading-[1.05] mb-6">
               Контролируем исправность пожарной сигнализации{" "}
-              <span className="text-blue-400">24/7</span>
+              <span className="text-[var(--blue-light)]">24/7</span>
             </h1>
-            <p className="text-lg md:text-xl text-blue-200 leading-relaxed mb-4">
+            <p className="text-lg md:text-xl text-white/75 leading-relaxed mb-4">
               Удалённо отслеживаем состояние систем безопасности, выявляем неисправности и предупреждаем о проблемах до аварий и проверок.
             </p>
-            <p className="text-base text-blue-300/80 leading-relaxed mb-10">
+            <p className="text-base text-white/55 leading-relaxed mb-10">
               Узнайте о неисправности раньше, чем она приведёт к проблеме. Круглосуточный мониторинг с автоматическими уведомлениями и отчётностью.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#form"
-                className="px-8 py-4 bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-400 transition-all text-center text-lg"
+                className="px-8 py-4 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-all text-center text-lg"
               >
                 Подключить мониторинг
               </a>
               <a
                 href="#how"
-                className="px-8 py-4 border border-white/20 text-white font-bold rounded-xl hover:bg-white/10 transition-all text-center"
+                className="px-8 py-4 border border-white/25 text-white font-bold rounded-xl hover:bg-white/10 transition-all text-center"
               >
                 Как это работает
               </a>
@@ -162,7 +170,7 @@ export default function Ism() {
       </section>
 
       {/* Статистика */}
-      <section className="bg-blue-600 py-10">
+      <section className="bg-[#0d3d73] py-10">
         <div className="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
           {[
             { value: "24/7", label: "Мониторинг" },
@@ -172,7 +180,7 @@ export default function Ism() {
           ].map((s, i) => (
             <div key={i}>
               <div className="font-display font-black text-3xl md:text-4xl mb-1">{s.value}</div>
-              <div className="text-blue-100 text-sm">{s.label}</div>
+              <div className="text-white/60 text-sm">{s.label}</div>
             </div>
           ))}
         </div>
@@ -189,19 +197,19 @@ export default function Ism() {
               От объекта до инженера — весь цикл автоматически
             </p>
           </div>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-0">
+          <div className="flex flex-col md:flex-row items-center justify-center">
             {flowSteps.map((step, i) => (
               <div key={i} className="flex flex-col md:flex-row items-center">
                 <div className="flex flex-col items-center text-center w-36">
-                  <div className="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center mb-3 shadow-md shadow-blue-200">
-                    <Icon name={step.icon} fallback="Circle" size={28} className="text-white" />
+                  <div className="w-16 h-16 rounded-2xl bg-[#0a1628] flex items-center justify-center mb-3 shadow-md">
+                    <Icon name={step.icon} fallback="Circle" size={26} className="text-white" />
                   </div>
                   <span className="text-sm font-semibold text-[#0a1628] leading-tight">{step.label}</span>
                 </div>
                 {i < flowSteps.length - 1 && (
                   <div className="flex items-center justify-center my-3 md:my-0 md:mx-1">
-                    <Icon name="ChevronDown" size={24} className="text-blue-300 md:hidden" />
-                    <Icon name="ChevronRight" size={24} className="text-blue-300 hidden md:block" />
+                    <Icon name="ChevronDown" size={22} className="text-[#1a5fb4]/40 md:hidden" />
+                    <Icon name="ChevronRight" size={22} className="text-[#1a5fb4]/40 hidden md:block" />
                   </div>
                 )}
               </div>
@@ -211,7 +219,7 @@ export default function Ism() {
       </section>
 
       {/* Блок 3 — Что контролируем */}
-      <section className="py-20 bg-white">
+      <section id="controls" className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-4">
@@ -223,8 +231,8 @@ export default function Ism() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {controls.map((c, i) => (
-              <div key={i} className="flex items-center gap-4 p-5 bg-gray-50 rounded-2xl border border-gray-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+              <div key={i} className="flex items-center gap-4 p-5 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#1a5fb4]/30 hover:bg-[#e8f0fd]/40 transition-all">
+                <div className="w-12 h-12 bg-[#0a1628] rounded-xl flex items-center justify-center flex-shrink-0">
                   <Icon name={c.icon} fallback="Shield" size={22} className="text-white" />
                 </div>
                 <span className="font-semibold text-[#0a1628] leading-tight">{c.label}</span>
@@ -250,24 +258,24 @@ export default function Ism() {
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-white mb-4">
               Что получает клиент
             </h2>
-            <p className="text-blue-300 max-w-xl mx-auto">
+            <p className="text-white/50 max-w-xl mx-auto text-lg">
               Не функции. Результаты.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             {results.map((r, i) => (
-              <div key={i} className="flex items-start gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors">
-                <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Icon name="Check" size={16} className="text-white" />
+              <div key={i} className="flex items-start gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/8 transition-colors">
+                <div className="w-7 h-7 bg-[var(--blue)] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Icon name="Check" size={14} className="text-white" />
                 </div>
-                <span className="text-white leading-relaxed">{r}</span>
+                <span className="text-white/90 leading-relaxed">{r}</span>
               </div>
             ))}
           </div>
           <div className="mt-10 text-center">
             <a
               href="#form"
-              className="inline-block px-10 py-4 bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-400 transition-all text-lg"
+              className="inline-block px-10 py-4 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-all text-lg"
             >
               Подключить мониторинг
             </a>
@@ -276,7 +284,7 @@ export default function Ism() {
       </section>
 
       {/* Тарифы */}
-      <section className="py-20 bg-gray-50">
+      <section id="tariffs" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-4">
@@ -288,9 +296,9 @@ export default function Ism() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {tariffs.map((t, i) => (
-              <div key={i} className={`bg-white rounded-2xl border overflow-hidden ${t.popular ? "border-blue-500 shadow-lg shadow-blue-100" : "border-gray-100"}`}>
+              <div key={i} className={`bg-white rounded-2xl border overflow-hidden ${t.popular ? "border-[#1a5fb4] shadow-lg shadow-[#1a5fb4]/10" : "border-gray-100"}`}>
                 {t.popular && (
-                  <div className="bg-blue-600 text-white text-xs font-bold text-center py-2 tracking-wide">
+                  <div className="bg-[#0a1628] text-white text-xs font-bold text-center py-2 tracking-wide">
                     ПОПУЛЯРНЫЙ ВЫБОР
                   </div>
                 )}
@@ -300,17 +308,17 @@ export default function Ism() {
                 </div>
                 <div className="p-6">
                   <div className="font-display font-black text-xl text-[#0a1628] mb-1">{t.name}</div>
-                  <div className="text-blue-600 font-bold text-lg mb-2">{t.price}</div>
+                  <div className="text-[var(--blue)] font-bold text-lg mb-2">{t.price}</div>
                   <p className="text-gray-500 text-sm mb-4">{t.desc}</p>
                   <ul className="space-y-2 mb-6">
                     {t.items.map((item, j) => (
                       <li key={j} className="flex items-center gap-2 text-sm text-gray-700">
-                        <Icon name="Check" size={15} className="text-blue-500 flex-shrink-0" />
+                        <Icon name="Check" size={15} className="text-[var(--blue)] flex-shrink-0" />
                         {item}
                       </li>
                     ))}
                   </ul>
-                  <a href="#form" className={`block text-center py-3 rounded-xl font-bold text-sm transition-colors ${t.popular ? "bg-blue-600 text-white hover:bg-blue-500" : "border border-blue-600 text-blue-600 hover:bg-blue-50"}`}>
+                  <a href="#form" className={`block text-center py-3 rounded-xl font-bold text-sm transition-colors ${t.popular ? "bg-[#0a1628] text-white hover:bg-[#0d3d73]" : "border border-[#1a5fb4] text-[#1a5fb4] hover:bg-[#e8f0fd]"}`}>
                     Подключить
                   </a>
                 </div>
@@ -351,14 +359,14 @@ export default function Ism() {
           <h2 className="font-display font-extrabold text-3xl md:text-4xl text-white mb-4">
             Подключить мониторинг
           </h2>
-          <p className="text-blue-200 mb-10">
+          <p className="text-white/60 mb-10">
             Оставьте заявку — инженер свяжется с вами и рассчитает стоимость для вашего объекта бесплатно
           </p>
           {formState === "success" ? (
-            <div className="bg-blue-500/20 border border-blue-500/30 rounded-2xl p-8 text-white">
-              <Icon name="CheckCircle" size={48} className="text-blue-400 mx-auto mb-4" />
+            <div className="bg-white/10 border border-white/20 rounded-2xl p-8 text-white">
+              <Icon name="CheckCircle" size={48} className="text-[var(--blue-light)] mx-auto mb-4" />
               <div className="font-bold text-xl mb-2">Заявка отправлена!</div>
-              <div className="text-blue-200">Мы свяжемся с вами в ближайшее время.</div>
+              <div className="text-white/60">Мы свяжемся с вами в ближайшее время.</div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
@@ -367,7 +375,7 @@ export default function Ism() {
                 placeholder="Ваше имя"
                 value={form.name}
                 onChange={e => setForm({ ...form, name: e.target.value })}
-                className="px-5 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-blue-300 focus:outline-none focus:border-blue-400"
+                className="px-5 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-white/50"
               />
               <input
                 type="tel"
@@ -375,14 +383,14 @@ export default function Ism() {
                 required
                 value={form.phone}
                 onChange={e => setForm({ ...form, phone: e.target.value })}
-                className="px-5 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-blue-300 focus:outline-none focus:border-blue-400"
+                className="px-5 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-white/50"
               />
               <input
                 type="text"
                 placeholder="Тип объекта (офис, склад, торговый центр...)"
                 value={form.object}
                 onChange={e => setForm({ ...form, object: e.target.value })}
-                className="px-5 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-blue-300 focus:outline-none focus:border-blue-400"
+                className="px-5 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-white/50"
               />
               {formState === "error" && (
                 <div className="text-red-400 text-sm text-center">Ошибка отправки. Позвоните нам напрямую.</div>
@@ -390,11 +398,11 @@ export default function Ism() {
               <button
                 type="submit"
                 disabled={formState === "loading"}
-                className="px-8 py-4 bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-400 transition-all disabled:opacity-60"
+                className="px-8 py-4 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-all disabled:opacity-60"
               >
                 {formState === "loading" ? "Отправляем..." : "Оставить заявку"}
               </button>
-              <p className="text-blue-400/70 text-xs text-center">
+              <p className="text-white/30 text-xs text-center">
                 Нажимая кнопку, вы соглашаетесь на обработку персональных данных
               </p>
             </form>
@@ -403,12 +411,12 @@ export default function Ism() {
       </section>
 
       {/* Футер */}
-      <footer className="bg-[#060e1c] py-8 text-center text-blue-400/60 text-sm">
+      <footer className="bg-[#060e1c] py-8 text-center">
         <div className="font-display font-black text-white text-lg mb-1">
           Пож<span className="text-[var(--blue-light)]">Дозор</span>
         </div>
-        <div>Центр удалённого мониторинга систем пожарной безопасности</div>
-        <div className="mt-2">+7 (499) 490-22-01 · skpb01@mail.ru</div>
+        <div className="text-white/40 text-sm">Центр удалённого мониторинга систем пожарной безопасности</div>
+        <div className="text-white/40 text-sm mt-1">+7 (499) 490-22-01 · skpb01@mail.ru</div>
       </footer>
     </div>
   );
