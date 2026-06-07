@@ -294,22 +294,23 @@ export default function Ism() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 bg-[#0d3d73] py-8">
-          <div className="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
-            {[
-              { value: "1200+", label: "Объектов сдано" },
-              { value: "10", label: "Лет на рынке" },
-              { value: "98%", label: "Клиентов довольны" },
-              { value: "24/7", label: "Техподдержка" },
-            ].map((s, i) => (
-              <div key={i}>
-                <div className="font-display font-black text-3xl md:text-4xl mb-1">{s.value}</div>
-                <div className="text-white/60 text-sm">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
+
+      <div className="bg-[#0d3d73] py-8">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+          {[
+            { value: "1200+", label: "Объектов сдано" },
+            { value: "10", label: "Лет на рынке" },
+            { value: "98%", label: "Клиентов довольны" },
+            { value: "24/7", label: "Техподдержка" },
+          ].map((s, i) => (
+            <div key={i}>
+              <div className="font-display font-black text-3xl md:text-4xl mb-1">{s.value}</div>
+              <div className="text-white/60 text-sm">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* КАК РАБОТАЕТ */}
       <section id="how" className="py-20 bg-gray-50">
