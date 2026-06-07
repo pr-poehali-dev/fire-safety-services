@@ -5,6 +5,7 @@ import Icon from "@/components/ui/icon";
 const SEND_URL = "https://functions.poehali.dev/6dd07b4a-af2f-481a-b26d-adbf5ebe7a0b";
 
 const ISM_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/790384c5-0086-4312-95b9-ab675381f276.jpg";
+const HERO_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/bcbeb4b0-58b1-4df4-8045-320330c10235.jpg";
 
 const flowSteps = [
   { icon: "Building2", label: "Объект" },
@@ -132,7 +133,7 @@ export default function Ism() {
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0a1628] pt-16">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: `url(${ISM_IMAGE})` }}
+          style={{ backgroundImage: `url(${HERO_IMAGE})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628] via-[#0a1628]/90 to-[#0a1628]/60" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 py-24">
@@ -201,7 +202,7 @@ export default function Ism() {
             {flowSteps.map((step, i) => (
               <div key={i} className="flex flex-col md:flex-row items-center">
                 <div className="flex flex-col items-center text-center w-36">
-                  <div className="w-16 h-16 rounded-2xl bg-[#0a1628] flex items-center justify-center mb-3 shadow-md">
+                  <div className="w-16 h-16 rounded-2xl bg-[#0d3d73] flex items-center justify-center mb-3 shadow-md">
                     <Icon name={step.icon} fallback="Circle" size={26} className="text-white" />
                   </div>
                   <span className="text-sm font-semibold text-[#0a1628] leading-tight">{step.label}</span>
@@ -265,7 +266,7 @@ export default function Ism() {
           <div className="grid md:grid-cols-2 gap-4">
             {results.map((r, i) => (
               <div key={i} className="flex items-start gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/8 transition-colors">
-                <div className="w-7 h-7 bg-[var(--blue)] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="w-7 h-7 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Icon name="Check" size={14} className="text-white" />
                 </div>
                 <span className="text-white/90 leading-relaxed">{r}</span>

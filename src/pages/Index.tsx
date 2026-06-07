@@ -244,7 +244,7 @@ export default function Index() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between h-16 md:h-20">
-          <a href="#home" className="flex items-center gap-3 group">
+          <a href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-lg bg-[var(--blue)] flex items-center justify-center group-hover:bg-[var(--blue-light)] transition-colors">
               <Icon name="ShieldCheck" size={20} className="text-white" />
             </div>
