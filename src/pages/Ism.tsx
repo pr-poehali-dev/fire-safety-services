@@ -109,23 +109,33 @@ export default function Ism() {
   return (
     <div className="min-h-screen bg-white font-sans">
       {/* Навигация */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/97 backdrop-blur border-b border-white/10">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/60 backdrop-blur border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 lg:px-8 h-16 flex items-center justify-between">
           <Link to="/" className="font-display font-black text-white text-xl">
             Пож<span className="text-[var(--blue-light)]">Дозор</span>
           </Link>
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
-            <a href="#how" className="hover:text-white transition-colors">Как работает</a>
-            <a href="#controls" className="hover:text-white transition-colors">Что контролируем</a>
-            <a href="#tariffs" className="hover:text-white transition-colors">Тарифы</a>
-            <Link to="/montazh" className="hover:text-white transition-colors">Монтаж</Link>
+          <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-white/75">
+            <a href="#how" className="hover:text-white transition-colors whitespace-nowrap">Как работает</a>
+            <a href="#controls" className="hover:text-white transition-colors whitespace-nowrap">Что контролируем</a>
+            <a href="#tariffs" className="hover:text-white transition-colors whitespace-nowrap">Тарифы</a>
+            <a href="#faq" className="hover:text-white transition-colors whitespace-nowrap">FAQ</a>
+            <Link to="/montazh" className="hover:text-white transition-colors whitespace-nowrap">Монтаж</Link>
           </nav>
-          <a
-            href="#form"
-            className="px-5 py-2.5 bg-[var(--blue)] text-white text-sm font-bold rounded-lg hover:bg-[var(--blue-dark)] transition-colors"
-          >
-            Подключить
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="tel:+74994902201"
+              className="hidden md:flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-white transition-colors"
+            >
+              <Icon name="Phone" size={15} />
+              +7 (499) 490-22-01
+            </a>
+            <a
+              href="#form"
+              className="px-5 py-2.5 bg-[var(--blue)] text-white text-sm font-bold rounded-lg hover:bg-[var(--blue-dark)] transition-colors"
+            >
+              Подключить
+            </a>
+          </div>
         </div>
       </header>
 
@@ -142,7 +152,7 @@ export default function Ism() {
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
               Центр удалённого мониторинга · работает 24/7
             </div>
-            <h1 className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white leading-[1.05] mb-6">
+            <h1 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white leading-[1.1] mb-6">
               Контролируем исправность пожарной сигнализации{" "}
               <span className="text-[var(--blue-light)]">24/7</span>
             </h1>
