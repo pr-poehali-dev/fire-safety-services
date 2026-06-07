@@ -6,7 +6,6 @@ const PANEL_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e7
 const CERT_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/0467becb-2d83-4414-8a10-6389014bfee0.png";
 
 const navLinks = [
-  { label: "Главная", href: "#home" },
   { label: "Услуги", href: "#services" },
   { label: "О компании", href: "#about" },
   { label: "Портфолио", href: "#portfolio" },
@@ -259,6 +258,14 @@ export default function Index() {
           </a>
 
           <nav className="hidden lg:flex items-center gap-6">
+            <a
+              href="/"
+              className={`nav-link text-sm font-medium transition-colors whitespace-nowrap ${
+                scrolled ? "text-[var(--dark)] hover:text-[var(--blue)]" : "text-white/90 hover:text-white"
+              }`}
+            >
+              Главная
+            </a>
             {navLinks.map((l) => (
               <a
                 key={l.href}
@@ -309,6 +316,9 @@ export default function Index() {
 
         {menuOpen && (
           <div className="lg:hidden bg-white border-t border-gray-100 shadow-xl animate-fade-in">
+            <a href="/" onClick={() => setMenuOpen(false)} className="block px-6 py-3 text-[var(--dark)] font-medium hover:bg-[var(--blue-50)] hover:text-[var(--blue)] transition-colors">
+              Главная
+            </a>
             {navLinks.map((l) => (
               <a
                 key={l.href}
@@ -332,7 +342,7 @@ export default function Index() {
       </header>
 
       {/* HERO */}
-      <section id="home" className="relative min-h-screen flex items-center hero-gradient overflow-hidden noise pb-28">
+      <section id="home" className="relative min-h-screen flex items-center hero-gradient overflow-hidden noise pb-28 pt-16 md:pt-20">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{ backgroundImage: `url(${HERO_IMAGE})` }}
