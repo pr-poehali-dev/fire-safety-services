@@ -247,7 +247,7 @@ export default function Ism() {
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0a1628]">
         <div className="absolute inset-0 bg-cover bg-center opacity-40" style={{ backgroundImage: `url(${ISM_IMAGE})` }} />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628] via-[#0a1628]/80 to-transparent" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 pt-28 pb-16">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 pt-36 pb-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full text-white/80 text-sm font-medium mb-8">
@@ -297,10 +297,10 @@ export default function Ism() {
         <div className="absolute bottom-0 left-0 right-0 bg-[#0d3d73] py-8">
           <div className="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
             {[
-              { value: "24/7", label: "Мониторинг" },
-              { value: "5 мин", label: "Время реакции" },
-              { value: "1200+", label: "Объектов под контролем" },
-              { value: "0", label: "Пропущенных инцидентов" },
+              { value: "1200+", label: "Объектов сдано" },
+              { value: "10", label: "Лет на рынке" },
+              { value: "98%", label: "Клиентов довольны" },
+              { value: "24/7", label: "Техподдержка" },
             ].map((s, i) => (
               <div key={i}>
                 <div className="font-display font-black text-3xl md:text-4xl mb-1">{s.value}</div>
