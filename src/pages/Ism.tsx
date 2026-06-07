@@ -188,7 +188,7 @@ export default function Ism() {
             </div>
           </Link>
 
-          <nav className="hidden xl:flex items-center gap-5">
+          <nav className="hidden lg:flex items-center gap-4">
             {navLinks.map((l) => (
               <a key={l.href} href={l.href} className={`text-sm font-medium transition-colors whitespace-nowrap ${scrolled ? "text-[var(--dark)] hover:text-[var(--blue)]" : "text-white/90 hover:text-white"}`}>
                 {l.label}
@@ -218,7 +218,7 @@ export default function Ism() {
             </a>
           </div>
 
-          <button className={`xl:hidden p-2 transition-colors ${scrolled ? "text-[var(--dark)]" : "text-white"}`} onClick={() => setMenuOpen(!menuOpen)}>
+          <button className={`lg:hidden p-2 transition-colors ${scrolled ? "text-[var(--dark)]" : "text-white"}`} onClick={() => setMenuOpen(!menuOpen)}>
             <Icon name={menuOpen ? "X" : "Menu"} size={24} />
           </button>
         </div>
