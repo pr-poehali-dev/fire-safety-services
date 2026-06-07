@@ -85,6 +85,7 @@ type FormState = "idle" | "loading" | "success" | "error";
 
 export default function Ism() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", object: "" });
   const [formState, setFormState] = useState<FormState>("idle");
 
@@ -109,12 +110,12 @@ export default function Ism() {
   return (
     <div className="min-h-screen bg-white font-sans">
       {/* Навигация */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/60 backdrop-blur border-b border-white/10">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10" style={{ background: 'rgba(10,22,40,0.45)', backdropFilter: 'none' }}>
         <div className="max-w-7xl mx-auto px-4 lg:px-8 h-16 flex items-center justify-between">
           <Link to="/" className="font-display font-black text-white text-xl">
             Пож<span className="text-[var(--blue-light)]">Дозор</span>
           </Link>
-          <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-white/75">
+          <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-white/80">
             <a href="#how" className="hover:text-white transition-colors whitespace-nowrap">Как работает</a>
             <a href="#controls" className="hover:text-white transition-colors whitespace-nowrap">Что контролируем</a>
             <a href="#tariffs" className="hover:text-white transition-colors whitespace-nowrap">Тарифы</a>
@@ -131,12 +132,60 @@ export default function Ism() {
             </a>
             <a
               href="#form"
-              className="px-5 py-2.5 bg-[var(--blue)] text-white text-sm font-bold rounded-lg hover:bg-[var(--blue-dark)] transition-colors"
+              className="hidden sm:block px-5 py-2.5 bg-[var(--blue)] text-white text-sm font-bold rounded-lg hover:bg-[var(--blue-dark)] transition-colors"
             >
               Подключить
             </a>
+            <button
+              className="lg:hidden p-2 text-white"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <Icon name={menuOpen ? "X" : "Menu"} size={24} />
+            </button>
           </div>
         </div>
+        {/* Мобильное меню */}
+        {menuOpen && (
+          <div className="lg:hidden border-t border-white/10" style={{ background: 'rgba(10,22,40,0.92)' }}>
+            <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
+              {[
+                { label: "Как работает", href: "#how" },
+                { label: "Что контролируем", href: "#controls" },
+                { label: "Тарифы", href: "#tariffs" },
+                { label: "FAQ", href: "#faq" },
+              ].map(l => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors text-sm font-medium"
+                >
+                  {l.label}
+                </a>
+              ))}
+              <Link
+                to="/montazh"
+                onClick={() => setMenuOpen(false)}
+                className="px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors text-sm font-medium"
+              >
+                Монтаж
+              </Link>
+              <div className="mt-2 pt-3 border-t border-white/10 flex flex-col gap-2">
+                <a href="tel:+74994902201" className="flex items-center gap-2 px-4 py-2 text-white/70 text-sm">
+                  <Icon name="Phone" size={15} />
+                  +7 (499) 490-22-01
+                </a>
+                <a
+                  href="#form"
+                  onClick={() => setMenuOpen(false)}
+                  className="mx-4 py-3 bg-[var(--blue)] text-white text-sm font-bold rounded-lg text-center hover:bg-[var(--blue-dark)] transition-colors"
+                >
+                  Подключить мониторинг
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Блок 1 — Герой */}
