@@ -6,60 +6,31 @@ const SEND_URL = "https://functions.poehali.dev/6dd07b4a-af2f-481a-b26d-adbf5ebe
 
 const ISM_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/790384c5-0086-4312-95b9-ab675381f276.jpg";
 
-const steps = [
-  {
-    num: "01",
-    title: "Установка оборудования",
-    desc: "Монтируем специализированное устройство, которое подключается к вашему приёмно-контрольному прибору пожарной сигнализации.",
-  },
-  {
-    num: "02",
-    title: "Анализ искусственным интеллектом",
-    desc: "ИИ круглосуточно анализирует журнал событий всех противопожарных систем объекта, выявляя неисправности и отклонения.",
-  },
-  {
-    num: "03",
-    title: "Ежедневные отчёты",
-    desc: "Ответственные лица получают краткий отчёт о состоянии всех систем — прямо на почту или в мессенджер.",
-  },
-  {
-    num: "04",
-    title: "Реакция диспетчерской службы",
-    desc: "При обнаружении проблемы наши операторы немедленно связываются с вами и при необходимости выезжает ремонтная бригада.",
-  },
+const flowSteps = [
+  { icon: "Building2", label: "Объект" },
+  { icon: "Wifi", label: "Передача данных" },
+  { icon: "MonitorDot", label: "Центр мониторинга" },
+  { icon: "BrainCircuit", label: "Анализ состояния" },
+  { icon: "BellRing", label: "Уведомление клиента" },
+  { icon: "Wrench", label: "Реагирование инженера" },
 ];
 
-const advantages = [
-  {
-    icon: "Eye",
-    title: "Полный контроль 24/7",
-    desc: "Вы всегда знаете реальное состояние всех противопожарных систем объекта, даже находясь за тысячи километров.",
-  },
-  {
-    icon: "BrainCircuit",
-    title: "Искусственный интеллект",
-    desc: "ИИ анализирует тысячи событий ежедневно и выявляет потенциальные проблемы до того, как они станут критическими.",
-  },
-  {
-    icon: "FileText",
-    title: "Ежедневная отчётность",
-    desc: "Краткие понятные отчёты для руководства — без технического жаргона, только важная информация.",
-  },
-  {
-    icon: "Zap",
-    title: "Оперативный выезд",
-    desc: "При обнаружении неисправности бригада выезжает в кратчайшие сроки — ещё до проверки МЧС.",
-  },
-  {
-    icon: "ShieldCheck",
-    title: "Соответствие требованиям МЧС",
-    desc: "ИСМ помогает поддерживать системы в рабочем состоянии и быть готовым к плановым проверкам.",
-  },
-  {
-    icon: "TrendingDown",
-    title: "Экономия на штрафах",
-    desc: "Предотвращаем неисправности заранее — экономите на штрафах МЧС и дорогостоящем аварийном ремонте.",
-  },
+const controls = [
+  { icon: "Flame", label: "Пожарная сигнализация" },
+  { icon: "Droplets", label: "Пожаротушение" },
+  { icon: "Wind", label: "Дымоудаление" },
+  { icon: "KeyRound", label: "СКУД" },
+  { icon: "Camera", label: "Видеонаблюдение" },
+  { icon: "Settings2", label: "Инженерные системы" },
+];
+
+const results = [
+  "Информация о неисправностях в режиме реального времени",
+  "История событий и отчёты",
+  "Контроль между регламентными обслуживаниями",
+  "Снижение риска штрафов",
+  "Уверенность в работоспособности системы",
+  "Возможность оперативного вмешательства",
 ];
 
 const tariffs = [
@@ -69,7 +40,7 @@ const tariffs = [
     desc: "Для небольших объектов — офисы, магазины до 500 м²",
     items: ["Мониторинг 1 системы", "Ежедневный отчёт на email", "Реакция оператора 24/7", "Выезд бригады по запросу"],
     image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/75f4c78e-8d83-46f4-8fd3-34439217eedc.jpg",
-    imageAlt: "Оборудование ИСМ базового тарифа — приёмно-контрольный прибор",
+    imageAlt: "Оборудование ИСМ базового тарифа",
   },
   {
     name: "Стандарт",
@@ -77,7 +48,7 @@ const tariffs = [
     desc: "Для средних объектов — склады, торговые центры до 3 000 м²",
     items: ["Мониторинг до 3 систем", "Ежедневный отчёт + SMS", "Реакция оператора 24/7", "2 выезда бригады в месяц", "Ежеквартальный аудит"],
     image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/c26f5cd0-b692-4a48-965b-ca797ec2563a.jpg",
-    imageAlt: "Сервер мониторинга противопожарных систем стандартного тарифа",
+    imageAlt: "Сервер мониторинга стандартного тарифа",
     popular: true,
   },
   {
@@ -86,17 +57,17 @@ const tariffs = [
     desc: "Для крупных объектов — производства, бизнес-центры от 3 000 м²",
     items: ["Мониторинг без ограничений", "Отчёты в мессенджер + email", "Персональный менеджер", "Неограниченные выезды", "Ежемесячный аудит", "Приоритетная реакция 5 мин"],
     image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/790384c5-0086-4312-95b9-ab675381f276.jpg",
-    imageAlt: "Диспетчерский центр мониторинга противопожарных систем премиум тарифа",
+    imageAlt: "Диспетчерский центр мониторинга премиум тарифа",
   },
 ];
 
 const faqs = [
   {
-    q: "Подходит ли ИСМ для любого объекта?",
-    a: "Да, ИСМ совместима с большинством современных приёмно-контрольных приборов. Перед подключением наш инженер проводит бесплатный осмотр объекта.",
+    q: "Подходит ли для любого объекта?",
+    a: "Да, система совместима с большинством современных приёмно-контрольных приборов. Перед подключением наш инженер проводит бесплатный осмотр объекта.",
   },
   {
-    q: "Сколько стоит подключение к ИСМ?",
+    q: "Сколько стоит подключение?",
     a: "Стоимость зависит от количества систем на объекте и типа оборудования. Оставьте заявку — мы рассчитаем стоимость бесплатно.",
   },
   {
@@ -149,32 +120,35 @@ export default function Ism() {
         </div>
       </header>
 
-      {/* Герой */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-[#0a1628] pt-16">
+      {/* Блок 1 — Герой */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0a1628] pt-16">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
+          className="absolute inset-0 bg-cover bg-center opacity-25"
           style={{ backgroundImage: `url(${ISM_IMAGE})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628] via-[#0a1628]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628] via-[#0a1628]/85 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 py-24">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium mb-6">
-              <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
-              Инновационная разработка
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium mb-8">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              Центр удалённого мониторинга · работает 24/7
             </div>
-            <h1 className="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6">
-              ИСМ — интеллектуальная система мониторинга{" "}
-              <span className="text-blue-400">противопожарных систем</span>
+            <h1 className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white leading-[1.05] mb-6">
+              Контролируем исправность пожарной сигнализации{" "}
+              <span className="text-blue-400">24/7</span>
             </h1>
-            <p className="text-lg text-blue-200 leading-relaxed mb-8">
-              Круглосуточный контроль всех противопожарных систем объекта с помощью искусственного интеллекта. Ежедневные отчёты, мгновенное реагирование, полное соответствие требованиям МЧС России.
+            <p className="text-lg md:text-xl text-blue-200 leading-relaxed mb-4">
+              Удалённо отслеживаем состояние систем безопасности, выявляем неисправности и предупреждаем о проблемах до аварий и проверок.
+            </p>
+            <p className="text-base text-blue-300/80 leading-relaxed mb-10">
+              Узнайте о неисправности раньше, чем она приведёт к проблеме. Круглосуточный мониторинг с автоматическими уведомлениями и отчётностью.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#form"
-                className="px-8 py-4 bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-400 transition-all text-center"
+                className="px-8 py-4 bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-400 transition-all text-center text-lg"
               >
-                Подключить ИСМ
+                Подключить мониторинг
               </a>
               <a
                 href="#how"
@@ -193,7 +167,7 @@ export default function Ism() {
           {[
             { value: "24/7", label: "Мониторинг" },
             { value: "5 мин", label: "Время реакции" },
-            { value: "1200+", label: "Объектов под охраной" },
+            { value: "1200+", label: "Объектов под контролем" },
             { value: "0", label: "Пропущенных инцидентов" },
           ].map((s, i) => (
             <div key={i}>
@@ -204,59 +178,99 @@ export default function Ism() {
         </div>
       </section>
 
-      {/* Как это работает */}
+      {/* Блок 2 — Как это работает */}
       <section id="how" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-4">
-              Как работает ИСМ
+              Как это работает
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto">
-              Интеллектуальная система мониторинга подключается к вашей пожарной сигнализации и начинает работать автоматически
+              От объекта до инженера — весь цикл автоматически
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map((s, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 relative">
-                <div className="font-display font-black text-5xl text-blue-100 mb-4">{s.num}</div>
-                <h3 className="font-display font-bold text-lg text-[#0a1628] mb-2">{s.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-0">
+            {flowSteps.map((step, i) => (
+              <div key={i} className="flex flex-col md:flex-row items-center">
+                <div className="flex flex-col items-center text-center w-36">
+                  <div className="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center mb-3 shadow-md shadow-blue-200">
+                    <Icon name={step.icon} fallback="Circle" size={28} className="text-white" />
+                  </div>
+                  <span className="text-sm font-semibold text-[#0a1628] leading-tight">{step.label}</span>
+                </div>
+                {i < flowSteps.length - 1 && (
+                  <div className="flex items-center justify-center my-3 md:my-0 md:mx-1">
+                    <Icon name="ChevronDown" size={24} className="text-blue-300 md:hidden" />
+                    <Icon name="ChevronRight" size={24} className="text-blue-300 hidden md:block" />
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Изображение */}
+      {/* Блок 3 — Что контролируем */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-4">
+              Что мы контролируем
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto">
+              Единая точка контроля всех систем безопасности объекта
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+            {controls.map((c, i) => (
+              <div key={i} className="flex items-center gap-4 p-5 bg-gray-50 rounded-2xl border border-gray-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all">
+                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Icon name={c.icon} fallback="Shield" size={22} className="text-white" />
+                </div>
+                <span className="font-semibold text-[#0a1628] leading-tight">{c.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Разделитель — фото */}
       <section className="py-0">
         <img
           src={ISM_IMAGE}
-          alt="Оператор ИСМ следит за показателями противопожарных систем на мониторах диспетчерского центра"
-          className="w-full h-[400px] object-cover"
+          alt="Оператор центра мониторинга следит за состоянием систем безопасности"
+          className="w-full h-[360px] object-cover"
         />
       </section>
 
-      {/* Преимущества */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+      {/* Блок 4 — Что получает клиент */}
+      <section className="py-20 bg-[#0a1628]">
+        <div className="max-w-4xl mx-auto px-4 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-4">
-              Преимущества ИСМ для вашего объекта
+            <h2 className="font-display font-extrabold text-3xl md:text-4xl text-white mb-4">
+              Что получает клиент
             </h2>
-            <p className="text-gray-500 max-w-xl mx-auto">
-              Интеллектуальный мониторинг противопожарных систем — это не просто контроль, это уверенность в безопасности
+            <p className="text-blue-300 max-w-xl mx-auto">
+              Не функции. Результаты.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {advantages.map((a, i) => (
-              <div key={i} className="p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-blue-200 transition-colors">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
-                  <Icon name={a.icon} fallback="Shield" size={22} className="text-white" />
+          <div className="grid md:grid-cols-2 gap-4">
+            {results.map((r, i) => (
+              <div key={i} className="flex items-start gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors">
+                <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Icon name="Check" size={16} className="text-white" />
                 </div>
-                <h3 className="font-display font-bold text-lg text-[#0a1628] mb-2">{a.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{a.desc}</p>
+                <span className="text-white leading-relaxed">{r}</span>
               </div>
             ))}
+          </div>
+          <div className="mt-10 text-center">
+            <a
+              href="#form"
+              className="inline-block px-10 py-4 bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-400 transition-all text-lg"
+            >
+              Подключить мониторинг
+            </a>
           </div>
         </div>
       </section>
@@ -266,7 +280,7 @@ export default function Ism() {
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-4">
-              Тарифы на подключение ИСМ
+              Тарифы
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto">
               Выберите подходящий пакет — или оставьте заявку, мы подберём оптимальный вариант для вашего объекта
@@ -310,7 +324,7 @@ export default function Ism() {
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 lg:px-8">
           <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-10 text-center">
-            Частые вопросы об ИСМ
+            Частые вопросы
           </h2>
           <div className="flex flex-col gap-3">
             {faqs.map((faq, i) => (
@@ -335,10 +349,10 @@ export default function Ism() {
       <section id="form" className="py-20 bg-[#0a1628]">
         <div className="max-w-xl mx-auto px-4 lg:px-8 text-center">
           <h2 className="font-display font-extrabold text-3xl md:text-4xl text-white mb-4">
-            Подключить ИСМ
+            Подключить мониторинг
           </h2>
           <p className="text-blue-200 mb-10">
-            Оставьте заявку — наш инженер свяжется с вами и рассчитает стоимость для вашего объекта бесплатно
+            Оставьте заявку — инженер свяжется с вами и рассчитает стоимость для вашего объекта бесплатно
           </p>
           {formState === "success" ? (
             <div className="bg-blue-500/20 border border-blue-500/30 rounded-2xl p-8 text-white">
@@ -376,23 +390,25 @@ export default function Ism() {
               <button
                 type="submit"
                 disabled={formState === "loading"}
-                className="px-8 py-4 bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-400 transition-all flex items-center justify-center gap-2 disabled:opacity-60"
+                className="px-8 py-4 bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-400 transition-all disabled:opacity-60"
               >
-                {formState === "loading" ? (
-                  <><Icon name="Loader" size={18} className="animate-spin" /> Отправляем...</>
-                ) : (
-                  <><Icon name="Send" size={18} /> Отправить заявку</>
-                )}
+                {formState === "loading" ? "Отправляем..." : "Оставить заявку"}
               </button>
+              <p className="text-blue-400/70 text-xs text-center">
+                Нажимая кнопку, вы соглашаетесь на обработку персональных данных
+              </p>
             </form>
           )}
         </div>
       </section>
 
       {/* Футер */}
-      <footer className="bg-[#060e1e] py-8 text-center text-blue-400 text-sm">
-        <div>© 2016–2026 ПожДозор. Монтаж и обслуживание систем пожарной безопасности в Москве.</div>
-        <div className="mt-1">+7 (499) 490-22-01 · skpb01@mail.ru</div>
+      <footer className="bg-[#060e1c] py-8 text-center text-blue-400/60 text-sm">
+        <div className="font-display font-black text-white text-lg mb-1">
+          Пож<span className="text-[var(--blue-light)]">Дозор</span>
+        </div>
+        <div>Центр удалённого мониторинга систем пожарной безопасности</div>
+        <div className="mt-2">+7 (499) 490-22-01 · skpb01@mail.ru</div>
       </footer>
     </div>
   );
