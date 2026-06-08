@@ -196,8 +196,8 @@ export default function Ism() {
                   {l.label}
                 </a>
                 {l.href === "#controls" && (
-                  <Link to="/montazh" className={`text-sm font-medium transition-colors whitespace-nowrap ${scrolled ? "text-[var(--dark)] hover:text-[var(--blue)]" : "text-white/90 hover:text-white"}`}>
-                    Монтаж
+                  <Link to="/uslugi" className={`text-sm font-medium transition-colors whitespace-nowrap ${scrolled ? "text-[var(--dark)] hover:text-[var(--blue)]" : "text-white/90 hover:text-white"}`}>
+                    Услуги
                   </Link>
                 )}
               </>
@@ -235,8 +235,8 @@ export default function Ism() {
                 {l.label}
               </a>
             ))}
-            <Link to="/montazh" onClick={() => setMenuOpen(false)} className="block px-6 py-3 text-[var(--dark)] font-medium hover:bg-[var(--blue-50)] hover:text-[var(--blue)] transition-colors">
-              Монтаж
+            <Link to="/uslugi" onClick={() => setMenuOpen(false)} className="block px-6 py-3 text-[var(--dark)] font-medium hover:bg-[var(--blue-50)] hover:text-[var(--blue)] transition-colors">
+              Услуги
             </Link>
             <div className="px-6 py-4 border-t border-gray-100">
               <a href="tel:+74994902201" className="block text-[var(--blue)] font-semibold mb-3">+7 (499) 490-22-01</a>
