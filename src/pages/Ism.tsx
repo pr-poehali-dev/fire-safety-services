@@ -69,13 +69,15 @@ const tariffs = [
   },
 ];
 
+const SCREEN_URL = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/be431132-235c-42e4-88b6-bd0f53067b74.png";
+
 const portfolio = [
-  { title: "ТЦ «Галерея»", type: "Пожарная сигнализация + СОУЭ", year: "2024", area: "12 000 м²" },
-  { title: "Офисный комплекс «Башня»", type: "Охранная сигнализация + СКУД", year: "2024", area: "8 500 м²" },
-  { title: "Завод «МеталлПром»", type: "Газовое пожаротушение", year: "2023", area: "22 000 м²" },
-  { title: "Жилой комплекс «Парковый»", type: "Видеонаблюдение + домофония", year: "2023", area: "15 000 м²" },
-  { title: "Гипермаркет «Продуктовый»", type: "Пожарная сигнализация + АПТ", year: "2023", area: "6 200 м²" },
-  { title: "Бизнес-центр «Горизонт»", type: "Комплексная безопасность", year: "2022", area: "18 000 м²" },
+  { title: "Резиденция Премьер-министра РФ Дмитрия Медведева", type: "Пожарная сигнализация и охранные системы", imgPos: "0% 17%", area: "Государственный объект" },
+  { title: "ФСО России. Комплекс правительственных особняков на Воробьёвых горах", type: "Комплексная система безопасности", imgPos: "34% 17%", area: "Государственный объект" },
+  { title: "Даниловский монастырь. Здание отдела внешних связей РПЦ", type: "Пожарная сигнализация", imgPos: "67% 17%", area: "Культурный объект" },
+  { title: "ООО «Красный октябрь». Комплекс исторических зданий", type: "Пожарная сигнализация + СОУЭ", imgPos: "0% 65%", area: "Производственный комплекс" },
+  { title: "Бистро Пронто. Сеть из 42 ресторанов", type: "Пожарная сигнализация, 42 объекта", imgPos: "34% 65%", area: "Сеть объектов" },
+  { title: "РотФрон. Здание производственного корпуса ОАО «РотФронт»", type: "Пожарная сигнализация + охранные системы", imgPos: "67% 65%", area: "Производственный объект" },
 ];
 
 const certificates = [
@@ -489,18 +491,20 @@ export default function Ism() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {portfolio.map((p, i) => (
               <div key={i} className={`bg-white rounded-2xl overflow-hidden border border-gray-100 card-hover ${portfolioObs.inView ? `animate-fade-in-up delay-${(i % 3) * 100 + 100}` : "opacity-0"}`}>
-                <div className="h-3 bg-gradient-to-r from-[var(--blue-dark)] to-[var(--blue-light)]" />
-                <div className="p-6">
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="w-10 h-10 bg-[var(--blue-50)] rounded-xl flex items-center justify-center">
-                      <Icon name="Building2" size={20} className="text-[var(--blue)]" />
-                    </div>
-                    <span className="text-xs font-semibold text-[var(--blue)] bg-[var(--blue-50)] px-3 py-1 rounded-full">{p.year}</span>
-                  </div>
-                  <h3 className="font-display font-bold text-lg text-[var(--dark)] mb-1">{p.title}</h3>
-                  <p className="text-[var(--blue)] text-sm font-medium mb-3">{p.type}</p>
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src={SCREEN_URL}
+                    alt={p.title}
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: p.imgPos, transform: "scale(3.1)", transformOrigin: p.imgPos }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-display font-bold text-base text-[var(--dark)] mb-2 leading-snug">{p.title}</h3>
+                  <p className="text-[var(--blue)] text-sm font-medium mb-2">{p.type}</p>
                   <div className="flex items-center gap-1 text-[var(--gray)] text-sm">
-                    <Icon name="Maximize2" size={14} />
+                    <Icon name="Building2" size={14} />
                     {p.area}
                   </div>
                 </div>
