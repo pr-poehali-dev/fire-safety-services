@@ -22,7 +22,7 @@ const flowSteps = [
   { icon: "MonitorDot", label: "Центр мониторинга" },
   { icon: "BrainCircuit", label: "Анализ состояния" },
   { icon: "BellRing", label: "Уведомление клиента" },
-  { icon: "Wrench", label: "Реагирование инженера" },
+  { icon: "Wrench", label: "Реагирование" },
 ];
 
 const controls = [
@@ -339,7 +339,7 @@ export default function Ism() {
                   <span className="text-xs sm:text-sm font-semibold text-[#0a1628] leading-tight">{step.label}</span>
                 </div>
                 {i < flowSteps.length - 1 && (
-                  <div className="hidden md:flex items-center justify-center mt-5 mx-1">
+                  <div className="flex items-center justify-center mt-5 mx-1">
                     <Icon name="ChevronRight" size={18} className="text-[var(--blue)]/40" />
                   </div>
                 )}
