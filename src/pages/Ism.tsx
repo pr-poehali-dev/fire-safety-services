@@ -392,7 +392,7 @@ export default function Ism() {
                 <div className="w-6 h-6 bg-green-500 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Icon name="Check" size={13} className="text-white" />
                 </div>
-                <span className="text-white/90 text-sm leading-relaxed">{r}</span>
+                <span className="text-white/90 text-base md:text-sm leading-relaxed">{r}</span>
               </div>
             ))}
           </div>
