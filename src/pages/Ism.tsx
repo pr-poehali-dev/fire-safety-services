@@ -357,13 +357,13 @@ export default function Ism() {
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-4">Что мы контролируем</h2>
             <p className="text-gray-500 max-w-xl mx-auto">Единая точка контроля всех систем безопасности объекта</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {controls.map((c, i) => (
-              <div key={i} className={`flex items-center gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-[var(--blue)]/30 hover:bg-[var(--blue-50)]/40 transition-all ${controlsObs.inView ? `animate-fade-in-up delay-${(i % 3) * 100 + 100}` : "opacity-0"}`}>
+              <div key={i} className={`flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-[var(--blue)]/30 hover:bg-[var(--blue-50)]/40 transition-all ${controlsObs.inView ? `animate-fade-in-up delay-${(i % 3) * 100 + 100}` : "opacity-0"}`}>
                 <div className="w-10 h-10 bg-[var(--blue)] rounded-xl flex items-center justify-center flex-shrink-0">
                   <Icon name={c.icon} fallback="Shield" size={18} className="text-white" />
                 </div>
-                <span className="font-semibold text-[#0a1628] text-sm leading-tight">{c.label}</span>
+                <span className="font-semibold text-[#0a1628] text-sm">{c.label}</span>
               </div>
             ))}
           </div>
@@ -371,9 +371,9 @@ export default function Ism() {
       </section>
 
       {/* ФОТО РАЗДЕЛИТЕЛЬ */}
-      <section className="py-0">
-        <img src={ISM_IMAGE} alt="Оператор центра мониторинга следит за состоянием систем безопасности" className="w-full h-[200px] sm:h-[280px] md:h-[360px] object-cover" />
-      </section>
+      <div className="w-full">
+        <img src={ISM_IMAGE} alt="Оператор центра мониторинга следит за состоянием систем безопасности" className="w-full h-[220px] sm:h-[280px] md:h-[360px] object-cover object-center" />
+      </div>
 
       {/* ЧТО ПОЛУЧАЕТ КЛИЕНТ */}
       <section id="tariffs" className="py-20 bg-[#0a1628]">
