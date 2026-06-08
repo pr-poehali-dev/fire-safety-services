@@ -70,12 +70,12 @@ const tariffs = [
 ];
 
 const portfolio = [
-  { title: "Резиденция Премьер-министра РФ Дмитрия Медведева", type: "Пожарная сигнализация и охранные системы", area: "Государственный объект", icon: "ShieldCheck" },
-  { title: "ФСО России. Комплекс правительственных особняков на Воробьёвых горах", type: "Комплексная система безопасности", area: "Государственный объект", icon: "Shield" },
-  { title: "Даниловский монастырь. Здание отдела внешних связей РПЦ", type: "Пожарная сигнализация", area: "Культурный объект", icon: "Flame" },
-  { title: "ООО «Красный октябрь». Комплекс исторических зданий", type: "Пожарная сигнализация + СОУЭ", area: "Производственный комплекс", icon: "Building2" },
-  { title: "Бистро Пронто. Сеть из 42 ресторанов", type: "Пожарная сигнализация — 42 объекта", area: "Сеть объектов", icon: "Store" },
-  { title: "РотФрон. Здание производственного корпуса ОАО «РотФронт»", type: "Пожарная сигнализация + охранные системы", area: "Производственный объект", icon: "Factory" },
+  { title: "Резиденция Премьер-министра РФ Дмитрия Медведева", type: "Пожарная сигнализация и охранные системы", area: "Государственный объект", image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/074f88d6-a794-4ea8-8cc7-4b49843e4474.png" },
+  { title: "ФСО России. Комплекс правительственных особняков на Воробьёвых горах", type: "Комплексная система безопасности", area: "Государственный объект", image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/f5c80256-eadc-40d6-a6f5-61be8846a59a.png" },
+  { title: "Даниловский монастырь. Здание отдела внешних связей РПЦ", type: "Пожарная сигнализация", area: "Культурный объект", image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/ba9f8a9d-5d87-4174-be39-a98509772f2b.png" },
+  { title: "ООО «Красный октябрь». Комплекс исторических зданий", type: "Пожарная сигнализация + СОУЭ", area: "Производственный комплекс", image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/b5fe874a-c9b0-45b3-a5b3-c70cb3064d3d.png" },
+  { title: "Бистро Пронто. Сеть из 42 ресторанов", type: "Пожарная сигнализация — 42 объекта", area: "Сеть объектов", image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/bf6d9395-1609-4f42-b3dd-57c92a9dd2b6.png" },
+  { title: "РотФронт. Здание производственного корпуса ОАО «РотФронт»", type: "Пожарная сигнализация + охранные системы", area: "Производственный объект", image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/6e56f066-6087-4c57-bafa-d0dd17ec1db8.png" },
 ];
 
 const certificates = [
@@ -489,15 +489,15 @@ export default function Ism() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {portfolio.map((p, i) => (
               <div key={i} className={`bg-white rounded-2xl border border-gray-100 card-hover overflow-hidden ${portfolioObs.inView ? `animate-fade-in-up delay-${(i % 3) * 100 + 100}` : "opacity-0"}`}>
-                <div className="h-2 bg-gradient-to-r from-[var(--blue-dark)] to-[var(--blue-light)]" />
-                <div className="p-6">
-                  <div className="w-12 h-12 bg-[var(--blue-50)] rounded-xl flex items-center justify-center mb-4">
-                    <Icon name={p.icon} fallback="Building2" size={22} className="text-[var(--blue)]" />
-                  </div>
-                  <h3 className="font-display font-bold text-base text-[var(--dark)] mb-2 leading-snug">{p.title}</h3>
-                  <p className="text-[var(--blue)] text-sm font-medium mb-3">{p.type}</p>
-                  <div className="flex items-center gap-1.5 text-[var(--gray)] text-sm">
-                    <Icon name="MapPin" size={13} />
+                <div className="relative h-48 overflow-hidden">
+                  <img src={p.image} alt={p.title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-display font-bold text-sm text-[var(--dark)] mb-2 leading-snug">{p.title}</h3>
+                  <p className="text-[var(--blue)] text-sm font-medium mb-2">{p.type}</p>
+                  <div className="flex items-center gap-1.5 text-[var(--gray)] text-xs">
+                    <Icon name="MapPin" size={12} />
                     {p.area}
                   </div>
                 </div>
