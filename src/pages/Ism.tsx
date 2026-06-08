@@ -398,9 +398,9 @@ export default function Ism() {
           </div>
 
           {/* Тарифы */}
-          <div ref={tariffsObs.ref} className="grid md:grid-cols-3 gap-6">
+          <div ref={tariffsObs.ref} className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
             {tariffs.map((t, i) => (
-              <div key={i} className={`bg-white rounded-2xl border overflow-hidden ${t.popular ? "border-[var(--blue-light)] shadow-lg" : "border-gray-100"} ${tariffsObs.inView ? `animate-fade-in-up delay-${i * 100 + 100}` : "opacity-0"}`}>
+              <div key={i} className={`bg-white rounded-2xl border overflow-hidden w-full ${t.popular ? "border-[var(--blue-light)] shadow-lg" : "border-gray-100"} ${tariffsObs.inView ? `animate-fade-in-up delay-${i * 100 + 100}` : "opacity-0"}`}>
                 {t.popular && <div className="bg-[#0a1628] text-white text-xs font-bold text-center py-2 tracking-wide">ПОПУЛЯРНЫЙ ВЫБОР</div>}
                 <div className="relative h-36 overflow-hidden">
                   <img src={t.image} alt={t.name} className="w-full h-full object-cover" />
