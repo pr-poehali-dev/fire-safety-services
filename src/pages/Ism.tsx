@@ -329,9 +329,9 @@ export default function Ism() {
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-4">Как это работает</h2>
             <p className="text-gray-500 max-w-xl mx-auto">От объекта до инженера — весь цикл автоматически</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-row items-start md:items-center justify-center gap-6 md:gap-y-0">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-row md:items-start justify-center gap-6 md:gap-0">
             {flowSteps.map((step, i) => (
-              <div key={i} className="flex flex-col md:flex-row items-center">
+              <div key={i} className="flex md:flex-row items-start">
                 <div className={`flex flex-col items-center text-center w-full md:w-28 lg:w-32 px-1 ${howObs.inView ? `animate-fade-in-up delay-${i * 100}` : "opacity-0"}`}>
                   <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-[#0d3d73] flex items-center justify-center mb-2 shadow-md">
                     <Icon name={step.icon} fallback="Circle" size={22} className="text-white" />
@@ -339,7 +339,7 @@ export default function Ism() {
                   <span className="text-xs sm:text-sm font-semibold text-[#0a1628] leading-tight">{step.label}</span>
                 </div>
                 {i < flowSteps.length - 1 && (
-                  <div className="hidden md:flex items-center justify-center md:mx-1">
+                  <div className="hidden md:flex items-center justify-center mt-5 mx-1">
                     <Icon name="ChevronRight" size={18} className="text-[var(--blue)]/40" />
                   </div>
                 )}
