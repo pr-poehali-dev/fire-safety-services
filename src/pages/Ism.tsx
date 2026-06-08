@@ -69,15 +69,13 @@ const tariffs = [
   },
 ];
 
-const SCREEN_URL = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/be431132-235c-42e4-88b6-bd0f53067b74.png";
-
 const portfolio = [
-  { title: "Резиденция Премьер-министра РФ Дмитрия Медведева", type: "Пожарная сигнализация и охранные системы", imgPos: "0% 17%", area: "Государственный объект" },
-  { title: "ФСО России. Комплекс правительственных особняков на Воробьёвых горах", type: "Комплексная система безопасности", imgPos: "34% 17%", area: "Государственный объект" },
-  { title: "Даниловский монастырь. Здание отдела внешних связей РПЦ", type: "Пожарная сигнализация", imgPos: "67% 17%", area: "Культурный объект" },
-  { title: "ООО «Красный октябрь». Комплекс исторических зданий", type: "Пожарная сигнализация + СОУЭ", imgPos: "0% 65%", area: "Производственный комплекс" },
-  { title: "Бистро Пронто. Сеть из 42 ресторанов", type: "Пожарная сигнализация, 42 объекта", imgPos: "34% 65%", area: "Сеть объектов" },
-  { title: "РотФрон. Здание производственного корпуса ОАО «РотФронт»", type: "Пожарная сигнализация + охранные системы", imgPos: "67% 65%", area: "Производственный объект" },
+  { title: "Резиденция Премьер-министра РФ Дмитрия Медведева", type: "Пожарная сигнализация и охранные системы", area: "Государственный объект", icon: "ShieldCheck" },
+  { title: "ФСО России. Комплекс правительственных особняков на Воробьёвых горах", type: "Комплексная система безопасности", area: "Государственный объект", icon: "Shield" },
+  { title: "Даниловский монастырь. Здание отдела внешних связей РПЦ", type: "Пожарная сигнализация", area: "Культурный объект", icon: "Flame" },
+  { title: "ООО «Красный октябрь». Комплекс исторических зданий", type: "Пожарная сигнализация + СОУЭ", area: "Производственный комплекс", icon: "Building2" },
+  { title: "Бистро Пронто. Сеть из 42 ресторанов", type: "Пожарная сигнализация — 42 объекта", area: "Сеть объектов", icon: "Store" },
+  { title: "РотФрон. Здание производственного корпуса ОАО «РотФронт»", type: "Пожарная сигнализация + охранные системы", area: "Производственный объект", icon: "Factory" },
 ];
 
 const certificates = [
@@ -490,21 +488,16 @@ export default function Ism() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {portfolio.map((p, i) => (
-              <div key={i} className={`bg-white rounded-2xl overflow-hidden border border-gray-100 card-hover ${portfolioObs.inView ? `animate-fade-in-up delay-${(i % 3) * 100 + 100}` : "opacity-0"}`}>
-                <div className="relative h-44 overflow-hidden">
-                  <img
-                    src={SCREEN_URL}
-                    alt={p.title}
-                    className="w-full h-full object-cover"
-                    style={{ objectPosition: p.imgPos, transform: "scale(3.1)", transformOrigin: p.imgPos }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                </div>
-                <div className="p-5">
+              <div key={i} className={`bg-white rounded-2xl border border-gray-100 card-hover overflow-hidden ${portfolioObs.inView ? `animate-fade-in-up delay-${(i % 3) * 100 + 100}` : "opacity-0"}`}>
+                <div className="h-2 bg-gradient-to-r from-[var(--blue-dark)] to-[var(--blue-light)]" />
+                <div className="p-6">
+                  <div className="w-12 h-12 bg-[var(--blue-50)] rounded-xl flex items-center justify-center mb-4">
+                    <Icon name={p.icon} fallback="Building2" size={22} className="text-[var(--blue)]" />
+                  </div>
                   <h3 className="font-display font-bold text-base text-[var(--dark)] mb-2 leading-snug">{p.title}</h3>
-                  <p className="text-[var(--blue)] text-sm font-medium mb-2">{p.type}</p>
-                  <div className="flex items-center gap-1 text-[var(--gray)] text-sm">
-                    <Icon name="Building2" size={14} />
+                  <p className="text-[var(--blue)] text-sm font-medium mb-3">{p.type}</p>
+                  <div className="flex items-center gap-1.5 text-[var(--gray)] text-sm">
+                    <Icon name="MapPin" size={13} />
                     {p.area}
                   </div>
                 </div>
