@@ -329,7 +329,7 @@ export default function Ism() {
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-4">Как это работает</h2>
             <p className="text-gray-500 max-w-xl mx-auto">От объекта до инженера — весь цикл автоматически</p>
           </div>
-          <div className="grid grid-cols-3 md:flex md:flex-row items-center justify-center gap-y-6 md:gap-y-0">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-row items-start md:items-center justify-center gap-6 md:gap-y-0">
             {flowSteps.map((step, i) => (
               <div key={i} className="flex flex-col md:flex-row items-center">
                 <div className={`flex flex-col items-center text-center w-full md:w-28 lg:w-32 px-1 ${howObs.inView ? `animate-fade-in-up delay-${i * 100}` : "opacity-0"}`}>
