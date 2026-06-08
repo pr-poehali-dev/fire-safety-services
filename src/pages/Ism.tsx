@@ -41,6 +41,7 @@ const results = [
   "Снижение риска штрафов",
   "Уверенность в работоспособности системы",
   "Возможность оперативного вмешательства",
+  "При необходимости вызов пожарной охраны",
 ];
 
 const tariffs = [
@@ -360,7 +361,7 @@ export default function Ism() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {controls.map((c, i) => (
               <div key={i} className={`flex items-center gap-4 p-5 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[var(--blue)]/30 hover:bg-[var(--blue-50)]/40 transition-all ${controlsObs.inView ? `animate-fade-in-up delay-${(i % 3) * 100 + 100}` : "opacity-0"}`}>
-                <div className="w-12 h-12 bg-[#0a1628] rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-[var(--blue)] rounded-xl flex items-center justify-center flex-shrink-0">
                   <Icon name={c.icon} fallback="Shield" size={22} className="text-white" />
                 </div>
                 <span className="font-semibold text-[#0a1628] leading-tight">{c.label}</span>
