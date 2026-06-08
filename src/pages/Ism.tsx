@@ -191,13 +191,17 @@ export default function Ism() {
 
           <nav className="hidden lg:flex items-center gap-4">
             {navLinks.map((l) => (
-              <a key={l.href} href={l.href} className={`text-sm font-medium transition-colors whitespace-nowrap ${scrolled ? "text-[var(--dark)] hover:text-[var(--blue)]" : "text-white/90 hover:text-white"}`}>
-                {l.label}
-              </a>
+              <>
+                <a key={l.href} href={l.href} className={`text-sm font-medium transition-colors whitespace-nowrap ${scrolled ? "text-[var(--dark)] hover:text-[var(--blue)]" : "text-white/90 hover:text-white"}`}>
+                  {l.label}
+                </a>
+                {l.href === "#controls" && (
+                  <Link to="/montazh" className={`text-sm font-medium transition-colors whitespace-nowrap ${scrolled ? "text-[var(--dark)] hover:text-[var(--blue)]" : "text-white/90 hover:text-white"}`}>
+                    Монтаж
+                  </Link>
+                )}
+              </>
             ))}
-            <Link to="/montazh" className={`text-sm font-medium transition-colors whitespace-nowrap ${scrolled ? "text-[var(--dark)] hover:text-[var(--blue)]" : "text-white/90 hover:text-white"}`}>
-              Монтаж
-            </Link>
           </nav>
 
           <div className="hidden md:flex flex-col items-end gap-1">
