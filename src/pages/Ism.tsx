@@ -266,7 +266,7 @@ export default function Ism() {
               <p className="text-base sm:text-lg text-white/75 leading-relaxed mb-3">
                 Удалённо отслеживаем состояние систем безопасности, выявляем неисправности и предупреждаем о проблемах до аварий и проверок.
               </p>
-              <p className="text-sm sm:text-base text-white/55 leading-relaxed mb-8">
+              <p className="text-base sm:text-lg text-white/90 font-medium leading-relaxed mb-8">
                 Узнайте о неисправности раньше, чем она приведёт к проблеме. Круглосуточный мониторинг с автоматическими уведомлениями и отчётностью.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
