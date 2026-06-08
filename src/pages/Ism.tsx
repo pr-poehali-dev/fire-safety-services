@@ -474,40 +474,6 @@ export default function Ism() {
         </div>
       </section>
 
-      {/* НАМ ДОВЕРЯЮТ */}
-      <section className="py-14 bg-white border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 text-[var(--blue)] text-sm font-semibold uppercase tracking-wider mb-3">
-              <div className="section-divider w-8" />
-              Нам доверяют
-              <div className="section-divider w-8" />
-            </div>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
-            {[
-              { name: "Администрация\nПрезидента РФ", icon: "⚜️", bg: "bg-red-50", text: "text-red-800" },
-              { name: "МВД России", icon: "🦅", bg: "bg-yellow-50", text: "text-yellow-800" },
-              { name: "Группа ГУТА", icon: "G", bg: "bg-blue-50", text: "text-blue-700", mono: true },
-              { name: "РотФронт", icon: "РФ", bg: "bg-orange-50", text: "text-orange-700", mono: true },
-              { name: "Бистро Пронто", icon: "🍕", bg: "bg-red-50", text: "text-red-700" },
-              { name: "Гленмарк", icon: "G", bg: "bg-green-50", text: "text-green-700", mono: true },
-              { name: "ОКБ Кристалл", icon: "💎", bg: "bg-sky-50", text: "text-sky-700" },
-              { name: "1С", icon: "1С", bg: "bg-yellow-50", text: "text-yellow-900", mono: true },
-            ].map((c, i) => (
-              <div key={i} className="flex flex-col items-center gap-2 p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                <div className={`w-14 h-14 ${c.bg} rounded-2xl flex items-center justify-center`}>
-                  <span className={`${c.mono ? `font-display font-black text-lg ${c.text}` : "text-2xl"}`}>
-                    {c.icon}
-                  </span>
-                </div>
-                <span className="text-xs font-medium text-[var(--gray)] text-center leading-tight whitespace-pre-line">{c.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ПОРТФОЛИО */}
       <section id="portfolio" className="py-20 bg-[var(--gray-light)]">
         <div ref={portfolioObs.ref} className="max-w-7xl mx-auto px-4 lg:px-8">
