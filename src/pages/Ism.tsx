@@ -421,6 +421,13 @@ export default function Ism() {
               </div>
             ))}
           </div>
+          <div className="mt-10 text-center">
+            <a href="#contacts" className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-all text-lg">
+              <Icon name="PhoneCall" size={20} />
+              Подключить мониторинг
+            </a>
+            <p className="text-white/50 text-sm mt-3">Бесплатный выезд инженера и расчёт стоимости</p>
+          </div>
         </div>
       </section>
 
