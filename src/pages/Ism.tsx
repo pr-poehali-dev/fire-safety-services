@@ -327,7 +327,7 @@ export default function Ism() {
               <div className="section-divider w-8" />
             </div>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-4">Как это работает</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">От объекта до инженера — весь цикл автоматически</p>
+            <p className="text-gray-500 max-w-2xl mx-auto">Мы подключаем Вашу пожарную сигнализацию и другое оборудование к Нашему Ситуационному Центру мониторинга, где операторы круглосуточно следят за техническим состоянием всех противопожарных систем.</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-row md:items-start justify-center gap-6 md:gap-0">
             {flowSteps.map((step, i) => (
