@@ -248,28 +248,28 @@ export default function Ism() {
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0a1628]">
         <div className="absolute inset-0 bg-cover bg-center opacity-40" style={{ backgroundImage: `url(${ISM_IMAGE})` }} />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628] via-[#0a1628]/80 to-transparent" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 pt-36 pb-16">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 pt-24 md:pt-32 pb-16">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full text-white/80 text-sm font-medium mb-8">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white/80 text-xs sm:text-sm font-medium mb-6">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
                 Центр удалённого мониторинга · работает 24/7
               </div>
-              <h1 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white leading-[1.1] mb-6">
+              <h1 className="font-display font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1] mb-5">
                 Контролируем пожарную безопасность{" "}
                 <span className="text-[var(--blue-light)]">24/7</span>
               </h1>
-              <p className="text-lg text-white/75 leading-relaxed mb-4">
+              <p className="text-base sm:text-lg text-white/75 leading-relaxed mb-3">
                 Удалённо отслеживаем состояние систем безопасности, выявляем неисправности и предупреждаем о проблемах до аварий и проверок.
               </p>
-              <p className="text-base text-white/55 leading-relaxed mb-10">
+              <p className="text-sm sm:text-base text-white/55 leading-relaxed mb-8">
                 Узнайте о неисправности раньше, чем она приведёт к проблеме. Круглосуточный мониторинг с автоматическими уведомлениями и отчётностью.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#contacts" className="px-8 py-4 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-all text-center text-lg">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a href="#contacts" className="px-6 py-3.5 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-all text-center text-base">
                   Подключить мониторинг
                 </a>
-                <a href="#how" className="px-8 py-4 border border-white/25 text-white font-bold rounded-xl hover:bg-white/10 transition-all text-center">
+                <a href="#how" className="px-6 py-3.5 border border-white/25 text-white font-bold rounded-xl hover:bg-white/10 transition-all text-center text-base">
                   Как это работает
                 </a>
               </div>
@@ -325,19 +325,18 @@ export default function Ism() {
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-4">Как это работает</h2>
             <p className="text-gray-500 max-w-xl mx-auto">От объекта до инженера — весь цикл автоматически</p>
           </div>
-          <div className="flex flex-col md:flex-row items-center justify-center">
+          <div className="grid grid-cols-3 md:flex md:flex-row items-center justify-center gap-y-6 md:gap-y-0">
             {flowSteps.map((step, i) => (
               <div key={i} className="flex flex-col md:flex-row items-center">
-                <div className={`flex flex-col items-center text-center w-36 ${howObs.inView ? `animate-fade-in-up delay-${i * 100}` : "opacity-0"}`}>
-                  <div className="w-16 h-16 rounded-2xl bg-[#0d3d73] flex items-center justify-center mb-3 shadow-md">
-                    <Icon name={step.icon} fallback="Circle" size={26} className="text-white" />
+                <div className={`flex flex-col items-center text-center w-full md:w-28 lg:w-32 px-1 ${howObs.inView ? `animate-fade-in-up delay-${i * 100}` : "opacity-0"}`}>
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-[#0d3d73] flex items-center justify-center mb-2 shadow-md">
+                    <Icon name={step.icon} fallback="Circle" size={22} className="text-white" />
                   </div>
-                  <span className="text-sm font-semibold text-[#0a1628] leading-tight">{step.label}</span>
+                  <span className="text-xs sm:text-sm font-semibold text-[#0a1628] leading-tight">{step.label}</span>
                 </div>
                 {i < flowSteps.length - 1 && (
-                  <div className="flex items-center justify-center my-3 md:my-0 md:mx-1">
-                    <Icon name="ChevronDown" size={22} className="text-[var(--blue)]/40 md:hidden" />
-                    <Icon name="ChevronRight" size={22} className="text-[var(--blue)]/40 hidden md:block" />
+                  <div className="hidden md:flex items-center justify-center md:mx-1">
+                    <Icon name="ChevronRight" size={18} className="text-[var(--blue)]/40" />
                   </div>
                 )}
               </div>
@@ -358,13 +357,13 @@ export default function Ism() {
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-4">Что мы контролируем</h2>
             <p className="text-gray-500 max-w-xl mx-auto">Единая точка контроля всех систем безопасности объекта</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
             {controls.map((c, i) => (
-              <div key={i} className={`flex items-center gap-4 p-5 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[var(--blue)]/30 hover:bg-[var(--blue-50)]/40 transition-all ${controlsObs.inView ? `animate-fade-in-up delay-${(i % 3) * 100 + 100}` : "opacity-0"}`}>
-                <div className="w-12 h-12 bg-[var(--blue)] rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Icon name={c.icon} fallback="Shield" size={22} className="text-white" />
+              <div key={i} className={`flex items-center gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-[var(--blue)]/30 hover:bg-[var(--blue-50)]/40 transition-all ${controlsObs.inView ? `animate-fade-in-up delay-${(i % 3) * 100 + 100}` : "opacity-0"}`}>
+                <div className="w-10 h-10 bg-[var(--blue)] rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Icon name={c.icon} fallback="Shield" size={18} className="text-white" />
                 </div>
-                <span className="font-semibold text-[#0a1628] leading-tight">{c.label}</span>
+                <span className="font-semibold text-[#0a1628] text-sm leading-tight">{c.label}</span>
               </div>
             ))}
           </div>
@@ -373,7 +372,7 @@ export default function Ism() {
 
       {/* ФОТО РАЗДЕЛИТЕЛЬ */}
       <section className="py-0">
-        <img src={ISM_IMAGE} alt="Оператор центра мониторинга следит за состоянием систем безопасности" className="w-full h-[360px] object-cover" />
+        <img src={ISM_IMAGE} alt="Оператор центра мониторинга следит за состоянием систем безопасности" className="w-full h-[200px] sm:h-[280px] md:h-[360px] object-cover" />
       </section>
 
       {/* ЧТО ПОЛУЧАЕТ КЛИЕНТ */}
@@ -383,13 +382,13 @@ export default function Ism() {
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-white mb-4">Что получает клиент</h2>
             <p className="text-white/50 max-w-xl mx-auto text-lg">Не функции. Результаты.</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-4 mb-12">
+          <div className="grid sm:grid-cols-2 gap-3 mb-12">
             {results.map((r, i) => (
-              <div key={i} className={`flex items-start gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors ${resultsObs.inView ? `animate-fade-in-up delay-${i * 80}` : "opacity-0"}`}>
-                <div className="w-7 h-7 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Icon name="Check" size={14} className="text-white" />
+              <div key={i} className={`flex items-start gap-3 p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors ${resultsObs.inView ? `animate-fade-in-up delay-${i * 80}` : "opacity-0"}`}>
+                <div className="w-6 h-6 bg-green-500 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Icon name="Check" size={13} className="text-white" />
                 </div>
-                <span className="text-white/90 leading-relaxed">{r}</span>
+                <span className="text-white/90 text-sm leading-relaxed">{r}</span>
               </div>
             ))}
           </div>
@@ -431,7 +430,7 @@ export default function Ism() {
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div className={`relative ${aboutObs.inView ? "animate-fade-in-left" : "opacity-0"}`}>
               <div className="rounded-2xl overflow-hidden">
-                <img src={MONTAZH_IMAGE} alt="Монтаж пожарной сигнализации — специалисты ПожДозор за работой" className="w-full h-[480px] object-cover" />
+                <img src={MONTAZH_IMAGE} alt="Монтаж пожарной сигнализации — специалисты ПожДозор за работой" className="w-full h-[280px] sm:h-[380px] lg:h-[480px] object-cover" />
               </div>
               <div className="absolute bottom-6 right-6 bg-[var(--blue-dark)] text-white rounded-2xl p-5 shadow-2xl max-w-[200px]">
                 <div className="font-display font-black text-3xl mb-1">10</div>
@@ -525,7 +524,7 @@ export default function Ism() {
           </div>
           <div className="grid lg:grid-cols-2 gap-10 items-stretch">
             <div className={`${certsObs.inView ? "animate-fade-in-left" : "opacity-0"}`}>
-              <img src={CERT_IMAGE} alt="Сертификаты" className="rounded-2xl w-full h-full object-cover object-top shadow-xl" style={{ minHeight: "340px" }} />
+              <img src={CERT_IMAGE} alt="Сертификаты" className="rounded-2xl w-full object-cover object-top shadow-xl" style={{ minHeight: "240px", maxHeight: "400px" }} />
             </div>
             <div className="grid grid-cols-1 gap-4 content-start">
               {certificates.map((c, i) => (
