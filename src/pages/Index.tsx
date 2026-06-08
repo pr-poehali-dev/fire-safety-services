@@ -9,7 +9,6 @@ const navLinks = [
   { label: "Услуги", href: "#services" },
   { label: "О компании", href: "#about" },
   { label: "Портфолио", href: "#portfolio" },
-  { label: "Сертификаты", href: "#certificates" },
   { label: "FAQ", href: "#faq" },
   { label: "Контакты", href: "#contacts" },
 ];
@@ -279,30 +278,32 @@ export default function Index() {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex flex-col items-end gap-1">
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setCallbackOpen(true)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border transition-colors btn-cta ${
+                  scrolled
+                    ? "border-[var(--blue)] text-[var(--blue)] hover:bg-[var(--blue-50)]"
+                    : "border-white/40 text-white hover:bg-white/10"
+                }`}
+              >
+                <Icon name="PhoneCall" size={13} />
+                Заказать звонок
+              </button>
+              <a
+                href="#contacts"
+                className="px-3 py-1.5 bg-[var(--blue)] text-white text-xs font-semibold rounded-lg hover:bg-[var(--blue-dark)] transition-colors"
+              >
+                Получить расчёт
+              </a>
+            </div>
             <a
               href="tel:+74994902201"
-              className={`flex items-center gap-2 text-sm font-semibold transition-colors ${scrolled ? "text-[var(--blue)]" : "text-white"}`}
+              className={`flex items-center gap-1.5 text-xs font-semibold transition-colors ${scrolled ? "text-[var(--blue)]" : "text-white/80"}`}
             >
-              <Icon name="Phone" size={15} />
+              <Icon name="Phone" size={12} />
               +7 (499) 490-22-01
-            </a>
-            <button
-              onClick={() => setCallbackOpen(true)}
-              className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg border transition-colors btn-cta ${
-                scrolled
-                  ? "border-[var(--blue)] text-[var(--blue)] hover:bg-[var(--blue-50)]"
-                  : "border-white/40 text-white hover:bg-white/10"
-              }`}
-            >
-              <Icon name="PhoneCall" size={15} />
-              Заказать звонок
-            </button>
-            <a
-              href="#contacts"
-              className="px-4 py-2 bg-[var(--blue)] text-white text-sm font-semibold rounded-lg hover:bg-[var(--blue-dark)] transition-colors"
-            >
-              Получить расчёт
             </a>
           </div>
 
