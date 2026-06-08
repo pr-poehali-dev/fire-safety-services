@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://fire-safety-services.poehali.app/sitemap.xml
+Sitemap: https://pozhdozor.ru/sitemap.xml
