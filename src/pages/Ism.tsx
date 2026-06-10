@@ -260,14 +260,14 @@ export default function Ism() {
                 Центр удалённого мониторинга · работает 24/7 · Лицензия МЧС
               </div>
               <h1 className="font-display font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1] mb-5">
-                Контролируем пожарную безопасность{" "}
+                Контролируем и обслуживаем пожарную безопасность{" "}
                 <span className="text-[var(--blue-light)]">24/7</span>
               </h1>
               <p className="text-base sm:text-lg text-white/75 leading-relaxed mb-3">
-                Удалённо отслеживаем состояние систем безопасности, выявляем неисправности и предупреждаем о проблемах до аварий и проверок.
+                Удалённо отслеживаем состояние систем безопасности, выявляем и ремонтируем неисправности до аварий и проверок.
               </p>
               <p className="text-base sm:text-lg text-white/90 font-medium leading-relaxed mb-8">
-                Узнайте о неисправности раньше, чем она приведёт к проблеме. Круглосуточный мониторинг с автоматическими уведомлениями и отчётностью.
+                Круглосуточный онлайн мониторинг всех противопожарных систем с автоматическими уведомлениями ответственных лиц. Ежедневная отчётность в доступной и понятной форме.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a href="#contacts" className="px-6 py-3.5 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-all text-center text-base">
