@@ -263,11 +263,8 @@ export default function Ism() {
                 Контролируем и обслуживаем пожарную безопасность{" "}
                 <span className="text-[var(--blue-light)]">24/7</span>
               </h1>
-              <p className="text-base sm:text-lg text-white/75 leading-relaxed mb-3">
-                Удалённо отслеживаем состояние систем безопасности, выявляем и ремонтируем неисправности до аварий и проверок.
-              </p>
               <p className="text-base sm:text-lg text-white/90 font-medium leading-relaxed mb-8">
-                Круглосуточный онлайн мониторинг всех противопожарных систем с автоматическими уведомлениями ответственных лиц. Ежедневная отчётность в доступной и понятной форме.
+                Удалённо отслеживаем состояние систем безопасности, выявляем и ремонтируем неисправности. Уведомляем ответственных лиц. Ежедневная отчётность в краткой и доступной форме.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a href="#contacts" className="px-6 py-3.5 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-all text-center text-base">
