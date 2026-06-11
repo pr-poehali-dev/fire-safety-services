@@ -124,7 +124,7 @@ const faqs = [
   },
   {
     q: "Даёте ли вы гарантию на работы?",
-    a: "Да, мы даём гарантию 3 года на все виды работ и оборудование. Гарантийное обслуживание — бесплатно. Дополнительно предлагаем договоры технического обслуживания.",
+    a: "Да, мы даём гарантию 1 год на все виды работ и оборудование. Гарантийное обслуживание — бесплатно. Дополнительно предлагаем договоры технического обслуживания.",
   },
   {
     q: "Работаете ли вы с юридическими лицами?",
@@ -395,9 +395,9 @@ export default function Index() {
             <div className={`hidden lg:flex flex-col gap-5 ${heroObs.inView ? "animate-scale-in delay-300" : "opacity-0"}`}>
               {[
                 { icon: "ShieldCheck", title: "Лицензия МЧС", sub: "Л014-00101-77/00112662" },
-                { icon: "Award", title: "Гарантия 3 года", sub: "на все виды работ" },
+                { icon: "Award", title: "Гарантия 1 год", sub: "на все виды работ" },
                 { icon: "Clock", title: "Выезд за 2 часа", sub: "по Москве и области" },
-                { icon: "Users", title: "80+ специалистов", sub: "сертифицированы" },
+                { icon: "Users", title: "40+ специалистов", sub: "сертифицированы" },
               ].map((item) => (
                 <div key={item.title} className="flex items-center gap-4 bg-white/8 backdrop-blur-sm border border-white/10 rounded-2xl px-6 py-4">
                   <div className="w-12 h-12 bg-[var(--blue)]/30 border border-[var(--blue-light)]/30 rounded-xl flex items-center justify-center flex-shrink-0">
