@@ -9,7 +9,6 @@ const CERT_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78
 
 const navLinks = [
   { label: "Как работает", href: "#how" },
-  { label: "Что контролируем", href: "#controls" },
   { label: "О компании", href: "#about" },
   { label: "Портфолио", href: "#portfolio" },
   { label: "FAQ", href: "#faq" },
@@ -190,17 +189,13 @@ export default function Ism() {
           </a>
 
           <nav className="hidden lg:flex items-center gap-4">
+            <Link to="/uslugi" className={`text-sm font-medium transition-colors whitespace-nowrap ${scrolled ? "text-[var(--dark)] hover:text-[var(--blue)]" : "text-white/90 hover:text-white"}`}>
+              Услуги
+            </Link>
             {navLinks.map((l) => (
-              <>
-                <a key={l.href} href={l.href} className={`text-sm font-medium transition-colors whitespace-nowrap ${scrolled ? "text-[var(--dark)] hover:text-[var(--blue)]" : "text-white/90 hover:text-white"}`}>
-                  {l.label}
-                </a>
-                {l.href === "#controls" && (
-                  <Link to="/uslugi" className={`text-sm font-medium transition-colors whitespace-nowrap ${scrolled ? "text-[var(--dark)] hover:text-[var(--blue)]" : "text-white/90 hover:text-white"}`}>
-                    Услуги
-                  </Link>
-                )}
-              </>
+              <a key={l.href} href={l.href} className={`text-sm font-medium transition-colors whitespace-nowrap ${scrolled ? "text-[var(--dark)] hover:text-[var(--blue)]" : "text-white/90 hover:text-white"}`}>
+                {l.label}
+              </a>
             ))}
           </nav>
 
@@ -230,14 +225,14 @@ export default function Ism() {
 
         {menuOpen && (
           <div className="lg:hidden bg-white border-t border-gray-100 shadow-xl">
+            <Link to="/uslugi" onClick={() => setMenuOpen(false)} className="block px-6 py-3 text-[var(--dark)] font-medium hover:bg-[var(--blue-50)] hover:text-[var(--blue)] transition-colors">
+              Услуги
+            </Link>
             {navLinks.map((l) => (
               <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)} className="block px-6 py-3 text-[var(--dark)] font-medium hover:bg-[var(--blue-50)] hover:text-[var(--blue)] transition-colors">
                 {l.label}
               </a>
             ))}
-            <Link to="/uslugi" onClick={() => setMenuOpen(false)} className="block px-6 py-3 text-[var(--dark)] font-medium hover:bg-[var(--blue-50)] hover:text-[var(--blue)] transition-colors">
-              Услуги
-            </Link>
             <div className="px-6 py-4 border-t border-gray-100">
               <a href="tel:+74994902201" className="block text-[var(--blue)] font-semibold mb-3">+7 (499) 490-22-01</a>
               <a href="#contacts" onClick={() => setMenuOpen(false)} className="block w-full text-center px-4 py-3 bg-[var(--blue)] text-white font-semibold rounded-lg">
@@ -307,7 +302,7 @@ export default function Ism() {
             { value: "24/7", label: "Техподдержка" },
           ].map((s, i) => (
             <div key={i}>
-              <div className="font-display font-black text-3xl md:text-4xl mb-1">{s.value}</div>
+              <div className="font-display font-black text-2xl md:text-4xl mb-1">{s.value}</div>
               <div className="text-white/60 text-sm">{s.label}</div>
             </div>
           ))}
@@ -435,7 +430,7 @@ export default function Ism() {
       {/* О НАС */}
       <section id="about" className="py-20 bg-white overflow-hidden">
         <div ref={aboutObs.ref} className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-14 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
             <div className={`relative ${aboutObs.inView ? "animate-fade-in-left" : "opacity-0"}`}>
               <div className="rounded-2xl overflow-hidden">
                 <img src={MONTAZH_IMAGE} alt="Монтаж пожарной сигнализации — специалисты ПожДозор за работой" className="w-full h-[280px] sm:h-[380px] lg:h-[480px] object-cover" />
@@ -494,7 +489,7 @@ export default function Ism() {
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[var(--dark)] mb-4">Портфолио</h2>
             <p className="text-[var(--gray)] max-w-xl mx-auto">Реализованные объекты — наша лучшая визитная карточка</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {portfolio.map((p, i) => (
               <div key={i} className={`bg-white rounded-2xl border border-gray-100 card-hover overflow-hidden ${portfolioObs.inView ? `animate-fade-in-up delay-${(i % 3) * 100 + 100}` : "opacity-0"}`}>
                 <div className="relative h-48 overflow-hidden">
@@ -527,7 +522,7 @@ export default function Ism() {
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[var(--dark)] mb-4">Сертификаты и лицензии</h2>
             <p className="text-[var(--gray)] max-w-xl mx-auto">Работаем в полном соответствии с законодательством. Все документы в наличии</p>
           </div>
-          <div className="grid lg:grid-cols-2 gap-10 items-stretch">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-stretch">
             <div className={`${certsObs.inView ? "animate-fade-in-left" : "opacity-0"}`}>
               <img src={CERT_IMAGE} alt="Сертификаты" className="rounded-2xl w-full object-cover object-top shadow-xl" style={{ minHeight: "240px", maxHeight: "400px" }} />
             </div>
@@ -592,9 +587,9 @@ export default function Ism() {
             <p className="text-[var(--gray)] max-w-xl mx-auto">Оставьте заявку и мы перезвоним в течение 15 минут</p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-stretch">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-stretch">
             <div className={`${contactsObs.inView ? "animate-fade-in-left" : "opacity-0"}`}>
-              <div className="bg-[var(--gray-light)] rounded-2xl p-8 h-full flex flex-col">
+              <div className="bg-[var(--gray-light)] rounded-2xl p-4 sm:p-8 h-full flex flex-col">
                 <h3 className="font-display font-bold text-xl text-[var(--dark)] mb-6">Подключить мониторинг</h3>
                 {formState === "success" ? (
                   <div className="text-center py-10">
