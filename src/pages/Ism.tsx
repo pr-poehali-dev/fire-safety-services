@@ -260,10 +260,10 @@ export default function Ism() {
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
               <div className="flex flex-wrap items-center gap-3 mb-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white/80 text-xs sm:text-sm font-medium">
+                <a href="#contacts" className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white/80 text-xs sm:text-sm font-medium hover:bg-white/15 transition-colors">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
                   Центр удалённого мониторинга · работает 24/7 · Лицензия МЧС
-                </div>
+                </a>
                 <a href="#contacts" className="inline-flex flex-col items-start px-3 py-1.5 bg-white/10 border border-red-500/70 rounded-full text-white/80 text-xs sm:text-sm font-medium hover:bg-white/15 transition-colors animate-pulse-border">
                   <span className="flex items-center gap-1.5">
                     <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse flex-shrink-0" />
@@ -649,7 +649,7 @@ export default function Ism() {
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-stretch">
             <div className={`${contactsObs.inView ? "animate-fade-in-left" : "opacity-0"}`}>
               <div className="bg-[var(--gray-light)] rounded-2xl p-4 sm:p-8 h-full flex flex-col">
-                <h3 className="font-display font-bold text-xl text-[var(--dark)] mb-6">Подключить мониторинг</h3>
+                <h3 className="font-display font-bold text-xl text-[var(--dark)] mb-6">Оставить заявку</h3>
                 {formState === "success" ? (
                   <div className="text-center py-10">
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
