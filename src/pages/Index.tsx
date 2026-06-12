@@ -241,20 +241,26 @@ export default function Index() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between h-16 md:h-20">
-          <a href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-[var(--blue)] flex items-center justify-center group-hover:bg-[var(--blue-light)] transition-colors">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between h-16 md:h-20 py-3 lg:py-0">
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-10 h-10 rounded-lg bg-[var(--blue)] flex items-center justify-center flex-shrink-0">
               <Icon name="ShieldCheck" size={20} className="text-white" />
             </div>
-            <div>
-              <div className={`font-display font-extrabold text-base leading-none transition-colors`}>
-                <span className={scrolled ? "text-[var(--dark)]" : "text-white"}>Пож</span><span className="text-[var(--blue)]">Дозор</span>
-              </div>
-              <div className={`text-[10px] font-medium tracking-widest uppercase transition-colors ${scrolled ? "text-[var(--blue)]" : "text-blue-300"}`}>
-                Комплексная безопасность
-              </div>
+            <div className="flex flex-col min-w-0">
+              <a href="/">
+                <div className="font-display font-extrabold text-base leading-none">
+                  <span className={scrolled ? "text-[var(--dark)]" : "text-white"}>Пож</span><span className="text-[var(--blue)]">Дозор</span>
+                </div>
+                <div className={`text-[10px] font-medium tracking-wider uppercase transition-colors ${scrolled ? "text-[var(--blue)]" : "text-blue-300"}`}>
+                  Мониторинг 24/7
+                </div>
+              </a>
+              <a href="tel:+74994902201" className={`lg:hidden flex items-center gap-1 text-[11px] font-semibold mt-0.5 transition-colors ${scrolled ? "text-[var(--blue)]" : "text-white/80"}`}>
+                <Icon name="Phone" size={11} />
+                +7 (499) 490-22-01
+              </a>
             </div>
-          </a>
+          </div>
 
           <nav className="hidden lg:flex items-center gap-6">
             <a
