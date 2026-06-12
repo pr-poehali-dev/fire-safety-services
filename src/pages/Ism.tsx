@@ -212,7 +212,7 @@ export default function Ism() {
             ))}
           </nav>
 
-          <div className="hidden md:flex flex-col items-end gap-1">
+          <div className="hidden lg:flex flex-col items-end gap-1">
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setCallbackOpen(true)}
