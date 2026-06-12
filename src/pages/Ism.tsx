@@ -171,14 +171,6 @@ export default function Ism() {
   return (
     <div className="min-h-screen bg-white font-sans">
 
-      {/* МОБИЛЬНАЯ ПОЛОСКА С ТЕЛЕФОНОМ */}
-      <div className="md:hidden bg-[#0a1628] text-white text-center py-2 px-4 text-sm font-semibold">
-        <a href="tel:+74994902201" className="flex items-center justify-center gap-2">
-          <Icon name="Phone" size={14} className="text-green-400" />
-          +7 (499) 490-22-01
-        </a>
-      </div>
-
       {/* ШАПКА */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-[0_2px_20px_rgba(26,95,180,0.1)]" : "bg-transparent"}`}>
         <div className="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between lg:h-20 py-3 lg:py-0">
@@ -195,7 +187,10 @@ export default function Ism() {
                   Мониторинг 24/7
                 </div>
               </a>
-
+              <a href="tel:+74994902201" className={`lg:hidden flex items-center gap-1 text-[12px] font-bold mt-0.5 transition-colors ${scrolled ? "text-[var(--blue)]" : "text-white"}`}>
+                <Icon name="Phone" size={12} />
+                +7 (499) 490-22-01
+              </a>
             </div>
           </div>
 
