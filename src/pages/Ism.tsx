@@ -341,14 +341,31 @@ export default function Ism() {
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-4">Как это работает</h2>
             <p className="text-gray-700 max-w-2xl mx-auto text-lg md:text-xl font-medium">Мы подключаем Вашу пожарную сигнализацию и другое оборудование к Нашему Ситуационному Центру мониторинга, где операторы круглосуточно следят за техническим состоянием всех противопожарных систем и при необходимости отправляют ремонтную бригаду.</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-row md:items-start justify-center gap-6 md:gap-0">
+          {/* Мобиль: вертикальная цепочка-бусы */}
+          <div className="flex flex-col items-center md:hidden">
             {flowSteps.map((step, i) => (
-              <div key={i} className="flex md:flex-row items-start">
-                <div className={`flex flex-col items-center text-center w-full md:w-28 lg:w-32 px-1 ${howObs.inView ? `animate-fade-in-up delay-${i * 100}` : "opacity-0"}`}>
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-[#0d3d73] flex items-center justify-center mb-2 shadow-md">
+              <div key={i} className={`flex flex-col items-center ${howObs.inView ? `animate-fade-in-up delay-${i * 100}` : "opacity-0"}`}>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-[#0d3d73] flex items-center justify-center shadow-md flex-shrink-0">
                     <Icon name={step.icon} fallback="Circle" size={22} className="text-white" />
                   </div>
-                  <span className="text-xs sm:text-sm font-semibold text-[#0a1628] leading-tight">{step.label}</span>
+                  <span className="text-sm font-semibold text-[#0a1628] leading-tight">{step.label}</span>
+                </div>
+                {i < flowSteps.length - 1 && (
+                  <div className="w-px h-8 bg-[var(--blue)]/30 my-1" />
+                )}
+              </div>
+            ))}
+          </div>
+          {/* Десктоп: горизонтальная цепочка */}
+          <div className="hidden md:flex md:flex-row md:items-start justify-center">
+            {flowSteps.map((step, i) => (
+              <div key={i} className="flex md:flex-row items-start">
+                <div className={`flex flex-col items-center text-center w-28 lg:w-32 px-1 ${howObs.inView ? `animate-fade-in-up delay-${i * 100}` : "opacity-0"}`}>
+                  <div className="w-14 h-14 rounded-2xl bg-[#0d3d73] flex items-center justify-center mb-2 shadow-md">
+                    <Icon name={step.icon} fallback="Circle" size={22} className="text-white" />
+                  </div>
+                  <span className="text-sm font-semibold text-[#0a1628] leading-tight">{step.label}</span>
                 </div>
                 {i < flowSteps.length - 1 && (
                   <div className="flex items-center justify-center mt-5 mx-1">
