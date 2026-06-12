@@ -259,18 +259,11 @@ export default function Ism() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 pt-24 md:pt-32 pb-16">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <div className="flex flex-col gap-2 mb-6">
-                <div className="flex flex-col sm:flex-row gap-2">
-                  <a href="#contacts" className="flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white/80 text-xs font-medium hover:bg-white/15 transition-colors whitespace-nowrap">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
-                    Центр удалённого мониторинга · 24/7 · Лицензия МЧС
-                  </a>
-                  <a href="#contacts" className="flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-red-500/70 rounded-full text-white/80 text-xs font-medium hover:bg-white/15 transition-colors animate-pulse-border whitespace-nowrap">
-                    <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse flex-shrink-0" />
-                    Срочный ремонт пожарной сигнализации
-                  </a>
-                </div>
-                <p className="text-[11px] text-white/40 pl-1">Выезд от 1 часа · Диагностика от 0 ₽ · Выезд инженера — 1 500 ₽, если ремонт не нужен</p>
+              <div className="mb-6">
+                <a href="#contacts" className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white/80 text-xs font-medium hover:bg-white/15 transition-colors whitespace-nowrap">
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
+                  Центр удалённого мониторинга · 24/7 · Лицензия МЧС
+                </a>
               </div>
               <h1 className="font-display font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1] mb-5">
                 Контролируем и обслуживаем пожарную безопасность{" "}
@@ -289,6 +282,13 @@ export default function Ism() {
               </div>
             </div>
             <div className="hidden lg:flex flex-col gap-5">
+              <div className="flex flex-col items-start gap-1">
+                <a href="#contacts" className="flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-red-500/70 rounded-full text-white/80 text-xs font-medium hover:bg-white/15 transition-colors animate-pulse-border whitespace-nowrap">
+                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse flex-shrink-0" />
+                  Срочный ремонт пожарной сигнализации
+                </a>
+                <p className="text-[11px] text-white/40 pl-1">Выезд от 1 часа · Диагностика от 0 ₽ · Выезд инженера — 1 500 ₽, если ремонт не нужен</p>
+              </div>
               {[
                 { icon: "Eye", title: "Мониторинг 24/7", sub: "круглосуточный контроль" },
                 { icon: "BellRing", title: "Реакция за 5 минут", sub: "при обнаружении неисправности" },
