@@ -260,12 +260,12 @@ export default function Ism() {
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
               <div className="flex flex-col gap-2 mb-6">
-                <div className="flex flex-wrap items-center gap-3">
-                  <a href="#contacts" className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white/80 text-xs sm:text-sm font-medium hover:bg-white/15 transition-colors">
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <a href="#contacts" className="flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white/80 text-xs font-medium hover:bg-white/15 transition-colors whitespace-nowrap">
                     <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
-                    Центр удалённого мониторинга · работает 24/7 · Лицензия МЧС
+                    Центр удалённого мониторинга · 24/7 · Лицензия МЧС
                   </a>
-                  <a href="#contacts" className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-red-500/70 rounded-full text-white/80 text-xs sm:text-sm font-medium hover:bg-white/15 transition-colors animate-pulse-border">
+                  <a href="#contacts" className="flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-red-500/70 rounded-full text-white/80 text-xs font-medium hover:bg-white/15 transition-colors animate-pulse-border whitespace-nowrap">
                     <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse flex-shrink-0" />
                     Срочный ремонт пожарной сигнализации
                   </a>
