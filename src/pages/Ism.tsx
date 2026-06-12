@@ -195,10 +195,7 @@ export default function Ism() {
                   Мониторинг 24/7
                 </div>
               </a>
-              <a href="tel:+74994902201" className={`lg:hidden flex items-center gap-1 text-[11px] font-semibold mt-0.5 transition-colors ${scrolled ? "text-[var(--blue)]" : "text-white/80"}`}>
-                <Icon name="Phone" size={11} />
-                +7 (499) 490-22-01
-              </a>
+
             </div>
           </div>
 
