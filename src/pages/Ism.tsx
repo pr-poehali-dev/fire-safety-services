@@ -21,8 +21,7 @@ const flowSteps = [
   { icon: "MonitorDot", label: "Центр мониторинга" },
   { icon: "BrainCircuit", label: "Анализ состояния" },
   { icon: "BellRing", label: "Уведомление клиента" },
-  { icon: "Wrench", label: "Реагирование" },
-  { icon: "HardHat", label: "Ремонтная бригада" },
+  { icon: "Wrench", label: "Ремонтная бригада" },
 ];
 
 const controls = [
