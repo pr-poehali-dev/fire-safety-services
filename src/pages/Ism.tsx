@@ -181,18 +181,17 @@ export default function Ism() {
 
       {/* ШАПКА */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-[0_2px_20px_rgba(26,95,180,0.1)]" : "bg-transparent"}`}>
-        <div className="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between lg:h-20 py-2 lg:py-0">
-          <div className="flex items-center gap-3 flex-shrink-0">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-between lg:h-20 py-3 lg:py-0">
+          <div className="flex items-center gap-3 min-w-0">
             <div className="w-10 h-10 rounded-lg bg-[var(--blue)] flex items-center justify-center flex-shrink-0">
               <Icon name="ShieldCheck" size={20} className="text-white" />
             </div>
-            <div className="flex flex-col">
-              <a href="#top" onClick={(e) => { e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); }} className="group">
-                <div className="font-display font-extrabold text-base leading-none whitespace-nowrap">
-                  <span className={scrolled ? "text-[var(--dark)]" : "text-white"}>Пож</span>
-                  <span className="text-[var(--blue)]">Дозор</span>
+            <div className="flex flex-col min-w-0">
+              <a href="#top" onClick={(e) => { e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); }}>
+                <div className="font-display font-extrabold text-base leading-none">
+                  <span className={scrolled ? "text-[var(--dark)]" : "text-white"}>Пож</span><span className="text-[var(--blue)]">Дозор</span>
                 </div>
-                <div className={`text-[10px] font-medium tracking-wider uppercase transition-colors whitespace-nowrap ${scrolled ? "text-[var(--blue)]" : "text-blue-300"}`}>
+                <div className={`text-[10px] font-medium tracking-wider uppercase transition-colors ${scrolled ? "text-[var(--blue)]" : "text-blue-300"}`}>
                   Мониторинг 24/7
                 </div>
               </a>
