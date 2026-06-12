@@ -379,15 +379,52 @@ export default function Ism() {
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-white mb-4">Что получает клиент</h2>
             <p className="text-white/50 max-w-xl mx-auto text-lg">Не функции. Результаты.</p>
           </div>
-          <div className="grid sm:grid-cols-2 gap-3 mb-12">
-            {results.map((r, i) => (
-              <div key={i} className={`flex items-start gap-3 p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors ${resultsObs.inView ? `animate-fade-in-up delay-${i * 80}` : "opacity-0"}`}>
-                <div className="w-6 h-6 bg-green-500 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Icon name="Check" size={13} className="text-white" />
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            {/* С мониторингом */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <div className="flex items-center gap-2 mb-5">
+                <div className="w-7 h-7 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Icon name="Check" size={15} className="text-white" />
                 </div>
-                <span className="text-white/90 text-base md:text-sm leading-relaxed">{r}</span>
+                <span className="font-display font-bold text-white text-base">С мониторингом ПожДозор</span>
               </div>
-            ))}
+              <ul className="space-y-3">
+                {results.map((r, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="w-5 h-5 bg-green-500 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon name="Check" size={11} className="text-white" />
+                    </div>
+                    <span className="text-white/90 text-sm leading-relaxed">{r}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Без мониторинга */}
+            <div className="bg-white/5 border border-red-500/20 rounded-2xl p-6">
+              <div className="flex items-center gap-2 mb-5">
+                <div className="w-7 h-7 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Icon name="X" size={15} className="text-white" />
+                </div>
+                <span className="font-display font-bold text-white text-base">Без мониторинга</span>
+              </div>
+              <ul className="space-y-3">
+                {[
+                  "Неисправность обнаруживается только во время ТО",
+                  "Потеря связи с датчиками остаётся незамеченной",
+                  "Нет уверенности, что система сработает в нужный момент",
+                  "Есть риск позднего обнаружения пожара",
+                  "Проверка выявляет нарушения раньше вас",
+                  "Растут риски штрафов и предписаний",
+                ].map((r, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="w-5 h-5 bg-red-500 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon name="X" size={11} className="text-white" />
+                    </div>
+                    <span className="text-white/70 text-sm leading-relaxed">{r}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Тарифы */}
