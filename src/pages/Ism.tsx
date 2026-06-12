@@ -251,16 +251,20 @@ export default function Ism() {
       </header>
 
       {/* ГЕРОЙ */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0a1628]">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0a1628] w-full">
         <div className="absolute inset-0 bg-cover bg-center opacity-40" style={{ backgroundImage: `url(${ISM_IMAGE})` }} />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628] via-[#0a1628]/80 to-transparent" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 pt-24 md:pt-32 pb-16">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 lg:px-8 pt-24 md:pt-32 pb-16">
           <div className="grid lg:grid-cols-2 gap-10 items-start">
-            <div>
-              <div className="mb-6">
-                <a href="#contacts" className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white/80 text-xs font-medium hover:bg-white/15 transition-colors max-w-full">
+            <div className="w-full min-w-0">
+              <div className="mb-4 flex flex-wrap gap-2">
+                <a href="#contacts" className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white/80 text-xs font-medium hover:bg-white/15 transition-colors">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
-                  <span className="truncate">Центр удалённого мониторинга · 24/7 · Лицензия МЧС</span>
+                  Центр мониторинга · 24/7 · Лицензия МЧС
+                </a>
+                <a href="#contacts" className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-red-500/70 rounded-full text-white/80 text-xs font-medium hover:bg-white/15 transition-colors lg:hidden">
+                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse flex-shrink-0" />
+                  Срочный ремонт сигнализации
                 </a>
               </div>
               <h1 className="font-display font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1] mb-5">
