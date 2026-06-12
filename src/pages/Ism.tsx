@@ -169,7 +169,7 @@ export default function Ism() {
   const contactsObs = useInView(0.1);
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-white font-sans overflow-x-hidden">
 
       {/* ШАПКА */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-[0_2px_20px_rgba(26,95,180,0.1)]" : "bg-transparent"}`}>
@@ -257,12 +257,12 @@ export default function Ism() {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 lg:px-8 pt-24 md:pt-32 pb-16">
           <div className="grid lg:grid-cols-2 gap-10 items-start">
             <div className="w-full min-w-0">
-              <div className="mb-4 flex flex-wrap gap-2">
-                <a href="#contacts" className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white/80 text-xs font-medium hover:bg-white/15 transition-colors">
+              <div className="mb-4 flex flex-col gap-2">
+                <a href="#contacts" className="self-start inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white/80 text-xs font-medium hover:bg-white/15 transition-colors">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
-                  Центр мониторинга · 24/7 · Лицензия МЧС
+                  Мониторинг 24/7 · Лицензия МЧС
                 </a>
-                <a href="#contacts" className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-red-500/70 rounded-full text-white/80 text-xs font-medium hover:bg-white/15 transition-colors lg:hidden">
+                <a href="#contacts" className="self-start inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-red-500/70 rounded-full text-white/80 text-xs font-medium hover:bg-white/15 transition-colors lg:hidden">
                   <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse flex-shrink-0" />
                   Срочный ремонт сигнализации
                 </a>
