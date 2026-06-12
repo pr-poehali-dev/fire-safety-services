@@ -457,7 +457,7 @@ export default function Index() {
               return (
                 <div
                   key={i}
-                  className={`bg-white rounded-2xl border border-gray-100 card-hover overflow-hidden ${
+                  className={`bg-white rounded-2xl border-2 border-gray-200 card-hover overflow-hidden ${
                     servicesObs.inView ? `animate-fade-in-up delay-${(i % 3) * 100 + 100}` : "opacity-0"
                   }`}
                 >
@@ -474,7 +474,7 @@ export default function Index() {
                     </div>
                   </div>
                   <div className="p-5">
-                    <h3 className="font-display font-bold text-base text-[var(--dark)] mb-2">{s.title}</h3>
+                    <h3 className="font-display font-bold text-lg sm:text-xl text-[var(--dark)] mb-2">{s.title}</h3>
                     <p className="text-[var(--gray)] text-sm leading-relaxed mb-3">{s.desc}</p>
                     <button
                       onClick={() => toggleService(i)}
