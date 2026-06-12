@@ -383,9 +383,7 @@ export default function Ism() {
             {/* С мониторингом */}
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-5">
-                <div className="w-7 h-7 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Icon name="Check" size={15} className="text-white" />
-                </div>
+                <Icon name="ShieldCheck" size={26} className="text-green-400 flex-shrink-0" />
                 <span className="font-display font-bold text-white text-base">С мониторингом ПожДозор</span>
               </div>
               <ul className="space-y-3">
@@ -402,9 +400,7 @@ export default function Ism() {
             {/* Без мониторинга */}
             <div className="bg-white/5 border border-red-500/20 rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-5">
-                <div className="w-7 h-7 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Icon name="X" size={15} className="text-white" />
-                </div>
+                <Icon name="ShieldOff" size={26} className="text-red-400 flex-shrink-0" />
                 <span className="font-display font-bold text-white text-base">Без мониторинга</span>
               </div>
               <ul className="space-y-3">
@@ -425,6 +421,14 @@ export default function Ism() {
                 ))}
               </ul>
             </div>
+          </div>
+
+          <div className="text-center mb-12">
+            <a href="#contacts" className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-all text-lg">
+              <Icon name="PhoneCall" size={20} />
+              Подключить мониторинг
+            </a>
+            <p className="text-white/40 text-sm mt-3">Бесплатный выезд инженера и расчёт стоимости</p>
           </div>
 
           {/* Тарифы */}
