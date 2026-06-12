@@ -342,18 +342,22 @@ export default function Ism() {
             <p className="text-gray-700 max-w-2xl mx-auto text-lg md:text-xl font-medium">Мы подключаем Вашу пожарную сигнализацию и другое оборудование к Нашему Ситуационному Центру мониторинга, где операторы круглосуточно следят за техническим состоянием всех противопожарных систем и при необходимости отправляют ремонтную бригаду.</p>
           </div>
           {/* Мобиль: вертикальная цепочка-бусы */}
-          <div className="flex flex-col items-center md:hidden">
+          <div className="flex flex-col md:hidden w-full max-w-xs mx-auto">
             {flowSteps.map((step, i) => (
-              <div key={i} className={`flex flex-col items-center ${howObs.inView ? `animate-fade-in-up delay-${i * 100}` : "opacity-0"}`}>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#0d3d73] flex items-center justify-center shadow-md flex-shrink-0">
+              <div key={i} className={`flex flex-row items-stretch gap-4 ${howObs.inView ? `animate-fade-in-up delay-${i * 100}` : "opacity-0"}`}>
+                {/* Левая колонка: иконка + линия */}
+                <div className="flex flex-col items-center flex-shrink-0" style={{ width: 48 }}>
+                  <div className="w-12 h-12 rounded-2xl bg-[#0d3d73] flex items-center justify-center shadow-md">
                     <Icon name={step.icon} fallback="Circle" size={22} className="text-white" />
                   </div>
+                  {i < flowSteps.length - 1 && (
+                    <div className="w-px flex-1 bg-[var(--blue)]/25 my-1" />
+                  )}
+                </div>
+                {/* Правая колонка: текст */}
+                <div className="flex items-center pb-6">
                   <span className="text-sm font-semibold text-[#0a1628] leading-tight">{step.label}</span>
                 </div>
-                {i < flowSteps.length - 1 && (
-                  <div className="w-px h-8 bg-[var(--blue)]/30 my-1" />
-                )}
               </div>
             ))}
           </div>
