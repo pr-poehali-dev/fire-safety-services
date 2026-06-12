@@ -790,7 +790,7 @@ export default function Ism() {
               <div className="font-display font-bold text-sm mb-4 text-gray-300 uppercase tracking-wider">Разделы</div>
               <ul className="space-y-2">
                 <li>
-                  <Link to="/uslugi" className="text-gray-400 text-sm hover:text-[var(--blue-light)] transition-colors">Услуги</Link>
+                  <Link to="/uslugi" reloadDocument className="text-gray-400 text-sm hover:text-[var(--blue-light)] transition-colors">Услуги</Link>
                 </li>
                 {navLinks.map((l) => (
                   <li key={l.href}>
