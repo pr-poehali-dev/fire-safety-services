@@ -258,9 +258,9 @@ export default function Ism() {
           <div className="grid lg:grid-cols-2 gap-10 items-start">
             <div>
               <div className="mb-6">
-                <a href="#contacts" className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white/80 text-xs font-medium hover:bg-white/15 transition-colors whitespace-nowrap">
+                <a href="#contacts" className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white/80 text-xs font-medium hover:bg-white/15 transition-colors max-w-full">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
-                  Центр удалённого мониторинга · 24/7 · Лицензия МЧС
+                  <span className="truncate">Центр удалённого мониторинга · 24/7 · Лицензия МЧС</span>
                 </a>
               </div>
               <h1 className="font-display font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1] mb-5">
