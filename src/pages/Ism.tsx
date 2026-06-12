@@ -264,10 +264,12 @@ export default function Ism() {
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
                   Центр удалённого мониторинга · работает 24/7 · Лицензия МЧС
                 </div>
-                <a href="#contacts" className="inline-flex flex-col items-start px-4 py-2 bg-red-600 hover:bg-red-700 transition-colors rounded-xl text-white">
-                  <span className="text-xs sm:text-sm font-bold leading-tight">Срочный ремонт пожарной сигнализации</span>
-                  <span className="text-[10px] sm:text-xs text-red-200 leading-tight">Выезд от 1 часа · Диагностика от 0 ₽</span>
-                  <span className="text-[10px] text-red-300 leading-tight">Выезд инженера — 1 500 ₽, если ремонт не нужен</span>
+                <a href="#contacts" className="inline-flex flex-col items-start px-3 py-1.5 bg-white/10 border border-red-500/70 rounded-full text-white/80 text-xs sm:text-sm font-medium hover:bg-white/15 transition-colors animate-pulse-border">
+                  <span className="flex items-center gap-1.5">
+                    <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse flex-shrink-0" />
+                    <span className="font-bold">Срочный ремонт пожарной сигнализации</span>
+                  </span>
+                  <span className="text-[10px] sm:text-xs text-white/50 pl-3.5">Выезд от 1 часа · Диагностика от 0 ₽ · Выезд инженера — 1 500 ₽</span>
                 </a>
               </div>
               <h1 className="font-display font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1] mb-5">
