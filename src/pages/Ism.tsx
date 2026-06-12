@@ -21,7 +21,7 @@ const flowSteps = [
   { icon: "MonitorDot", label: "Центр мониторинга" },
   { icon: "BrainCircuit", label: "Анализ состояния" },
   { icon: "BellRing", label: "Уведомление клиента" },
-  { icon: "Wrench", label: "Ремонтная бригада" },
+  { icon: "Wrench", label: "Выезд ремонтной бригады" },
 ];
 
 const controls = [
@@ -351,7 +351,9 @@ export default function Ism() {
                     <Icon name={step.icon} fallback="Circle" size={22} className="text-white" />
                   </div>
                   {i < flowSteps.length - 1 && (
-                    <div className="w-px flex-1 bg-[var(--blue)]/25 my-1" />
+                    <div className="flex items-center justify-center my-1 h-8">
+                      <Icon name="ChevronDown" size={22} className="text-[var(--blue)]" />
+                    </div>
                   )}
                 </div>
                 {/* Правая колонка: текст */}
