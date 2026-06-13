@@ -339,7 +339,7 @@ export default function Ism() {
               <div className="section-divider w-8" />
             </div>
             <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[#0a1628] mb-4">Как это работает</h2>
-            <p className="text-gray-700 max-w-2xl mx-auto text-lg md:text-xl font-medium">Мы подключаем Вашу пожарную сигнализацию и другое оборудование к Нашему Ситуационному Центру мониторинга, где операторы круглосуточно следят за техническим состоянием всех противопожарных систем и при необходимости отправляют ремонтную бригаду.</p>
+            <p className="text-gray-700 max-w-2xl mx-auto text-base md:text-xl font-medium text-left md:text-center">Мы подключаем Вашу пожарную сигнализацию и другое оборудование к Нашему Ситуационному Центру мониторинга, где операторы круглосуточно следят за техническим состоянием всех противопожарных систем и при необходимости отправляют ремонтную бригаду.</p>
           </div>
           {/* Мобиль: вертикальная цепочка-бусы */}
           <div className="flex flex-col md:hidden w-full max-w-xs mx-auto">
