@@ -381,6 +381,22 @@ export default function Ism() {
               </div>
             ))}
           </div>
+          <div className={`mt-12 max-w-2xl mx-auto bg-white border border-[var(--blue)]/15 rounded-2xl px-6 py-6 shadow-sm ${howObs.inView ? "animate-fade-in-up" : "opacity-0"}`}>
+            <p className="text-[#0a1628] font-semibold text-base mb-3">Работает с вашей текущей системой обслуживания</p>
+            <ul className="flex flex-col gap-2">
+              {[
+                "не требует замены подрядчика",
+                "не требует модернизации АПС",
+                "подключается к действующему оборудованию",
+                "помогает контролировать состояние системы между плановыми ТО",
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-2 text-gray-600 text-sm">
+                  <Icon name="Check" size={16} className="text-[var(--blue)] mt-0.5 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
