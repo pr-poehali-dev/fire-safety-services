@@ -382,7 +382,7 @@ export default function Ism() {
             ))}
           </div>
           <div className={`mt-12 max-w-2xl mx-auto bg-white border border-[var(--blue)]/15 rounded-2xl px-6 py-6 shadow-sm ${howObs.inView ? "animate-fade-in-up" : "opacity-0"}`}>
-            <p className="text-[#0a1628] font-semibold text-base mb-3">Работает с вашей текущей системой обслуживания</p>
+            <p className="text-[#0a1628] font-semibold text-base mb-3">При необходимости работает с вашей текущей системой обслуживания</p>
             <ul className="flex flex-col gap-2">
               {[
                 "не требует замены подрядчика",
