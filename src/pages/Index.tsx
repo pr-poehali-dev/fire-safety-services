@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
+const VkIcon = ({ size = 16, className = "" }: { size?: number; className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.587-1.496c.6-.19 1.37 1.261 2.185 1.817.617.42 1.085.328 1.085.328l2.180-.03s1.139-.071.599-.964c-.044-.073-.314-.661-1.618-1.869-1.366-1.265-1.183-1.060.462-3.246.999-1.33 1.399-2.142 1.274-2.490-.12-.332-.854-.244-.854-.244l-2.455.015s-.182-.025-.317.055c-.133.079-.218.264-.218.264s-.387 1.056-.902 1.954c-1.086 1.843-1.52 1.940-1.698 1.826-.413-.267-.31-1.075-.31-1.648 0-1.793.271-2.540-.529-2.733-.266-.065-.46-.107-1.141-.114-.872-.009-1.610.003-2.028.207-.278.135-.493.437-.362.454.162.022.528.099.722.363.25.345.241 1.118.241 1.118s.144 2.112-.335 2.372c-.329.177-.78-.184-1.748-1.836-.496-.859-.870-1.810-.870-1.810s-.072-.177-.203-.272c-.158-.115-.379-.151-.379-.151l-2.333.015s-.35.01-.478.163c-.115.136-.009.418-.009.418s1.826 4.271 3.893 6.423c1.896 1.974 4.047 1.843 4.047 1.843h.975z"/>
+  </svg>
+);
+
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/bcbeb4b0-58b1-4df4-8045-320330c10235.jpg";
 const PANEL_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/505ffc71-e2d6-403c-8cfb-8470c1467b9e.jpg";
 const CERT_IMAGE = "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/0467becb-2d83-4414-8a10-6389014bfee0.png";
@@ -922,6 +928,10 @@ export default function Index() {
                 <li className="flex items-start gap-2">
                   <Icon name="MapPin" size={14} className="text-[var(--blue-light)] mt-0.5" />
                   ул. 5-я Магистральная, д. 12, офис 410
+                </li>
+                <li className="flex items-center gap-2">
+                  <VkIcon size={14} className="text-[var(--blue-light)]" />
+                  <a href="https://vk.com/club239578012" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Сообщество ВКонтакте</a>
                 </li>
               </ul>
             </div>
