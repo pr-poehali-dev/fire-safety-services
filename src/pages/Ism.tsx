@@ -777,6 +777,10 @@ export default function Ism() {
                     Заказать звонок
                   </button>
                 </div>
+                <a href="https://vk.com/club239578012" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-white font-semibold px-5 py-3 rounded-xl hover:bg-white/20 transition-colors text-sm w-full">
+                  <Icon name="Users" size={16} />
+                  Сообщество ВКонтакте
+                </a>
               </div>
             </div>
           </div>
@@ -835,6 +839,10 @@ export default function Ism() {
                 <li className="flex items-center gap-2"><Icon name="Phone" size={14} className="text-[var(--blue-light)]" />+7 (499) 490-22-01</li>
                 <li className="flex items-center gap-2"><Icon name="Mail" size={14} className="text-[var(--blue-light)]" />skpb01@mail.ru</li>
                 <li className="flex items-start gap-2"><Icon name="MapPin" size={14} className="text-[var(--blue-light)] mt-0.5" />ул. 5-я Магистральная, д. 12, офис 410</li>
+                <li className="flex items-center gap-2">
+                  <Icon name="Users" size={14} className="text-[var(--blue-light)]" />
+                  <a href="https://vk.com/club239578012" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Сообщество ВКонтакте</a>
+                </li>
               </ul>
             </div>
           </div>
