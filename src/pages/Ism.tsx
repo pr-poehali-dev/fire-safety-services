@@ -767,20 +767,22 @@ export default function Ism() {
                   <div className="font-display font-extrabold text-lg mb-2">Выезд специалиста — бесплатно</div>
                   <p className="text-blue-200 text-sm mb-5">Приедем, осмотрим объект и составим смету без обязательств</p>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <a href="tel:+74994902201" className="flex-1 inline-flex items-center justify-center gap-2 bg-white text-[var(--blue)] font-bold px-5 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm">
-                    <Icon name="Phone" size={16} />
-                    Позвонить сейчас
+                <div className="flex flex-col gap-3">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <a href="tel:+74994902201" className="flex-1 inline-flex items-center justify-center gap-2 bg-white text-[var(--blue)] font-bold px-5 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm">
+                      <Icon name="Phone" size={16} />
+                      Позвонить сейчас
+                    </a>
+                    <button onClick={() => setCallbackOpen(true)} className="flex-1 inline-flex items-center justify-center gap-2 bg-white/15 border border-white/30 text-white font-bold px-5 py-3 rounded-xl hover:bg-white/25 transition-colors text-sm">
+                      <Icon name="PhoneCall" size={16} />
+                      Заказать звонок
+                    </button>
+                  </div>
+                  <a href="https://vk.com/club239578012" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-white font-semibold px-5 py-3 rounded-xl hover:bg-white/20 transition-colors text-sm">
+                    <Icon name="Users" size={16} />
+                    Сообщество ВКонтакте
                   </a>
-                  <button onClick={() => setCallbackOpen(true)} className="flex-1 inline-flex items-center justify-center gap-2 bg-white/15 border border-white/30 text-white font-bold px-5 py-3 rounded-xl hover:bg-white/25 transition-colors text-sm">
-                    <Icon name="PhoneCall" size={16} />
-                    Заказать звонок
-                  </button>
                 </div>
-                <a href="https://vk.com/club239578012" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-white font-semibold px-5 py-3 rounded-xl hover:bg-white/20 transition-colors text-sm w-full">
-                  <Icon name="Users" size={16} />
-                  Сообщество ВКонтакте
-                </a>
               </div>
             </div>
           </div>
