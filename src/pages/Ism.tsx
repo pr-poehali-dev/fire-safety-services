@@ -397,6 +397,17 @@ export default function Ism() {
               ))}
             </ul>
           </div>
+          <div className={`mt-4 max-w-2xl mx-auto bg-[#f8faff] border border-[var(--blue)]/15 rounded-2xl px-6 py-6 shadow-sm ${howObs.inView ? "animate-fade-in-up" : "opacity-0"}`}>
+            <div className="flex items-start gap-3 mb-3">
+              <Icon name="BookOpen" size={18} className="text-[var(--blue)] mt-0.5 flex-shrink-0" />
+              <p className="text-[#0a1628] font-semibold text-base">ГОСТ Р 59638-2021, п. 6.5.1</p>
+            </div>
+            <div className="flex flex-col gap-2 text-gray-600 text-sm leading-relaxed">
+              <p>Обслуживающая организация должна осуществлять <span className="font-medium text-[#0a1628]">круглосуточный приём заявок</span> о неисправностях и ложных срабатываниях СПС.</p>
+              <p>Устранение неисправностей должно осуществляться за время <span className="font-medium text-[#0a1628]">не более 24 часов</span>.</p>
+              <p className="text-gray-400 text-xs">Допускается увеличение до 72 ч, если единичная неисправность не влияет на работоспособность СПС.</p>
+            </div>
+          </div>
         </div>
       </section>
 
