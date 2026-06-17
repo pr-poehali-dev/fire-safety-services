@@ -866,7 +866,7 @@ export default function Index() {
             className="block relative group"
           >
             <iframe
-              src="https://yandex.ru/map-widget/v1/?text=Москва%2C+ул.+5-я+Магистральная%2C+дом+12&z=16&l=map"
+              src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=7311320648"
               width="100%"
               height="380"
               frameBorder="0"

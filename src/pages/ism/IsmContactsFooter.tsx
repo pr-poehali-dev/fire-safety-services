@@ -173,7 +173,7 @@ export default function IsmContactsFooter({
 
           <div className="mt-12 rounded-2xl overflow-hidden shadow-lg">
             <a href="https://yandex.ru/maps/?text=Москва+5-я+Магистральная+12" target="_blank" rel="noopener noreferrer" className="block relative group">
-              <iframe src="https://yandex.ru/map-widget/v1/?text=Москва%2C+ул.+5-я+Магистральная%2C+дом+12&z=16&l=map" width="100%" height="380" frameBorder="0" allowFullScreen className="w-full block pointer-events-none" title="Карта проезда" />
+              <iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=7311320648" width="100%" height="380" frameBorder="0" allowFullScreen className="w-full block pointer-events-none" title="Карта проезда" />
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[var(--blue)] text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow-lg flex items-center gap-2 group-hover:bg-[var(--blue-dark)] transition-colors">
                 <Icon name="MapPin" size={16} />
                 Открыть маршрут на Яндекс Картах
