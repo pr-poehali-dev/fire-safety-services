@@ -860,7 +860,7 @@ export default function Index() {
 
         <div className="mt-12 rounded-2xl overflow-hidden shadow-lg">
           <a
-            href="https://yandex.ru/maps/?text=Москва+5-я+Магистральная+12"
+            href="https://yandex.ru/maps/org/7311320648"
             target="_blank"
             rel="noopener noreferrer"
             className="block relative group"
