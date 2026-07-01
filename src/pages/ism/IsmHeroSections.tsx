@@ -321,6 +321,14 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
+                icon: "MonitorCheck",
+                title: "ИСМ — Интеллектуальная система мониторинга всех противопожарных систем объекта",
+                desc: "Установка оборудования, позволяющего круглосуточно отслеживать и анализировать реальное состояние всех противопожарных систем объекта.",
+                items: ["Мониторинг 24/7", "Ежедневные AI-отчёты", "Оперативный выезд бригады"],
+                price: "от 5 000 ₽/мес",
+                image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/c26f5cd0-b692-4a48-965b-ca797ec2563a.jpg",
+              },
+              {
                 icon: "Wrench",
                 title: "Техобслуживание",
                 desc: "Регулярное техническое обслуживание всех типов систем безопасности. Заключаем договоры ТО с гарантией.",
