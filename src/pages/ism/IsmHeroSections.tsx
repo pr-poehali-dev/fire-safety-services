@@ -162,6 +162,11 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
               ))}
             </ul>
           </div>
+          <div className={`mt-4 max-w-2xl mx-auto bg-white border border-[var(--blue)]/15 rounded-2xl px-6 py-6 shadow-sm ${howObs.inView ? "animate-fade-in-up" : "opacity-0"}`}>
+            <p className="text-[#0a1628] font-semibold text-base mb-3">Работаем с большинством пожарных сигнализаций</p>
+            <p className="text-gray-600 text-sm leading-relaxed mb-3">Такими как <span className="font-medium text-[#0a1628]">Болид, Рубеж, Стрелец, Астра, Ритм, Сибирский Арсенал</span> и другие. Для каждого производителя применяются разные модули сопряжения и программные продукты.</p>
+            <p className="text-gray-600 text-sm leading-relaxed">Если на объекте смонтированы системы разных производителей, мы объединяем их в один информационный блок.</p>
+          </div>
           <div className={`mt-4 max-w-2xl mx-auto bg-[#f8faff] border border-[var(--blue)]/15 rounded-2xl px-6 py-6 shadow-sm ${howObs.inView ? "animate-fade-in-up" : "opacity-0"}`}>
             <div className="flex items-start gap-3 mb-3">
               <Icon name="BookOpen" size={18} className="text-[var(--blue)] mt-0.5 flex-shrink-0" />
