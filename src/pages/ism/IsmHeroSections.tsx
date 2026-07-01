@@ -35,7 +35,7 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
               </div>
               <h1 className="font-display font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1] mb-5">
                 Интеллектуальная система мониторинга{" "}
-                <span className="text-[var(--blue-light)]">(ИСМ)</span>
+                <span className="text-white font-normal">(ИСМ)</span>
                 <br />
                 <span className="text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">Контролируем и обслуживаем пожарную безопасность 24/7</span>
               </h1>
