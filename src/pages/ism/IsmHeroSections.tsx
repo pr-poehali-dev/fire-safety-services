@@ -55,7 +55,7 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
                   <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse flex-shrink-0" />
                   Срочный ремонт пожарной сигнализации
                 </a>
-                <p className="text-[10px] text-white/40 pl-3.5">Выезд от 1 часа · Диагностика от 0 ₽ · Выезд инженера — 1 500 ₽, если ремонт не нужен</p>
+                <p className="text-[10px] text-white/40 pl-3.5">Выезд от 1 часа · Диагностика бесплатна · Выезд инженера — 1 500 ₽, если ремонт не нужен</p>
               </div>
               {[
                 { icon: "Eye", title: "Мониторинг 24/7", sub: "круглосуточный контроль" },
