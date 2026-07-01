@@ -404,12 +404,7 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
               </div>
             ))}
           </div>
-          <div className="mt-12 text-center">
-            <a href="#contacts" className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-all text-base">
-              <Icon name="Send" size={18} />
-              Оставить заявку
-            </a>
-          </div>
+
         </div>
       </section>
     </>
