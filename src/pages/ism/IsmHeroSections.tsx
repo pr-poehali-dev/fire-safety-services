@@ -18,7 +18,7 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
     <>
       {/* ГЕРОЙ */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0a1628] w-full">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40" style={{ backgroundImage: `url(${MONTAZH_IMAGE})` }} />
+        <div className="absolute inset-0 bg-cover opacity-40" style={{ backgroundImage: `url(${MONTAZH_IMAGE})`, backgroundPosition: "center 30%" }} />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628] via-[#0a1628]/80 to-transparent" />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 lg:px-8 pt-24 md:pt-32 pb-16">
           <div className="grid lg:grid-cols-2 gap-10 items-start">
