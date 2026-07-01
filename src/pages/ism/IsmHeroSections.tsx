@@ -299,6 +299,113 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
           </div>
         </div>
       </section>
+
+      {/* ВСЕ УСЛУГИ */}
+      <section id="all-services" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 text-[var(--blue)] text-sm font-semibold uppercase tracking-wider mb-3">
+              <div className="section-divider w-8" />
+              Полный спектр работ
+              <div className="section-divider w-8" />
+            </div>
+            <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[var(--dark)] mb-4">Все наши услуги</h2>
+            <p className="text-[var(--gray)] max-w-xl mx-auto">Проектирование, монтаж и техническое обслуживание систем безопасности любой сложности</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: "Wrench",
+                title: "Техобслуживание",
+                desc: "Регулярное техническое обслуживание всех типов систем безопасности. Заключаем договоры ТО с гарантией.",
+                items: ["Ежеквартальное ТО", "Аварийный выезд 24/7", "Ведение документации"],
+                price: "от 5 000 ₽/квартал",
+                image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/53f0a815-5dc7-44fb-8ad2-87f36a3fef6b.jpg",
+              },
+              {
+                icon: "Flame",
+                title: "Пожарная сигнализация",
+                desc: "Проектирование, монтаж и техническое обслуживание систем пожарной сигнализации любой сложности. Соответствие всем нормам НПБ и ГОСТ.",
+                items: ["Адресные системы", "Аналоговые системы", "Беспроводные системы"],
+                price: "от 16 000 ₽",
+                image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/2c594c2e-2da5-47d8-9261-dc46dc8e6f69.png",
+              },
+              {
+                icon: "Wind",
+                title: "Дымоудаление",
+                desc: "Проектирование и монтаж систем дымоудаления и противодымной вентиляции. Обеспечиваем безопасную эвакуацию и соответствие нормам пожарной безопасности.",
+                items: ["Системы дымоудаления", "Подпор воздуха", "Противодымные клапаны"],
+                price: "от 40 000 ₽",
+                image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/c98ba9a4-0456-4b4c-a573-988d17d5ebdc.jpg",
+              },
+              {
+                icon: "Shield",
+                title: "Охранная сигнализация",
+                desc: "Комплексные решения охранной сигнализации для объектов любого масштаба — от квартиры до крупного предприятия.",
+                items: ["GSM-сигнализация", "Периметральная охрана", "Тревожные кнопки"],
+                price: "от 15 000 ₽",
+                image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/d7b973d4-4e46-47b2-beaa-6c110f335249.jpg",
+              },
+              {
+                icon: "Camera",
+                title: "Видеонаблюдение",
+                desc: "Установка систем IP-видеонаблюдения с удалённым доступом. Аналитика, распознавание лиц и хранение записей.",
+                items: ["IP-камеры", "Облачное хранение", "Мобильный доступ"],
+                price: "от 20 000 ₽",
+                image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/4fb3841a-081d-48c0-8900-ab465dc6f598.jpg",
+              },
+              {
+                icon: "DoorOpen",
+                title: "Контроль доступа",
+                desc: "Системы управления доступом — от простых домофонов до биометрических комплексов с интеграцией в СКУД.",
+                items: ["Биометрия", "Турникеты", "Электромагнитные замки"],
+                price: "от 18 000 ₽",
+                image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/a70bb40c-a332-4d76-9ce7-477710ea622c.jpg",
+              },
+              {
+                icon: "Droplets",
+                title: "Пожаротушение",
+                desc: "Проектирование и монтаж систем автоматического пожаротушения: спринклерных, порошковых, газовых.",
+                items: ["Спринклерные", "Газовые системы", "Порошковые модули"],
+                price: "от 50 000 ₽",
+                image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/dd77784e-7c31-4940-988a-27ea39315412.jpg",
+              },
+            ].map((s, i) => (
+              <div key={i} className="bg-[var(--gray-light)] rounded-2xl border-2 border-gray-100 card-hover overflow-hidden">
+                <div className="relative h-40 overflow-hidden">
+                  <img src={s.image} alt={s.title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute bottom-3 left-3">
+                    <div className="w-8 h-8 bg-[var(--blue)] rounded-lg flex items-center justify-center">
+                      <Icon name={s.icon} fallback="Shield" size={16} className="text-white" />
+                    </div>
+                  </div>
+                  <div className="absolute top-3 right-3 bg-[var(--blue)] text-white text-xs font-bold px-2.5 py-1 rounded-full">
+                    {s.price}
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-display font-bold text-lg text-[var(--dark)] mb-2">{s.title}</h3>
+                  <p className="text-[var(--gray)] text-sm leading-relaxed mb-4">{s.desc}</p>
+                  <ul className="space-y-1 mb-4">
+                    {s.items.map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-sm text-[var(--gray)]">
+                        <div className="w-1.5 h-1.5 bg-[var(--blue)] rounded-full flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="pt-3 border-t border-gray-200">
+                    <a href="#contacts" className="text-[var(--blue)] text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+                      Узнать стоимость <Icon name="ArrowRight" size={14} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
