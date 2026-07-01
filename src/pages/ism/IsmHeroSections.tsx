@@ -309,7 +309,7 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
               Полный спектр работ
               <div className="section-divider w-8" />
             </div>
-            <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[var(--dark)] mb-4">Все наши услуги</h2>
+            <h2 className="font-display font-extrabold text-3xl md:text-4xl text-[var(--dark)] mb-4">Наши услуги</h2>
             <p className="text-[var(--gray)] max-w-xl mx-auto">Проектирование, монтаж и техническое обслуживание систем безопасности любой сложности</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -403,6 +403,12 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
                 </div>
               </div>
             ))}
+          </div>
+          <div className="mt-12 text-center">
+            <a href="#contacts" className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--blue)] text-white font-bold rounded-xl hover:bg-[var(--blue-dark)] transition-all text-base">
+              <Icon name="Send" size={18} />
+              Оставить заявку
+            </a>
           </div>
         </div>
       </section>
