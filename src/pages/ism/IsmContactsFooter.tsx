@@ -214,9 +214,7 @@ export default function IsmContactsFooter({
                     <a href={l.href} className="text-gray-400 text-sm hover:text-[var(--blue-light)] transition-colors">{l.label}</a>
                   </li>
                 ))}
-                <li>
-                  <Link to="/montazh" className="text-gray-400 text-sm hover:text-[var(--blue-light)] transition-colors">Монтаж</Link>
-                </li>
+
               </ul>
             </div>
             <div>
