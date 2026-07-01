@@ -18,7 +18,7 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
     <>
       {/* ГЕРОЙ */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0a1628] w-full">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40" style={{ backgroundImage: `url(${MONTAZH_IMAGE})` }} />
+        <div className="absolute inset-0 opacity-40" style={{ backgroundImage: `url(${MONTAZH_IMAGE})`, backgroundSize: "160%", backgroundPosition: "center center", backgroundRepeat: "no-repeat" }} />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628] via-[#0a1628]/80 to-transparent" />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 lg:px-8 pt-24 md:pt-32 pb-16">
           <div className="grid lg:grid-cols-2 gap-10 items-start">
@@ -34,8 +34,7 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
                 </a>
               </div>
               <h1 className="font-display font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1] mb-5">
-                Интеллектуальная система мониторинга{" "}
-                <span className="text-white font-normal">(ИСМ)</span>
+                Интеллектуальная система мониторинга (ИСМ)
                 <br />
                 <span className="text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">Контролируем и обслуживаем пожарную безопасность 24/7</span>
               </h1>
