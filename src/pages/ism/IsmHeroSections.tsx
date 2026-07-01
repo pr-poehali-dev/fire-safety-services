@@ -384,6 +384,14 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
                 price: "от 50 000 ₽",
                 image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/dd77784e-7c31-4940-988a-27ea39315412.jpg",
               },
+              {
+                icon: "Flame",
+                title: "Огнезащита",
+                desc: "Огнезащита любой сложности — металлических, деревянных конструкций, тканей, кровельных покрытий, кабелей, проводов и воздуховодов. Огнезащита декоративных элементов отделки на путях эвакуации, огнезащита бетона.",
+                items: ["Металлические и деревянные конструкции", "Кабели, провода и воздуховоды", "Декоративные элементы и бетон"],
+                price: "от 30 000 ₽",
+                image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/files/dd1f50e9-7d24-4ec3-911f-8d5513d0c8be.jpg",
+              },
             ].map((s, i) => (
               <div key={i} className="bg-[var(--gray-light)] rounded-2xl border-2 border-gray-100 card-hover overflow-hidden">
                 <div className="relative h-40 overflow-hidden">
