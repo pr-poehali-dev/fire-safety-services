@@ -16,7 +16,7 @@ export const flowSteps = [
   { icon: "Wifi", label: "Передача данных" },
   { icon: "MonitorDot", label: "Центр мониторинга" },
   { icon: "BrainCircuit", label: "Анализ состояния" },
-  { icon: "BellRing", label: "Уведомление клиента" },
+  { icon: "BellRing", label: "Согласование с клиентом" },
   { icon: "Wrench", label: "Выезд ремонтной бригады" },
 ];
 
@@ -96,4 +96,3 @@ export async function sendLead(data: { name: string; phone: string; object_type:
   if (!res.ok) throw new Error();
   return res.json();
 }
-
