@@ -77,8 +77,8 @@ export const portfolio = [
 export const testimonials = [
   { company: "ОАО «Московская кондитерская фабрика «Красный Октябрь»", desc: "Отзыв о качественном выполнении противопожарных работ", image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/d215631d-94c0-4d13-9997-7d0d1fb22e50.jpg" },
   { company: "ОАО «Кондитерский концерн Бабаевский»", desc: "Отзыв о выполнении комплекса противопожарных работ", image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/3030fe87-06cd-4333-8c65-2eb8322a3199.jpg" },
-  { company: "Фирма «1С»", desc: "Благодарность за профессионализм и качество выполненных работ", image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/9a8547f3-f9ad-419d-a83a-db1fd1eff55b.jpg" },
-  { company: "ФСО России", desc: "Благодарность за усиление пожарной безопасности на объектах ФСО", image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/2112d2d6-64a6-4b74-8dd3-b1dec1505b05.jpg" },
+  { company: "Фирма «1С»", desc: "Благодарность за профессионализм и качество выполненных работ", image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/2112d2d6-64a6-4b74-8dd3-b1dec1505b05.jpg" },
+  { company: "ФСО России", desc: "Благодарность за усиление пожарной безопасности на объектах ФСО", image: "https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/9a8547f3-f9ad-419d-a83a-db1fd1eff55b.jpg" },
 ];
 
 export const certificates = [
