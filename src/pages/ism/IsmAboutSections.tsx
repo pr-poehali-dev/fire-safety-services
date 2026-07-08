@@ -1,5 +1,6 @@
 import Icon from "@/components/ui/icon";
-import { MONTAZH_IMAGE, CERT_IMAGE, portfolio, certificates, faqs } from "./ism.data";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import { MONTAZH_IMAGE, CERT_IMAGE, portfolio, testimonials, certificates, faqs } from "./ism.data";
 
 interface InViewObs {
   ref: React.RefObject<HTMLDivElement>;
@@ -9,13 +10,14 @@ interface InViewObs {
 interface IsmAboutSectionsProps {
   aboutObs: InViewObs;
   portfolioObs: InViewObs;
+  testimonialsObs: InViewObs;
   certsObs: InViewObs;
   faqObs: InViewObs;
   openFaq: number | null;
   setOpenFaq: (v: number | null) => void;
 }
 
-export default function IsmAboutSections({ aboutObs, portfolioObs, certsObs, faqObs, openFaq, setOpenFaq }: IsmAboutSectionsProps) {
+export default function IsmAboutSections({ aboutObs, portfolioObs, testimonialsObs, certsObs, faqObs, openFaq, setOpenFaq }: IsmAboutSectionsProps) {
   return (
     <>
       {/* О НАС */}
@@ -100,6 +102,8 @@ export default function IsmAboutSections({ aboutObs, portfolioObs, certsObs, faq
           </div>
         </div>
       </section>
+
+      <TestimonialsSection testimonials={testimonials} obs={testimonialsObs} />
 
       {/* СЕРТИФИКАТЫ */}
       <section id="certificates" className="py-20 bg-white">

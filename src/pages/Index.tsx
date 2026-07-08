@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import { testimonials } from "@/pages/ism/ism.data";
 
 const VkIcon = ({ size = 16, className = "" }: { size?: number; className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -15,6 +17,7 @@ const navLinks = [
   { label: "Услуги", href: "#services" },
   { label: "О компании", href: "#about" },
   { label: "Портфолио", href: "#portfolio" },
+  { label: "Отзывы", href: "#testimonials" },
   { label: "FAQ", href: "#faq" },
   { label: "Контакты", href: "#contacts" },
 ];
@@ -233,6 +236,7 @@ export default function Index() {
   const servicesObs = useInView(0.05);
   const aboutObs = useInView(0.1);
   const portfolioObs = useInView(0.05);
+  const testimonialsObs = useInView(0.05);
   const certsObs = useInView(0.1);
   const faqObs = useInView(0.1);
   const contactsObs = useInView(0.1);
@@ -732,6 +736,8 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      <TestimonialsSection testimonials={testimonials} obs={testimonialsObs} />
 
       {/* CERTIFICATES */}
       <section id="certificates" className="py-20 bg-white">

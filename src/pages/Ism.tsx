@@ -46,6 +46,7 @@ export default function Ism() {
   const tariffsObs = useInView(0.05);
   const aboutObs = useInView(0.1);
   const portfolioObs = useInView(0.05);
+  const testimonialsObs = useInView(0.05);
   const certsObs = useInView(0.1);
   const faqObs = useInView(0.1);
   const contactsObs = useInView(0.1);
@@ -67,6 +68,7 @@ export default function Ism() {
       <IsmAboutSections
         aboutObs={aboutObs}
         portfolioObs={portfolioObs}
+        testimonialsObs={testimonialsObs}
         certsObs={certsObs}
         faqObs={faqObs}
         openFaq={openFaq}
