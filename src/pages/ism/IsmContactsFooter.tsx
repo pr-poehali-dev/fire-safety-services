@@ -233,7 +233,7 @@ export default function IsmContactsFooter({
           <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
             <div className="text-gray-500 text-sm">© 2026 ООО «СПАРК». Все права защищены.</div>
             <div className="flex items-center gap-4 text-xs text-gray-600">
-              <a href="#" className="hover:text-gray-400 transition-colors">Политика конфиденциальности</a>
+              <a href="https://cdn.poehali.dev/projects/031d4dc8-7cba-4766-8fd9-e78f2a02f069/bucket/31868215-fe6c-4ad2-b1cb-8ba3f6675167.docx" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Политика конфиденциальности</a>
               <a href="#" className="hover:text-gray-400 transition-colors">Условия использования</a>
             </div>
           </div>
