@@ -94,7 +94,7 @@ const services = [
 
 const stats = [
   { value: "1200+", label: "Объектов сдано" },
-  { value: "10", label: "Лет на рынке" },
+  { value: "15", label: "Лет на рынке" },
   { value: "98%", label: "Клиентов довольны" },
   { value: "24/7", label: "Техподдержка" },
 ];
@@ -640,7 +640,7 @@ export default function Index() {
                 <img src={HERO_IMAGE} alt="Монтаж пожарной сигнализации — специалисты ПожарОхрана за работой" className="w-full h-[480px] object-cover" />
               </div>
               <div className="absolute bottom-6 right-6 bg-[var(--blue-dark)] text-white rounded-2xl p-5 shadow-2xl max-w-[200px]">
-                <div className="font-display font-black text-3xl mb-1">10</div>
+                <div className="font-display font-black text-3xl mb-1">15</div>
                 <div className="text-blue-200 text-sm">лет успешной работы на рынке</div>
               </div>
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-[var(--blue-50)] rounded-2xl -z-10" />
@@ -655,7 +655,7 @@ export default function Index() {
                 Надёжный партнёр в области систем безопасности
               </h2>
               <p className="text-[var(--gray)] leading-relaxed mb-5">
-                С 2016 года мы занимаемся проектированием, монтажом пожарной сигнализации и техническим обслуживанием систем пожарной и охранной безопасности в Москве. За эти годы мы сдали более 1200 объектов — от небольших офисов до крупных промышленных предприятий.
+                С 2011 года мы занимаемся проектированием, монтажом пожарной сигнализации и техническим обслуживанием систем пожарной и охранной безопасности в Москве. За эти годы мы сдали более 1200 объектов — от небольших офисов до крупных промышленных предприятий.
               </p>
               <p className="text-[var(--gray)] leading-relaxed mb-8">
                 Наша команда — это 40+ сертифицированных специалистов с многолетним опытом монтажа и обслуживания противопожарных систем. Работаем строго в соответствии с НПБ, ГОСТ и требованиями МЧС России.

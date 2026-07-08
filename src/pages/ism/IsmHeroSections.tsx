@@ -84,7 +84,7 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
         <div className="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
           {[
             { value: "1200+", label: "Объектов сдано" },
-            { value: "10", label: "Лет на рынке" },
+            { value: "15", label: "Лет на рынке" },
             { value: "98%", label: "Клиентов довольны" },
             { value: "24/7", label: "Техподдержка" },
           ].map((s, i) => (
