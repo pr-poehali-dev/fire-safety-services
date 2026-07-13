@@ -34,7 +34,7 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
                 </a>
               </div>
               <h1 className="font-display font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1] mb-5">
-                Интеллектуальная система мониторинга (ИСМ)
+                Круглосуточная система мониторинга противопожарных систем
                 <br />
                 <span className="text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">Контролируем и обслуживаем пожарную безопасность 24/7</span>
               </h1>
@@ -164,7 +164,7 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
           </div>
           <div className={`mt-4 max-w-2xl mx-auto bg-white border border-[var(--blue)]/15 rounded-2xl px-6 py-6 shadow-sm ${howObs.inView ? "animate-fade-in-up" : "opacity-0"}`}>
             <p className="text-[#0a1628] font-semibold text-base mb-3">Работаем с большинством пожарных сигнализаций</p>
-            <p className="text-gray-600 text-sm leading-relaxed mb-3">Такими как <span className="font-medium text-[#0a1628]">Болид, Рубеж, Стрелец, Астра, Ритм, Сибирский Арсенал</span> и другие. Для каждого производителя применяются разные модули сопряжения и программные продукты. Наши инженеры смогут подобрать подходящий набор оборудования для интеграции системы (ИСМ) на Вашем объекте.</p>
+            <p className="text-gray-600 text-sm leading-relaxed mb-3">Такими как <span className="font-medium text-[#0a1628]">Болид, Рубеж, Стрелец, Астра, Ритм, Сибирский Арсенал</span> и другие. Для каждого производителя применяются разные модули сопряжения и программные продукты. Наши инженеры смогут подобрать подходящий набор оборудования для интеграции системы мониторинга на Вашем объекте.</p>
             <p className="text-gray-600 text-sm leading-relaxed">Если на объекте смонтированы системы разных производителей, мы объединяем их в один информационный блок.</p>
           </div>
           <div className={`mt-4 max-w-2xl mx-auto bg-[#f8faff] border border-[var(--blue)]/15 rounded-2xl px-6 py-6 shadow-sm ${howObs.inView ? "animate-fade-in-up" : "opacity-0"}`}>
@@ -322,7 +322,7 @@ export default function IsmHeroSections({ howObs, controlsObs, resultsObs, tarif
             {[
               {
                 icon: "MonitorCheck",
-                title: "ИСМ — Интеллектуальная система мониторинга всех противопожарных систем объекта",
+                title: "Круглосуточная система мониторинга противопожарных систем",
                 desc: "Установка оборудования, позволяющего круглосуточно отслеживать и анализировать реальное состояние всех противопожарных систем объекта.",
                 items: ["Мониторинг 24/7", "Ежедневные AI-отчёты", "Оперативный выезд бригады"],
                 price: "от 5 000 ₽/мес",
