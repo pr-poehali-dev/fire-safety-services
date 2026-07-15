@@ -235,6 +235,9 @@ export default function IsmContactsFooter({
             <div className="flex items-center gap-4 text-xs text-gray-600">
               <a href="/docs/privacy-policy.docx" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Политика конфиденциальности</a>
               <a href="/docs/terms-of-use.docx" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">Условия использования</a>
+              <a href="https://webmaster.yandex.ru/siteinfo/?site=https://pozhdozor.ru" target="_blank" rel="noopener noreferrer">
+                <img width="88" height="31" alt="ИКС Яндекс" className="rounded-lg" src="https://yandex.ru/cycounter?https://pozhdozor.ru&theme=dark&lang=ru" />
+              </a>
             </div>
           </div>
         </div>
